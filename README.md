@@ -48,3 +48,7 @@ download is guarded by a Cloudflare Turnstile captcha, which only a browser can 
 - `frontend/src/analyzer.js` – loads Pyodide + the wheel, calls `analyze_json`
 - `frontend/src/` – upload → players → player hands → hand detail (text; replay to come)
 - `fixtures/` – an anonymized 63-hand session (fake names and ids, real action) used by the tests and the render check
+
+## License
+
+AGPL-3.0. Free to use, modify and self-host; if you run a modified version for others, publish your changes under the same license.

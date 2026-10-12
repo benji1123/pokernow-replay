@@ -21,11 +21,11 @@ import App from "${process.cwd()}/src/App.jsx";
 import PlayersTable from "${process.cwd()}/src/components/PlayersTable.jsx";
 import PlayerView from "${process.cwd()}/src/components/PlayerView.jsx";
 import HandDetail from "${process.cwd()}/src/components/HandDetail.jsx";
-import Highlights from "${process.cwd()}/src/components/Highlights.jsx";
+import Awards from "${process.cwd()}/src/components/Awards.jsx";
 import ProfitRace from "${process.cwd()}/src/components/ProfitRace.jsx";
 import StyleMap from "${process.cwd()}/src/components/StyleMap.jsx";
 import { assignColors } from "${process.cwd()}/src/theme.js";
-import { cumulativeNets, highlights } from "${process.cwd()}/src/insights.js";
+import { cumulativeNets, awards } from "${process.cwd()}/src/insights.js";
 import * as DD from "${process.cwd()}/src/components/DeepDive.jsx";
 
 export function run(session) {
@@ -34,15 +34,18 @@ export function run(session) {
   out.app = renderToString(React.createElement(App)).length;
   out.players = renderToString(React.createElement(PlayersTable, { players: session.players, colors, onSelect() {} }));
   const series = cumulativeNets(session.hands, session.players);
-  out.highlights = highlights(session.hands, session.players, series);
-  out.highlightsHtml = renderToString(React.createElement(Highlights, { hands: session.hands, players: session.players, colors, series, onOpen() {} })).length;
+  out.awards = awards(session.hands, session.players, series);
+  out.awardsHtml = renderToString(React.createElement(Awards, { hands: session.hands, players: session.players, colors, series, onOpen() {} }));
+  out.ratings = session.players.map((p) => p.name + " " + p.ratings.map((r) => r.value ?? "-").join("/"));
   out.race = renderToString(React.createElement(ProfitRace, { hands: session.hands, players: session.players, colors, series, onOpen() {} }));
   out.styleMap = renderToString(React.createElement(StyleMap, { players: session.players, colors, onSelect() {} })).length;
   // Every player's final cumulative net must equal their session net.
   out.cumMismatch = session.players.filter((p) => (series[p.player_id].at(-1)?.cum ?? 0) !== p.net).map((p) => p.name);
-  out.playerViews = session.players.map((p) =>
-    renderToString(React.createElement(PlayerView, { player: p, players: session.players, hands: session.hands, colors, onSelectPlayer() {} })).length
+  out.playerViewsHtml = session.players.map((p) =>
+    renderToString(React.createElement(PlayerView, { player: p, players: session.players, hands: session.hands, colors, onSelectPlayer() {} }))
   );
+  out.playerViews = out.playerViewsHtml.map((h) => h.length);
+  out.tcardMissing = session.players.filter((p, i) => !out.playerViewsHtml[i].includes("tcard-row")).map((p) => p.name);
   const tabs = { preflop: DD.PreflopTab, streets: DD.StreetsTab, meanings: DD.MeaningsTab, showdown: DD.ShowdownTab, flow: DD.MoneyFlowTab };
   out.deepDive = Object.fromEntries(Object.entries(tabs).map(([k, C]) => [k, session.players.map((p) =>
     renderToString(React.createElement(C, { player: p, players: session.players, colors, color: colors[p.player_id].main, openHands() {}, onSelectPlayer() {} })).length
@@ -90,8 +93,13 @@ for (const r of out.range) {
   if (r.cells !== 169 || r.seen !== r.combos) throw new Error(`range grid for ${r.name}: ${r.cells} cells, ${r.seen} seen vs ${r.combos} combos`);
 }
 console.log(`range grids: ${out.range.map((r) => `${r.name} ${r.seen} combos / ${r.shown} shown`).join(", ")}`);
-console.log(`highlights (${out.highlightsHtml} chars):`);
-for (const h of out.highlights) console.log(`  ${h.label}: ${h.value} — ${h.sub}`);
+const awardCards = (out.awardsHtml.match(/class="award panel"/g) || []).length;
+if (awardCards !== out.awards.length) throw new Error(`awards: ${out.awards.length} computed, ${awardCards} rendered`);
+if (out.awards.some((a) => !a.pid)) throw new Error("award without a winner");
+console.log(`awards (${out.awards.length}):`);
+for (const a of out.awards) console.log(`  ${a.emoji} ${a.label}: ${session.players.find((p) => p.player_id === a.pid).name} ${a.value} ${a.sub}`);
+console.log(`ratings (loose/aggr/bluff/stubborn): ${out.ratings.join("; ")}`);
+if (out.tcardMissing.length) throw new Error(`trading card missing for ${out.tcardMissing.join(", ")}`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);
 if (out.cumMismatch.length) throw new Error(`cumulative net != session net for ${out.cumMismatch.join(", ")}`);
 console.log(`hand details: ${out.handDetails.length} rendered, min ${Math.min(...out.handDetails)} chars`);

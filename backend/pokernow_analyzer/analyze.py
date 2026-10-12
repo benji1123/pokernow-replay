@@ -13,6 +13,7 @@ from .archetypes import assign_archetypes
 from .models import Hand
 from .parser import parse_csv
 from .profile import compute_profiles
+from .ratings import ratings
 from .reads import reads
 from .stats import compute_stats
 
@@ -52,6 +53,7 @@ def build_session(games: list[tuple[str, list[Hand]]], merges: list[list[str]] =
         d = s.to_dict()
         d.update(archetypes=badges[pid], merged_ids=merged.get(pid, []), profile=profiles[pid])
         d["reads"] = reads(d, profiles[pid], s.hands)
+        d["ratings"] = ratings(d, profiles[pid])
         players.append(d)
     players.sort(key=lambda p: -p["hands"])
     rooms = list(dict.fromkeys(h.game for h in hands))  # first-hand order

@@ -8,10 +8,10 @@ import { assignColors } from "./theme.js";
 import { sessionSpan } from "./hands.js";
 import ThemeToggle from "./components/ThemeToggle.jsx";
 import KofiButton from "./components/KofiButton.jsx";
-import Highlights from "./components/Highlights.jsx";
+import Awards from "./components/Awards.jsx";
 import ProfitRace from "./components/ProfitRace.jsx";
 import StyleMap from "./components/StyleMap.jsx";
-import { cumulativeNets } from "./insights.js";
+import { cumulativeNets, pace } from "./insights.js";
 
 const UPLOAD = { page: "upload" };
 const TABS = [["table", "Players"], ["timeline", "Profit race"], ["style", "Style map"]];
@@ -96,7 +96,7 @@ export default function App() {
               {session.room}
             </span>
             <span className="muted">
-              {session.hand_count} hands · {session.players.length} players
+              {session.hand_count} hands · {session.players.length} players{pace(session.hands) ? ` · ${pace(session.hands).perHour}/hr` : ""}
             </span>
             {error && <span className="error small">{error}</span>}
             <span className="muted session-date">{sessionSpan(session.hands)}</span>
@@ -113,7 +113,7 @@ export default function App() {
             />
           ) : (
             <>
-              <Highlights hands={session.hands} players={session.players} colors={colors} series={series} onOpen={openPlayer} />
+              <Awards hands={session.hands} players={session.players} colors={colors} series={series} onOpen={openPlayer} />
               <section className="block data">
               <nav className="tabs" role="tablist">
                 {TABS.map(([key, label]) => (

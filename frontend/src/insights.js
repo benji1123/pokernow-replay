@@ -1,4 +1,4 @@
-// Session-level derived data for the players page: cumulative profit per player and the night's highlights.
+// Session-level derived data for the players page: cumulative profit per player and the night's awards.
 // Pure functions over the session JSON so they are easy to check without a browser.
 
 // hands are chronological. Returns { [player_id]: [{ i, cum, hand }] } where i is the hand's index in `hands`
@@ -51,23 +51,75 @@ function biggestComeback(series) {
   return best.climb > 0 ? best : null;
 }
 
-export function highlights(hands, players, series = cumulativeNets(hands, players)) {
+// Session awards: one winner per category, sillier than a stat table. Rate-based awards need MIN_HANDS so a
+// 6-hand cameo cannot win Entertainer; counting awards need more than one occurrence; ties go to more hands.
+const MIN_HANDS = 20;
+
+const pct = (v) => `${Math.round(v * 100)}%`;
+const ratio = (r) => (r && r.d ? r.value : null);
+
+function pick(players, score, { min = MIN_HANDS, higher = true, floor = 0 } = {}) {
+  let best = null, bestV = null;
+  for (const p of players) {
+    if (p.hands < min) continue;
+    const v = score(p);
+    if (v == null || Number.isNaN(v)) continue;
+    const better = bestV == null || (higher ? v > bestV : v < bestV) || (v === bestV && p.hands > best.hands);
+    if (better) { best = p; bestV = v; }
+  }
+  if (best == null || (higher ? bestV <= floor : false)) return null;
+  return { p: best, v: bestV };
+}
+
+export function awards(hands, players, series = cumulativeNets(hands, players)) {
   if (!hands.length) return [];
   const byId = Object.fromEntries(players.map((p) => [p.player_id, p]));
   const name = (pid) => byId[pid]?.name ?? "?";
   const out = [];
+  const add = (key, emoji, label, pid, value, sub, long, hand) => out.push({ key, emoji, label, pid, value, sub, long, hand });
 
   const big = hands.reduce((a, b) => (potSize(b) > potSize(a) ? b : a));
   const winner = Object.entries(big.collected).sort((a, b) => b[1] - a[1])[0][0];
-  out.push({ key: "pot", label: "Biggest pot", value: potSize(big), pid: winner, hand: big, sub: `won by ${name(winner)} in #${big.number}`, long: `won by ${name(winner)} in hand #${big.number}` });
+  add("pot", "💰", "Pot of the night", winner, potSize(big), `#${big.number}`, `${name(winner)} won the biggest pot, ${potSize(big)}, in hand #${big.number}`, big);
 
   const heat = longestHeater(series);
-  if (heat) out.push({ key: "heater", label: "Longest heater", value: `${heat.length} in a row`, pid: heat.pid, hand: heat.from, sub: `${name(heat.pid)}, #${heat.from.number}–${heat.to.number}, +${heat.won}`, long: `${name(heat.pid)}, hands #${heat.from.number} to #${heat.to.number}, won ${heat.won}` });
+  if (heat) add("heater", "🔥", "Heater", heat.pid, `${heat.length} in a row`, `#${heat.from.number}–${heat.to.number}`, `${name(heat.pid)} won ${heat.length} hands in a row, #${heat.from.number} to #${heat.to.number}, for ${heat.won}`, heat.from);
 
   const back = biggestComeback(series);
-  if (back) out.push({ key: "comeback", label: "Biggest comeback", value: `+${back.climb}`, pid: back.pid, hand: back.from, sub: `${name(back.pid)}, ${back.low} → ${back.final >= 0 ? "+" : ""}${back.final}`, long: `${name(back.pid)} was down ${back.low} at hand #${back.from.number} and finished ${back.final >= 0 ? "+" : ""}${back.final}` });
+  if (back) add("comeback", "🧗", "Comeback", back.pid, `+${back.climb}`, `from ${back.low}`, `${name(back.pid)} was down ${back.low} at hand #${back.from.number} and finished ${back.final >= 0 ? "+" : ""}${back.final}`, back.from);
 
-  // Played time is summed per game, so two logs a week apart do not read as a 168-hour session.
+  // Counting awards straight from the hands: all-ins, pots taken without a showdown.
+  const allins = {}, steals = {};
+  for (const h of hands) {
+    for (const a of h.actions) if (a.all_in) allins[a.player_id] = (allins[a.player_id] ?? 0) + 1;
+    const shownAny = Object.keys(h.shown).length > 0;
+    for (const pid of Object.keys(h.collected)) if (!shownAny) steals[pid] = (steals[pid] ?? 0) + 1;
+  }
+  let r = pick(players, (p) => allins[p.player_id] ?? 0, { min: 1, floor: 1 });
+  if (r) add("allin", "🎰", "Slot machine", r.p.player_id, `${r.v} all-in${r.v === 1 ? "" : "s"}`, "", `${r.p.name} went all in ${r.v} times, more than anyone`);
+  r = pick(players, (p) => steals[p.player_id] ?? 0);
+  if (r) add("ninja", "🥷", "Ninja", r.p.player_id, `${r.v} pots`, "no showdown", `${r.p.name} took down ${r.v} pots without ever showing a card`);
+
+  r = pick(players, (p) => ratio(p.vpip));
+  if (r) add("entertainer", "🎪", "Entertainer", r.p.player_id, pct(r.v), "of hands played", `${r.p.name} played ${pct(r.v)} of hands dealt, the loosest at the table`);
+  r = pick(players, (p) => ratio(p.vpip), { higher: false });
+  if (r && out.every((a) => a.pid !== r.p.player_id || a.key !== "entertainer")) add("stonecold", "🧊", "Stone cold", r.p.player_id, pct(r.v), "of hands played", `${r.p.name} played only ${pct(r.v)} of hands dealt, the tightest at the table`);
+
+  r = pick(players, (p) => p.profile?.showdown?.caught_bluff ?? 0, { floor: 1 });
+  if (r) add("bluffer", "🤥", "Caught red-handed", r.p.player_id, `${r.v}×`, "river bluffs shown", `${r.p.name} was caught bluffing the river ${r.v} times`);
+  r = pick(players, (p) => { const x = p.profile?.lines?.river_call_won; return x && x.d >= 3 ? x.value : null; });
+  if (r) add("soulreader", "🔮", "Soul reader", r.p.player_id, pct(r.v), "river calls won", `${r.p.name} called river bets and won ${pct(r.v)} of the time`);
+  r = pick(players, (p) => ratio(p.profile?.preflop?.limp), { floor: 0.3 });
+  if (r) add("limper", "🐢", "Limp lord", r.p.player_id, pct(r.v), "of pots limped", `${r.p.name} limped into ${pct(r.v)} of unopened pots`);
+  r = pick(players, (p) => Object.values(p.profile?.streets ?? {}).reduce((a, s) => a + (s.check_raise ?? 0), 0), { floor: 1 });
+  if (r) add("trapper", "🪤", "Trapper", r.p.player_id, `${r.v}×`, "check-raises", `${r.p.name} check-raised ${r.v} times, the most at the table`);
+  r = pick(players, (p) => p.profile?.lines?.donk ?? 0, { floor: 1 });
+  if (r) add("donk", "🫏", "Donk", r.p.player_id, `${r.v}×`, "donk bets", `${r.p.name} led into the preflop raiser ${r.v} times`);
+  return out;
+}
+
+// Kept for callers that still want the pace figure.
+export function pace(hands) {
   const byGame = new Map();
   for (const h of hands) {
     const t = new Date(h.started_at).getTime();
@@ -75,8 +127,7 @@ export function highlights(hands, players, series = cumulativeNets(hands, player
     byGame.set(h.game, { min: Math.min(g.min, t), max: Math.max(g.max, t) });
   }
   const hours = [...byGame.values()].reduce((a, g) => a + (g.max - g.min), 0) / 3.6e6;
-  if (hours > 0.1) out.push({ key: "pace", label: "Pace", value: `${Math.round(hands.length / hours)} hands/hr`, sub: `${hands.length} hands · ${hours < 1 ? `${Math.round(hours * 60)} min` : `${hours.toFixed(1)} h`}`, long: `${hands.length} hands over ${hours < 1 ? `${Math.round(hours * 60)} minutes` : `${hours.toFixed(1)} hours`} of play` });
-  return out;
+  return hours > 0.1 ? { perHour: Math.round(hands.length / hours), hours } : null;
 }
 
 // Nice axis ticks: step is 1, 2 or 5 × 10^k so that there are about `count` ticks.

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Cards, HiddenCards } from "./Cards.jsx";
 import HandDetail from "./HandDetail.jsx";
 import PixelAvatar from "./PixelAvatar.jsx";
+import TradingCard from "./TradingCard.jsx";
 import { STAT_COLUMNS, Net, statTitle, statTone } from "./PlayersTable.jsx";
 import { Badges, Rivals } from "./Badges.jsx";
 import { preflopSummary, sample } from "../hands.js";
@@ -85,6 +86,7 @@ export default function PlayerView({ player, players, hands, colors, initialHand
           </p>
           <Badges archetypes={player.archetypes} />
         </div>
+        <TradingCard ratings={player.ratings} color={color.main} />
         <Rivals player={player} players={players} colors={colors} onSelectPlayer={onSelectPlayer} />
         <Net net={player.net} big />
       </header>

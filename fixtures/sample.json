@@ -1,0 +1,5657 @@
+[
+{
+"at": "2026-10-08T19:47:44.350Z",
+"created_at": "179148886435000",
+"msg": "The player \"Tex @ Tz6gBn1Vel\" requested a seat."
+},
+{
+"at": "2026-10-08T19:47:44.350Z",
+"created_at": "179148886435001",
+"msg": "The admin approved the player \"Tex @ Tz6gBn1Vel\" participation with a stack of 200."
+},
+{
+"at": "2026-10-08T19:47:53.000Z",
+"created_at": "179148887300000",
+"msg": "Game Config Changes\n* Nit Minimum Players: off \u00bb 3\n* Allow Rebuy: off \u00bb off\n* Blind Schedule: L1: 10/20 \u00bb L1: 1/2\n* Restart Blind Schedule at Level: none \u00bb 1"
+},
+{
+"at": "2026-10-08T19:47:53.000Z",
+"created_at": "179148887300001",
+"msg": "The game's small blind was changed from 10 to 1."
+},
+{
+"at": "2026-10-08T19:47:53.000Z",
+"created_at": "179148887300002",
+"msg": "The game's big blind was changed from 20 to 2."
+},
+{
+"at": "2026-10-08T19:47:53.000Z",
+"created_at": "179148887300003",
+"msg": "The game's ante was changed from 0 to 0."
+},
+{
+"at": "2026-10-08T19:48:11.836Z",
+"created_at": "179148889183600",
+"msg": "Game Config Changes\n* Blind Schedule: L1: 1/2 \u00bb L1: 2/4\n* Restart Blind Schedule at Level: none \u00bb 1"
+},
+{
+"at": "2026-10-08T19:48:11.836Z",
+"created_at": "179148889183601",
+"msg": "The game's small blind was changed from 1 to 2."
+},
+{
+"at": "2026-10-08T19:48:11.836Z",
+"created_at": "179148889183602",
+"msg": "The game's big blind was changed from 2 to 4."
+},
+{
+"at": "2026-10-08T19:48:27.810Z",
+"created_at": "179148890781000",
+"msg": "WARNING: the admin queued the stack change for the player \"Tex @ Tz6gBn1Vel\" adding 200 chips in the next hand."
+},
+{
+"at": "2026-10-08T19:48:27.810Z",
+"created_at": "179148890781001",
+"msg": "The admin updated the player \"Tex @ Tz6gBn1Vel\" stack from 200 to 400."
+},
+{
+"at": "2026-10-08T19:48:57.087Z",
+"created_at": "179148893708700",
+"msg": "Game Config Changes\n* Blind Schedule: L1: 2/4 \u00bb L1: 1/2\n* Restart Blind Schedule at Level: none \u00bb 1"
+},
+{
+"at": "2026-10-08T19:48:57.087Z",
+"created_at": "179148893708701",
+"msg": "The game's small blind was changed from 2 to 1."
+},
+{
+"at": "2026-10-08T19:48:57.087Z",
+"created_at": "179148893708702",
+"msg": "The game's big blind was changed from 4 to 2."
+},
+{
+"at": "2026-10-08T19:49:05.435Z",
+"created_at": "179148894543500",
+"msg": "WARNING: the admin queued the stack change for the player \"Tex @ Tz6gBn1Vel\" reseting to 200 chips in the next hand."
+},
+{
+"at": "2026-10-08T19:49:05.435Z",
+"created_at": "179148894543501",
+"msg": "The admin updated the player \"Tex @ Tz6gBn1Vel\" stack from 400 to 200."
+},
+{
+"at": "2026-10-08T19:56:41.143Z",
+"created_at": "179148940114300",
+"msg": "The player \"Rocky @ Mx2cPj5Wor\" requested a seat."
+},
+{
+"at": "2026-10-08T19:56:43.783Z",
+"created_at": "179148940378300",
+"msg": "The admin approved the player \"Rocky @ Mx2cPj5Wor\" participation with a stack of 800."
+},
+{
+"at": "2026-10-08T20:00:47.060Z",
+"created_at": "179148964706000",
+"msg": "-- starting hand #1 (id: lhr27lwhukai)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:00:47.060Z",
+"created_at": "179148964706001",
+"msg": "The player \"Rocky @ Mx2cPj5Wor\" joined the game with a stack of 800."
+},
+{
+"at": "2026-10-08T20:00:47.060Z",
+"created_at": "179148964706002",
+"msg": "The player \"Tex @ Tz6gBn1Vel\" joined the game with a stack of 200."
+},
+{
+"at": "2026-10-08T20:00:47.060Z",
+"created_at": "179148964706003",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (800) | #8 \"Tex @ Tz6gBn1Vel\" (200)"
+},
+{
+"at": "2026-10-08T20:00:47.060Z",
+"created_at": "179148964706006",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:00:47.060Z",
+"created_at": "179148964706007",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:01:01.691Z",
+"created_at": "179148966169100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 5"
+},
+{
+"at": "2026-10-08T20:01:32.569Z",
+"created_at": "179148969256900",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:01:33.380Z",
+"created_at": "179148969338000",
+"msg": "Uncalled bet of 3 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:01:33.380Z",
+"created_at": "179148969338001",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:01:33.380Z",
+"created_at": "179148969338002",
+"msg": "-- ending hand #1 --"
+},
+{
+"at": "2026-10-08T20:01:35.094Z",
+"created_at": "179148969509400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 4\u2663, 9\u2663."
+},
+{
+"at": "2026-10-08T20:01:36.988Z",
+"created_at": "179148969698800",
+"msg": "-- starting hand #2 (id: 3aeqkmwiarur)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:01:36.988Z",
+"created_at": "179148969698801",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (802) | #8 \"Tex @ Tz6gBn1Vel\" (198)"
+},
+{
+"at": "2026-10-08T20:01:36.988Z",
+"created_at": "179148969698804",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:01:36.988Z",
+"created_at": "179148969698805",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:01:46.640Z",
+"created_at": "179148970664000",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 5"
+},
+{
+"at": "2026-10-08T20:01:50.182Z",
+"created_at": "179148971018200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 15"
+},
+{
+"at": "2026-10-08T20:01:53.087Z",
+"created_at": "179148971308700",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 15"
+},
+{
+"at": "2026-10-08T20:01:53.949Z",
+"created_at": "179148971394900",
+"msg": "Flop:  [8\u2665, 4\u2663, 9\u2665]"
+},
+{
+"at": "2026-10-08T20:02:07.715Z",
+"created_at": "179148972771500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:02:13.696Z",
+"created_at": "179148973369600",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:02:14.534Z",
+"created_at": "179148973453400",
+"msg": "Turn: 8\u2665, 4\u2663, 9\u2665 [J\u2663]"
+},
+{
+"at": "2026-10-08T20:02:19.413Z",
+"created_at": "179148973941300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 22"
+},
+{
+"at": "2026-10-08T20:02:32.790Z",
+"created_at": "179148975279000",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:02:33.648Z",
+"created_at": "179148975364800",
+"msg": "Uncalled bet of 22 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:02:33.648Z",
+"created_at": "179148975364801",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 30 from pot"
+},
+{
+"at": "2026-10-08T20:02:33.648Z",
+"created_at": "179148975364802",
+"msg": "-- ending hand #2 --"
+},
+{
+"at": "2026-10-08T20:02:35.451Z",
+"created_at": "179148975545100",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a A\u2666, Q\u2660."
+},
+{
+"at": "2026-10-08T20:02:35.898Z",
+"created_at": "179148975589800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a A\u2665, K\u2665."
+},
+{
+"at": "2026-10-08T20:02:37.954Z",
+"created_at": "179148975795400",
+"msg": "Game Config Changes\n* Decision Limit Time: 20s \u00bb off\n* Max Time Bank: 10s \u00bb off\n* Hands to Full Refill Time Bank: 10 \u00bb off"
+},
+{
+"at": "2026-10-08T20:02:37.954Z",
+"created_at": "179148975795401",
+"msg": "-- starting hand #3 (id: 180yrbms8vvr)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:02:37.954Z",
+"created_at": "179148975795402",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (817) | #8 \"Tex @ Tz6gBn1Vel\" (183)"
+},
+{
+"at": "2026-10-08T20:02:37.954Z",
+"created_at": "179148975795405",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:02:37.954Z",
+"created_at": "179148975795406",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:02:41.150Z",
+"created_at": "179148976115000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:02:41.953Z",
+"created_at": "179148976195300",
+"msg": "Uncalled bet of 1 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:02:41.953Z",
+"created_at": "179148976195301",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 2 from pot"
+},
+{
+"at": "2026-10-08T20:02:41.953Z",
+"created_at": "179148976195302",
+"msg": "-- ending hand #3 --"
+},
+{
+"at": "2026-10-08T20:02:44.873Z",
+"created_at": "179148976487300",
+"msg": "-- starting hand #4 (id: 9giczk51oogl)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:02:44.873Z",
+"created_at": "179148976487301",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (816) | #8 \"Tex @ Tz6gBn1Vel\" (184)"
+},
+{
+"at": "2026-10-08T20:02:44.873Z",
+"created_at": "179148976487304",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:02:44.873Z",
+"created_at": "179148976487305",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:02:48.136Z",
+"created_at": "179148976813600",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 5"
+},
+{
+"at": "2026-10-08T20:02:49.230Z",
+"created_at": "179148976923000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:02:50.065Z",
+"created_at": "179148977006500",
+"msg": "Flop:  [Q\u2666, J\u2660, 4\u2660]"
+},
+{
+"at": "2026-10-08T20:02:52.918Z",
+"created_at": "179148977291800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:02:56.495Z",
+"created_at": "179148977649500",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 5"
+},
+{
+"at": "2026-10-08T20:02:58.839Z",
+"created_at": "179148977883900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:02:59.667Z",
+"created_at": "179148977966700",
+"msg": "Turn: Q\u2666, J\u2660, 4\u2660 [A\u2665]"
+},
+{
+"at": "2026-10-08T20:03:01.222Z",
+"created_at": "179148978122200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:03:05.662Z",
+"created_at": "179148978566200",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 10"
+},
+{
+"at": "2026-10-08T20:03:11.009Z",
+"created_at": "179148979100900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:03:11.815Z",
+"created_at": "179148979181500",
+"msg": "Uncalled bet of 10 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:03:11.815Z",
+"created_at": "179148979181501",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 20 from pot"
+},
+{
+"at": "2026-10-08T20:03:11.815Z",
+"created_at": "179148979181502",
+"msg": "-- ending hand #4 --"
+},
+{
+"at": "2026-10-08T20:03:13.758Z",
+"created_at": "179148979375800",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a 5\u2665, A\u2660."
+},
+{
+"at": "2026-10-08T20:03:15.425Z",
+"created_at": "179148979542500",
+"msg": "-- starting hand #5 (id: cusimvzffpoc)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:03:15.425Z",
+"created_at": "179148979542501",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (806) | #8 \"Tex @ Tz6gBn1Vel\" (194)"
+},
+{
+"at": "2026-10-08T20:03:15.425Z",
+"created_at": "179148979542504",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:03:15.425Z",
+"created_at": "179148979542505",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:03:18.042Z",
+"created_at": "179148979804200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 5"
+},
+{
+"at": "2026-10-08T20:03:22.104Z",
+"created_at": "179148980210400",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:03:22.959Z",
+"created_at": "179148980295900",
+"msg": "Uncalled bet of 3 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:03:22.959Z",
+"created_at": "179148980295901",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:03:22.959Z",
+"created_at": "179148980295902",
+"msg": "-- ending hand #5 --"
+},
+{
+"at": "2026-10-08T20:03:25.906Z",
+"created_at": "179148980590600",
+"msg": "-- starting hand #6 (id: 7ceabqsqa8qo)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:03:25.906Z",
+"created_at": "179148980590601",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (808) | #8 \"Tex @ Tz6gBn1Vel\" (192)"
+},
+{
+"at": "2026-10-08T20:03:25.906Z",
+"created_at": "179148980590604",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:03:25.906Z",
+"created_at": "179148980590605",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:03:28.866Z",
+"created_at": "179148980886600",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 5"
+},
+{
+"at": "2026-10-08T20:03:29.919Z",
+"created_at": "179148980991900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:03:30.736Z",
+"created_at": "179148981073600",
+"msg": "Uncalled bet of 3 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:03:30.736Z",
+"created_at": "179148981073601",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:03:30.736Z",
+"created_at": "179148981073602",
+"msg": "-- ending hand #6 --"
+},
+{
+"at": "2026-10-08T20:03:33.645Z",
+"created_at": "179148981364500",
+"msg": "-- starting hand #7 (id: ol0spm88x3z6)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:03:33.645Z",
+"created_at": "179148981364501",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (806) | #8 \"Tex @ Tz6gBn1Vel\" (194)"
+},
+{
+"at": "2026-10-08T20:03:33.645Z",
+"created_at": "179148981364504",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:03:33.645Z",
+"created_at": "179148981364505",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:03:39.475Z",
+"created_at": "179148981947500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 2"
+},
+{
+"at": "2026-10-08T20:03:41.275Z",
+"created_at": "179148982127500",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:03:42.145Z",
+"created_at": "179148982214500",
+"msg": "Flop:  [K\u2663, 10\u2665, A\u2663]"
+},
+{
+"at": "2026-10-08T20:03:47.154Z",
+"created_at": "179148982715400",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:03:52.129Z",
+"created_at": "179148983212900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:03:52.947Z",
+"created_at": "179148983294700",
+"msg": "Turn: K\u2663, 10\u2665, A\u2663 [5\u2665]"
+},
+{
+"at": "2026-10-08T20:03:59.258Z",
+"created_at": "179148983925800",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:04:02.991Z",
+"created_at": "179148984299100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 12"
+},
+{
+"at": "2026-10-08T20:04:05.013Z",
+"created_at": "179148984501300",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:04:05.849Z",
+"created_at": "179148984584900",
+"msg": "Uncalled bet of 12 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:04:05.849Z",
+"created_at": "179148984584901",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:04:05.849Z",
+"created_at": "179148984584902",
+"msg": "-- ending hand #7 --"
+},
+{
+"at": "2026-10-08T20:04:08.778Z",
+"created_at": "179148984877800",
+"msg": "-- starting hand #8 (id: ghq91qlazfau)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:04:08.778Z",
+"created_at": "179148984877801",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (808) | #8 \"Tex @ Tz6gBn1Vel\" (192)"
+},
+{
+"at": "2026-10-08T20:04:08.778Z",
+"created_at": "179148984877804",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:04:08.778Z",
+"created_at": "179148984877805",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:04:12.160Z",
+"created_at": "179148985216000",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 5"
+},
+{
+"at": "2026-10-08T20:04:13.571Z",
+"created_at": "179148985357100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:04:14.380Z",
+"created_at": "179148985438000",
+"msg": "Flop:  [4\u2660, 5\u2663, Q\u2666]"
+},
+{
+"at": "2026-10-08T20:04:23.093Z",
+"created_at": "179148986309300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:04:31.212Z",
+"created_at": "179148987121200",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 5"
+},
+{
+"at": "2026-10-08T20:04:42.732Z",
+"created_at": "179148988273200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 20"
+},
+{
+"at": "2026-10-08T20:04:57.913Z",
+"created_at": "179148989791300",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 20"
+},
+{
+"at": "2026-10-08T20:04:58.775Z",
+"created_at": "179148989877500",
+"msg": "Turn: 4\u2660, 5\u2663, Q\u2666 [2\u2666]"
+},
+{
+"at": "2026-10-08T20:05:14.451Z",
+"created_at": "179148991445100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 25"
+},
+{
+"at": "2026-10-08T20:05:28.632Z",
+"created_at": "179148992863200",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:05:29.482Z",
+"created_at": "179148992948200",
+"msg": "Uncalled bet of 25 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:05:29.482Z",
+"created_at": "179148992948201",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 50 from pot"
+},
+{
+"at": "2026-10-08T20:05:29.482Z",
+"created_at": "179148992948202",
+"msg": "-- ending hand #8 --"
+},
+{
+"at": "2026-10-08T20:05:32.424Z",
+"created_at": "179148993242400",
+"msg": "-- starting hand #9 (id: 275aqzlo8po3)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:05:32.424Z",
+"created_at": "179148993242401",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (833) | #8 \"Tex @ Tz6gBn1Vel\" (167)"
+},
+{
+"at": "2026-10-08T20:05:32.424Z",
+"created_at": "179148993242404",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:05:32.424Z",
+"created_at": "179148993242405",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:05:36.627Z",
+"created_at": "179148993662700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 5"
+},
+{
+"at": "2026-10-08T20:05:39.846Z",
+"created_at": "179148993984600",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 15"
+},
+{
+"at": "2026-10-08T20:05:49.816Z",
+"created_at": "179148994981600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 15"
+},
+{
+"at": "2026-10-08T20:05:50.652Z",
+"created_at": "179148995065200",
+"msg": "Flop:  [4\u2666, 7\u2660, 3\u2663]"
+},
+{
+"at": "2026-10-08T20:06:03.890Z",
+"created_at": "179148996389000",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 15"
+},
+{
+"at": "2026-10-08T20:06:22.665Z",
+"created_at": "179148998266500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 15"
+},
+{
+"at": "2026-10-08T20:06:23.523Z",
+"created_at": "179148998352300",
+"msg": "Turn: 4\u2666, 7\u2660, 3\u2663 [10\u2660]"
+},
+{
+"at": "2026-10-08T20:06:37.192Z",
+"created_at": "179148999719200",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:06:57.100Z",
+"created_at": "179149001710000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:06:57.970Z",
+"created_at": "179149001797000",
+"msg": "River: 4\u2666, 7\u2660, 3\u2663, 10\u2660 [A\u2660]"
+},
+{
+"at": "2026-10-08T20:07:13.742Z",
+"created_at": "179149003374200",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 60"
+},
+{
+"at": "2026-10-08T20:07:29.843Z",
+"created_at": "179149004984300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:07:30.658Z",
+"created_at": "179149005065800",
+"msg": "Uncalled bet of 60 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:07:30.658Z",
+"created_at": "179149005065801",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 60 from pot"
+},
+{
+"at": "2026-10-08T20:07:30.658Z",
+"created_at": "179149005065802",
+"msg": "-- ending hand #9 --"
+},
+{
+"at": "2026-10-08T20:07:33.562Z",
+"created_at": "179149005356200",
+"msg": "-- starting hand #10 (id: pewqihyqo9h8)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:07:33.562Z",
+"created_at": "179149005356201",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (803) | #8 \"Tex @ Tz6gBn1Vel\" (197)"
+},
+{
+"at": "2026-10-08T20:07:33.562Z",
+"created_at": "179149005356204",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:07:33.562Z",
+"created_at": "179149005356205",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:07:37.662Z",
+"created_at": "179149005766200",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:07:38.468Z",
+"created_at": "179149005846800",
+"msg": "Uncalled bet of 1 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:07:38.468Z",
+"created_at": "179149005846801",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 2 from pot"
+},
+{
+"at": "2026-10-08T20:07:38.468Z",
+"created_at": "179149005846802",
+"msg": "-- ending hand #10 --"
+},
+{
+"at": "2026-10-08T20:07:41.370Z",
+"created_at": "179149006137000",
+"msg": "-- starting hand #11 (id: wyew2p9crciu)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:07:41.370Z",
+"created_at": "179149006137001",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (804) | #8 \"Tex @ Tz6gBn1Vel\" (196)"
+},
+{
+"at": "2026-10-08T20:07:41.370Z",
+"created_at": "179149006137004",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:07:41.370Z",
+"created_at": "179149006137005",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:07:49.950Z",
+"created_at": "179149006995000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 6"
+},
+{
+"at": "2026-10-08T20:07:57.533Z",
+"created_at": "179149007753300",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 6"
+},
+{
+"at": "2026-10-08T20:07:58.352Z",
+"created_at": "179149007835200",
+"msg": "Flop:  [2\u2663, 9\u2660, Q\u2666]"
+},
+{
+"at": "2026-10-08T20:08:00.497Z",
+"created_at": "179149008049700",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:08:07.837Z",
+"created_at": "179149008783700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 6"
+},
+{
+"at": "2026-10-08T20:08:11.843Z",
+"created_at": "179149009184300",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 6"
+},
+{
+"at": "2026-10-08T20:08:12.652Z",
+"created_at": "179149009265200",
+"msg": "Turn: 2\u2663, 9\u2660, Q\u2666 [A\u2665]"
+},
+{
+"at": "2026-10-08T20:08:14.315Z",
+"created_at": "179149009431500",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:08:29.036Z",
+"created_at": "179149010903600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 12"
+},
+{
+"at": "2026-10-08T20:08:49.968Z",
+"created_at": "179149012996800",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 12"
+},
+{
+"at": "2026-10-08T20:08:50.778Z",
+"created_at": "179149013077800",
+"msg": "River: 2\u2663, 9\u2660, Q\u2666, A\u2665 [6\u2663]"
+},
+{
+"at": "2026-10-08T20:08:54.130Z",
+"created_at": "179149013413000",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:09:09.001Z",
+"created_at": "179149014900100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:09:09.805Z",
+"created_at": "179149014980500",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a J\u2663, A\u2660."
+},
+{
+"at": "2026-10-08T20:09:09.805Z",
+"created_at": "179149014980501",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 48 from pot with Pair, A's (combination: 9\u2660, J\u2663, Q\u2666, A\u2660, A\u2665)"
+},
+{
+"at": "2026-10-08T20:09:09.805Z",
+"created_at": "179149014980502",
+"msg": "-- ending hand #11 --"
+},
+{
+"at": "2026-10-08T20:09:15.809Z",
+"created_at": "179149015580900",
+"msg": "-- starting hand #12 (id: hnkeq5paxsdq)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:09:15.809Z",
+"created_at": "179149015580901",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (780) | #8 \"Tex @ Tz6gBn1Vel\" (220)"
+},
+{
+"at": "2026-10-08T20:09:15.809Z",
+"created_at": "179149015580904",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:09:15.809Z",
+"created_at": "179149015580905",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:09:33.674Z",
+"created_at": "179149017367400",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 5"
+},
+{
+"at": "2026-10-08T20:09:34.675Z",
+"created_at": "179149017467500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:09:35.537Z",
+"created_at": "179149017553700",
+"msg": "Uncalled bet of 3 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:09:35.537Z",
+"created_at": "179149017553701",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:09:35.537Z",
+"created_at": "179149017553702",
+"msg": "-- ending hand #12 --"
+},
+{
+"at": "2026-10-08T20:09:38.466Z",
+"created_at": "179149017846600",
+"msg": "-- starting hand #13 (id: pxkoovpfycou)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:09:38.466Z",
+"created_at": "179149017846601",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (778) | #8 \"Tex @ Tz6gBn1Vel\" (222)"
+},
+{
+"at": "2026-10-08T20:09:38.466Z",
+"created_at": "179149017846604",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:09:38.466Z",
+"created_at": "179149017846605",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:09:59.178Z",
+"created_at": "179149019917800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 2"
+},
+{
+"at": "2026-10-08T20:10:09.245Z",
+"created_at": "179149020924500",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 6"
+},
+{
+"at": "2026-10-08T20:10:18.944Z",
+"created_at": "179149021894400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:10:19.763Z",
+"created_at": "179149021976300",
+"msg": "Uncalled bet of 4 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:10:19.763Z",
+"created_at": "179149021976301",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:10:19.763Z",
+"created_at": "179149021976302",
+"msg": "-- ending hand #13 --"
+},
+{
+"at": "2026-10-08T20:10:22.675Z",
+"created_at": "179149022267500",
+"msg": "-- starting hand #14 (id: sxhtyahiwts6)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:10:22.675Z",
+"created_at": "179149022267501",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (776) | #8 \"Tex @ Tz6gBn1Vel\" (224)"
+},
+{
+"at": "2026-10-08T20:10:22.675Z",
+"created_at": "179149022267504",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:10:22.675Z",
+"created_at": "179149022267505",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:10:35.911Z",
+"created_at": "179149023591100",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 8"
+},
+{
+"at": "2026-10-08T20:10:46.182Z",
+"created_at": "179149024618200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 8"
+},
+{
+"at": "2026-10-08T20:10:46.990Z",
+"created_at": "179149024699000",
+"msg": "Flop:  [K\u2660, 4\u2660, 8\u2665]"
+},
+{
+"at": "2026-10-08T20:10:50.415Z",
+"created_at": "179149025041500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:10:59.772Z",
+"created_at": "179149025977200",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:11:00.588Z",
+"created_at": "179149026058800",
+"msg": "Turn: K\u2660, 4\u2660, 8\u2665 [8\u2660]"
+},
+{
+"at": "2026-10-08T20:11:14.470Z",
+"created_at": "179149027447000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:11:25.693Z",
+"created_at": "179149028569300",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 6"
+},
+{
+"at": "2026-10-08T20:11:32.878Z",
+"created_at": "179149029287800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:11:33.741Z",
+"created_at": "179149029374100",
+"msg": "Uncalled bet of 6 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:11:33.741Z",
+"created_at": "179149029374101",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 16 from pot"
+},
+{
+"at": "2026-10-08T20:11:33.741Z",
+"created_at": "179149029374102",
+"msg": "-- ending hand #14 --"
+},
+{
+"at": "2026-10-08T20:11:36.665Z",
+"created_at": "179149029666500",
+"msg": "-- starting hand #15 (id: sncvofzhxusk)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:11:36.665Z",
+"created_at": "179149029666501",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (768) | #8 \"Tex @ Tz6gBn1Vel\" (232)"
+},
+{
+"at": "2026-10-08T20:11:36.665Z",
+"created_at": "179149029666504",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:11:36.665Z",
+"created_at": "179149029666505",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:12:11.431Z",
+"created_at": "179149033143100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:12:12.236Z",
+"created_at": "179149033223600",
+"msg": "Uncalled bet of 1 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:12:12.236Z",
+"created_at": "179149033223601",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 2 from pot"
+},
+{
+"at": "2026-10-08T20:12:12.236Z",
+"created_at": "179149033223602",
+"msg": "-- ending hand #15 --"
+},
+{
+"at": "2026-10-08T20:12:15.149Z",
+"created_at": "179149033514900",
+"msg": "-- starting hand #16 (id: lt0xeftbgc2o)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:12:15.149Z",
+"created_at": "179149033514901",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (767) | #8 \"Tex @ Tz6gBn1Vel\" (233)"
+},
+{
+"at": "2026-10-08T20:12:15.149Z",
+"created_at": "179149033514904",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:12:15.149Z",
+"created_at": "179149033514905",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:12:21.098Z",
+"created_at": "179149034109800",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 5"
+},
+{
+"at": "2026-10-08T20:12:32.335Z",
+"created_at": "179149035233500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:12:33.171Z",
+"created_at": "179149035317100",
+"msg": "Flop:  [4\u2663, 9\u2666, 8\u2665]"
+},
+{
+"at": "2026-10-08T20:12:43.722Z",
+"created_at": "179149036372200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:12:55.169Z",
+"created_at": "179149037516900",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 5"
+},
+{
+"at": "2026-10-08T20:12:56.777Z",
+"created_at": "179149037677700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:12:57.647Z",
+"created_at": "179149037764700",
+"msg": "Turn: 4\u2663, 9\u2666, 8\u2665 [9\u2665]"
+},
+{
+"at": "2026-10-08T20:13:01.065Z",
+"created_at": "179149038106500",
+"msg": "The player \"Fish @ Kw9sDf3Jq_\" requested a seat."
+},
+{
+"at": "2026-10-08T20:13:03.066Z",
+"created_at": "179149038306600",
+"msg": "The admin approved the player \"Fish @ Kw9sDf3Jq_\" participation with a stack of 200."
+},
+{
+"at": "2026-10-08T20:13:09.827Z",
+"created_at": "179149038982700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:13:10.771Z",
+"created_at": "179149039077100",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:13:11.584Z",
+"created_at": "179149039158400",
+"msg": "River: 4\u2663, 9\u2666, 8\u2665, 9\u2665 [6\u2666]"
+},
+{
+"at": "2026-10-08T20:13:32.814Z",
+"created_at": "179149041281400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:13:41.331Z",
+"created_at": "179149042133100",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:13:42.155Z",
+"created_at": "179149042215500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 3\u2665, 4\u2660."
+},
+{
+"at": "2026-10-08T20:13:42.155Z",
+"created_at": "179149042215501",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a 10\u2663, 8\u2663."
+},
+{
+"at": "2026-10-08T20:13:42.155Z",
+"created_at": "179149042215502",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 20 from pot with Two Pair, 9's & 8's (combination: 10\u2663, 8\u2663, 8\u2665, 9\u2666, 9\u2665)"
+},
+{
+"at": "2026-10-08T20:13:42.155Z",
+"created_at": "179149042215503",
+"msg": "-- ending hand #16 --"
+},
+{
+"at": "2026-10-08T20:13:48.163Z",
+"created_at": "179149042816300",
+"msg": "The player \"Fish @ Kw9sDf3Jq_\" joined the game with a stack of 200."
+},
+{
+"at": "2026-10-08T20:13:48.163Z",
+"created_at": "179149042816301",
+"msg": "-- starting hand #17 (id: pinpuf1ez2eg)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:13:48.163Z",
+"created_at": "179149042816302",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (757) | #2 \"Fish @ Kw9sDf3Jq_\" (200) | #8 \"Tex @ Tz6gBn1Vel\" (243)"
+},
+{
+"at": "2026-10-08T20:13:48.163Z",
+"created_at": "179149042816306",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:13:48.163Z",
+"created_at": "179149042816307",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:13:56.524Z",
+"created_at": "179149043652400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 5"
+},
+{
+"at": "2026-10-08T20:13:58.296Z",
+"created_at": "179149043829600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:14:10.800Z",
+"created_at": "179149045080000",
+"msg": "The player \"Bluffy Jr. @ Hn4vRt8Ybc\" requested a seat."
+},
+{
+"at": "2026-10-08T20:14:12.274Z",
+"created_at": "179149045227400",
+"msg": "The admin approved the player \"Bluffy Jr. @ Hn4vRt8Ybc\" participation with a stack of 200."
+},
+{
+"at": "2026-10-08T20:14:13.968Z",
+"created_at": "179149045396800",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 16"
+},
+{
+"at": "2026-10-08T20:14:32.132Z",
+"created_at": "179149047213200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:14:32.941Z",
+"created_at": "179149047294100",
+"msg": "Uncalled bet of 11 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:14:32.941Z",
+"created_at": "179149047294101",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 11 from pot"
+},
+{
+"at": "2026-10-08T20:14:32.941Z",
+"created_at": "179149047294102",
+"msg": "-- ending hand #17 --"
+},
+{
+"at": "2026-10-08T20:14:34.854Z",
+"created_at": "179149047485400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 9\u2666."
+},
+{
+"at": "2026-10-08T20:14:35.513Z",
+"created_at": "179149047551300",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a 10\u2663, 10\u2666."
+},
+{
+"at": "2026-10-08T20:14:37.254Z",
+"created_at": "179149047725400",
+"msg": "The player \"Bluffy Jr. @ Hn4vRt8Ybc\" joined the game with a stack of 200."
+},
+{
+"at": "2026-10-08T20:14:37.254Z",
+"created_at": "179149047725401",
+"msg": "-- starting hand #18 (id: tarzmq9l3yhr)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:14:37.254Z",
+"created_at": "179149047725402",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (752) | #2 \"Fish @ Kw9sDf3Jq_\" (199) | #8 \"Tex @ Tz6gBn1Vel\" (249) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (200)"
+},
+{
+"at": "2026-10-08T20:14:37.254Z",
+"created_at": "179149047725407",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:14:37.254Z",
+"created_at": "179149047725408",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:14:39.622Z",
+"created_at": "179149047962200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 5"
+},
+{
+"at": "2026-10-08T20:14:43.819Z",
+"created_at": "179149048381900",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:14:50.248Z",
+"created_at": "179149049024800",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:14:51.323Z",
+"created_at": "179149049132300",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 5"
+},
+{
+"at": "2026-10-08T20:14:52.134Z",
+"created_at": "179149049213400",
+"msg": "Flop:  [6\u2660, J\u2660, 10\u2663]"
+},
+{
+"at": "2026-10-08T20:14:55.412Z",
+"created_at": "179149049541200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:15:04.739Z",
+"created_at": "179149050473900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:15:05.583Z",
+"created_at": "179149050558300",
+"msg": "Turn: 6\u2660, J\u2660, 10\u2663 [5\u2663]"
+},
+{
+"at": "2026-10-08T20:15:08.828Z",
+"created_at": "179149050882800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:15:11.705Z",
+"created_at": "179149051170500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:15:12.535Z",
+"created_at": "179149051253500",
+"msg": "River: 6\u2660, J\u2660, 10\u2663, 5\u2663 [7\u2665]"
+},
+{
+"at": "2026-10-08T20:15:14.428Z",
+"created_at": "179149051442800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:15:15.793Z",
+"created_at": "179149051579300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:15:16.604Z",
+"created_at": "179149051660400",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" shows a Q\u2660, A\u2663."
+},
+{
+"at": "2026-10-08T20:15:16.604Z",
+"created_at": "179149051660401",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 3\u2663, 3\u2665."
+},
+{
+"at": "2026-10-08T20:15:16.604Z",
+"created_at": "179149051660402",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 11 from pot with Pair, 3's (combination: 7\u2665, 10\u2663, J\u2660, 3\u2663, 3\u2665)"
+},
+{
+"at": "2026-10-08T20:15:16.604Z",
+"created_at": "179149051660403",
+"msg": "-- ending hand #18 --"
+},
+{
+"at": "2026-10-08T20:15:22.609Z",
+"created_at": "179149052260900",
+"msg": "-- starting hand #19 (id: v4kkpugtwbmo)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:15:22.609Z",
+"created_at": "179149052260901",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (758) | #2 \"Fish @ Kw9sDf3Jq_\" (199) | #8 \"Tex @ Tz6gBn1Vel\" (248) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (195)"
+},
+{
+"at": "2026-10-08T20:15:22.609Z",
+"created_at": "179149052260906",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:15:22.609Z",
+"created_at": "179149052260907",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:15:26.966Z",
+"created_at": "179149052696600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:15:30.231Z",
+"created_at": "179149053023100",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 2"
+},
+{
+"at": "2026-10-08T20:15:31.954Z",
+"created_at": "179149053195400",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:15:50.667Z",
+"created_at": "179149055066700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:15:51.478Z",
+"created_at": "179149055147800",
+"msg": "Flop:  [6\u2665, 2\u2665, J\u2663]"
+},
+{
+"at": "2026-10-08T20:15:54.118Z",
+"created_at": "179149055411800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:16:07.760Z",
+"created_at": "179149056776000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:16:11.018Z",
+"created_at": "179149057101800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" bets 4"
+},
+{
+"at": "2026-10-08T20:16:15.456Z",
+"created_at": "179149057545600",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:16:17.305Z",
+"created_at": "179149057730500",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 4"
+},
+{
+"at": "2026-10-08T20:16:20.563Z",
+"created_at": "179149058056300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 4"
+},
+{
+"at": "2026-10-08T20:16:21.373Z",
+"created_at": "179149058137300",
+"msg": "Turn: 6\u2665, 2\u2665, J\u2663 [K\u2663]"
+},
+{
+"at": "2026-10-08T20:16:23.911Z",
+"created_at": "179149058391100",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:16:25.275Z",
+"created_at": "179149058527500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:16:26.900Z",
+"created_at": "179149058690000",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:16:27.733Z",
+"created_at": "179149058773300",
+"msg": "River: 6\u2665, 2\u2665, J\u2663, K\u2663 [A\u2666]"
+},
+{
+"at": "2026-10-08T20:16:29.168Z",
+"created_at": "179149058916800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:16:32.376Z",
+"created_at": "179149059237600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:16:34.242Z",
+"created_at": "179149059424200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:16:35.064Z",
+"created_at": "179149059506400",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" shows a 6\u2660, Q\u2666."
+},
+{
+"at": "2026-10-08T20:16:35.064Z",
+"created_at": "179149059506401",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 7\u2660, J\u2666."
+},
+{
+"at": "2026-10-08T20:16:35.064Z",
+"created_at": "179149059506402",
+"msg": "\"Fish @ Kw9sDf3Jq_\" shows a 8\u2666, J\u2660."
+},
+{
+"at": "2026-10-08T20:16:35.064Z",
+"created_at": "179149059506403",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 20 from pot with Pair, J's (combination: 8\u2666, K\u2663, A\u2666, J\u2660, J\u2663)"
+},
+{
+"at": "2026-10-08T20:16:35.064Z",
+"created_at": "179149059506404",
+"msg": "-- ending hand #19 --"
+},
+{
+"at": "2026-10-08T20:16:41.068Z",
+"created_at": "179149060106800",
+"msg": "-- starting hand #20 (id: myqh7miyr4kd)  No Limit Texas Hold'em (dealer: \"Bluffy Jr. @ Hn4vRt8Ybc\") --"
+},
+{
+"at": "2026-10-08T20:16:41.068Z",
+"created_at": "179149060106801",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (752) | #2 \"Fish @ Kw9sDf3Jq_\" (213) | #8 \"Tex @ Tz6gBn1Vel\" (246) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (189)"
+},
+{
+"at": "2026-10-08T20:16:41.068Z",
+"created_at": "179149060106806",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:16:41.068Z",
+"created_at": "179149060106807",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:16:43.059Z",
+"created_at": "179149060305900",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:16:58.908Z",
+"created_at": "179149061890800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:17:11.752Z",
+"created_at": "179149063175200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 8"
+},
+{
+"at": "2026-10-08T20:17:17.733Z",
+"created_at": "179149063773300",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:17:18.781Z",
+"created_at": "179149063878100",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 8"
+},
+{
+"at": "2026-10-08T20:17:19.619Z",
+"created_at": "179149063961900",
+"msg": "Flop:  [J\u2663, 6\u2665, 8\u2665]"
+},
+{
+"at": "2026-10-08T20:17:42.667Z",
+"created_at": "179149066266700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:17:46.368Z",
+"created_at": "179149066636800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:17:47.171Z",
+"created_at": "179149066717100",
+"msg": "Turn: J\u2663, 6\u2665, 8\u2665 [K\u2665]"
+},
+{
+"at": "2026-10-08T20:17:58.085Z",
+"created_at": "179149067808500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:17:59.738Z",
+"created_at": "179149067973800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:18:00.546Z",
+"created_at": "179149068054600",
+"msg": "River: J\u2663, 6\u2665, 8\u2665, K\u2665 [J\u2665]"
+},
+{
+"at": "2026-10-08T20:18:03.963Z",
+"created_at": "179149068396300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:18:04.973Z",
+"created_at": "179149068497300",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:18:05.779Z",
+"created_at": "179149068577900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 6\u2666, 5\u2666."
+},
+{
+"at": "2026-10-08T20:18:05.779Z",
+"created_at": "179149068577901",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" shows a K\u2660, A\u2663."
+},
+{
+"at": "2026-10-08T20:18:05.779Z",
+"created_at": "179149068577902",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" collected 18 from pot with Two Pair, K's & J's (combination: A\u2663, J\u2663, J\u2665, K\u2660, K\u2665)"
+},
+{
+"at": "2026-10-08T20:18:05.779Z",
+"created_at": "179149068577903",
+"msg": "-- ending hand #20 --"
+},
+{
+"at": "2026-10-08T20:18:11.798Z",
+"created_at": "179149069179800",
+"msg": "-- starting hand #21 (id: d65yuah01bwp)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:18:11.798Z",
+"created_at": "179149069179801",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (744) | #2 \"Fish @ Kw9sDf3Jq_\" (211) | #8 \"Tex @ Tz6gBn1Vel\" (246) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (199)"
+},
+{
+"at": "2026-10-08T20:18:11.798Z",
+"created_at": "179149069179806",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:18:11.798Z",
+"created_at": "179149069179807",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:18:15.708Z",
+"created_at": "179149069570800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:18:34.460Z",
+"created_at": "179149071446000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:18:46.991Z",
+"created_at": "179149072699100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:18:55.242Z",
+"created_at": "179149073524200",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 8"
+},
+{
+"at": "2026-10-08T20:18:59.686Z",
+"created_at": "179149073968600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:19:00.561Z",
+"created_at": "179149074056100",
+"msg": "Uncalled bet of 6 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:19:00.561Z",
+"created_at": "179149074056101",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:19:00.561Z",
+"created_at": "179149074056102",
+"msg": "-- ending hand #21 --"
+},
+{
+"at": "2026-10-08T20:19:03.485Z",
+"created_at": "179149074348500",
+"msg": "-- starting hand #22 (id: v8hpiajtqcds)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:19:03.485Z",
+"created_at": "179149074348501",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (744) | #2 \"Fish @ Kw9sDf3Jq_\" (209) | #8 \"Tex @ Tz6gBn1Vel\" (248) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (199)"
+},
+{
+"at": "2026-10-08T20:19:03.485Z",
+"created_at": "179149074348506",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:19:03.485Z",
+"created_at": "179149074348507",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:19:15.359Z",
+"created_at": "179149075535900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 7"
+},
+{
+"at": "2026-10-08T20:19:28.346Z",
+"created_at": "179149076834600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" raises to 15"
+},
+{
+"at": "2026-10-08T20:19:29.332Z",
+"created_at": "179149076933200",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:19:30.372Z",
+"created_at": "179149077037200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:19:43.253Z",
+"created_at": "179149078325300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 15"
+},
+{
+"at": "2026-10-08T20:19:44.089Z",
+"created_at": "179149078408900",
+"msg": "Flop:  [Q\u2666, A\u2663, 9\u2660]"
+},
+{
+"at": "2026-10-08T20:19:47.938Z",
+"created_at": "179149078793800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:19:51.362Z",
+"created_at": "179149079136200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:19:52.249Z",
+"created_at": "179149079224900",
+"msg": "Turn: Q\u2666, A\u2663, 9\u2660 [Q\u2660]"
+},
+{
+"at": "2026-10-08T20:20:05.705Z",
+"created_at": "179149080570500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 33"
+},
+{
+"at": "2026-10-08T20:20:20.713Z",
+"created_at": "179149082071300",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 33"
+},
+{
+"at": "2026-10-08T20:20:21.544Z",
+"created_at": "179149082154400",
+"msg": "River: Q\u2666, A\u2663, 9\u2660, Q\u2660 [3\u2663]"
+},
+{
+"at": "2026-10-08T20:20:49.554Z",
+"created_at": "179149084955400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 169"
+},
+{
+"at": "2026-10-08T20:20:51.849Z",
+"created_at": "179149085184900",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 161 and go all in"
+},
+{
+"at": "2026-10-08T20:20:52.708Z",
+"created_at": "179149085270800",
+"msg": "Uncalled bet of 8 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:20:52.708Z",
+"created_at": "179149085270801",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a K\u2660, J\u2665."
+},
+{
+"at": "2026-10-08T20:20:52.708Z",
+"created_at": "179149085270802",
+"msg": "\"Fish @ Kw9sDf3Jq_\" shows a A\u2666, A\u2665."
+},
+{
+"at": "2026-10-08T20:20:52.708Z",
+"created_at": "179149085270803",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 421 from pot with Full House, A's over Q's (combination: Q\u2666, Q\u2660, A\u2666, A\u2665, A\u2663)"
+},
+{
+"at": "2026-10-08T20:20:52.708Z",
+"created_at": "179149085270804",
+"msg": "-- ending hand #22 --"
+},
+{
+"at": "2026-10-08T20:20:58.712Z",
+"created_at": "179149085871200",
+"msg": "-- starting hand #23 (id: phkiw13ucium)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:20:58.712Z",
+"created_at": "179149085871201",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (535) | #2 \"Fish @ Kw9sDf3Jq_\" (421) | #8 \"Tex @ Tz6gBn1Vel\" (247) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (197)"
+},
+{
+"at": "2026-10-08T20:20:58.712Z",
+"created_at": "179149085871206",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:20:58.712Z",
+"created_at": "179149085871207",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:21:00.511Z",
+"created_at": "179149086051100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:21:05.577Z",
+"created_at": "179149086557700",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:21:08.525Z",
+"created_at": "179149086852500",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:21:11.654Z",
+"created_at": "179149087165400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 8"
+},
+{
+"at": "2026-10-08T20:21:14.360Z",
+"created_at": "179149087436000",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:21:15.332Z",
+"created_at": "179149087533200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:21:16.159Z",
+"created_at": "179149087615900",
+"msg": "Uncalled bet of 6 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:21:16.159Z",
+"created_at": "179149087615901",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 6 from pot"
+},
+{
+"at": "2026-10-08T20:21:16.159Z",
+"created_at": "179149087615902",
+"msg": "-- ending hand #23 --"
+},
+{
+"at": "2026-10-08T20:21:19.075Z",
+"created_at": "179149087907500",
+"msg": "-- starting hand #24 (id: 43eeebx48kk7)  No Limit Texas Hold'em (dealer: \"Bluffy Jr. @ Hn4vRt8Ybc\") --"
+},
+{
+"at": "2026-10-08T20:21:19.075Z",
+"created_at": "179149087907501",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (539) | #2 \"Fish @ Kw9sDf3Jq_\" (419) | #8 \"Tex @ Tz6gBn1Vel\" (247) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (195)"
+},
+{
+"at": "2026-10-08T20:21:19.075Z",
+"created_at": "179149087907506",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:21:19.075Z",
+"created_at": "179149087907507",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:21:23.882Z",
+"created_at": "179149088388200",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:21:24.827Z",
+"created_at": "179149088482700",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:21:32.544Z",
+"created_at": "179149089254400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:21:33.371Z",
+"created_at": "179149089337100",
+"msg": "Uncalled bet of 1 returned to \"Fish @ Kw9sDf3Jq_\""
+},
+{
+"at": "2026-10-08T20:21:33.371Z",
+"created_at": "179149089337101",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 2 from pot"
+},
+{
+"at": "2026-10-08T20:21:33.371Z",
+"created_at": "179149089337102",
+"msg": "-- ending hand #24 --"
+},
+{
+"at": "2026-10-08T20:21:36.284Z",
+"created_at": "179149089628400",
+"msg": "-- starting hand #25 (id: vybl93aipycp)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:21:36.284Z",
+"created_at": "179149089628401",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (538) | #2 \"Fish @ Kw9sDf3Jq_\" (420) | #8 \"Tex @ Tz6gBn1Vel\" (247) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (195)"
+},
+{
+"at": "2026-10-08T20:21:36.284Z",
+"created_at": "179149089628406",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:21:36.284Z",
+"created_at": "179149089628407",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:21:38.103Z",
+"created_at": "179149089810300",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:21:41.594Z",
+"created_at": "179149090159400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 7"
+},
+{
+"at": "2026-10-08T20:21:44.565Z",
+"created_at": "179149090456500",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 7"
+},
+{
+"at": "2026-10-08T20:21:48.459Z",
+"created_at": "179149090845900",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:21:49.394Z",
+"created_at": "179149090939400",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 7"
+},
+{
+"at": "2026-10-08T20:21:50.254Z",
+"created_at": "179149091025400",
+"msg": "Flop:  [K\u2663, 2\u2665, 3\u2666]"
+},
+{
+"at": "2026-10-08T20:21:51.997Z",
+"created_at": "179149091199700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:21:54.738Z",
+"created_at": "179149091473800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:21:57.815Z",
+"created_at": "179149091781500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:21:58.660Z",
+"created_at": "179149091866000",
+"msg": "Turn: K\u2663, 2\u2665, 3\u2666 [Q\u2660]"
+},
+{
+"at": "2026-10-08T20:22:01.851Z",
+"created_at": "179149092185100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:22:05.804Z",
+"created_at": "179149092580400",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:22:06.827Z",
+"created_at": "179149092682700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:22:07.653Z",
+"created_at": "179149092765300",
+"msg": "River: K\u2663, 2\u2665, 3\u2666, Q\u2660 [9\u2663]"
+},
+{
+"at": "2026-10-08T20:22:15.487Z",
+"created_at": "179149093548700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" bets 9"
+},
+{
+"at": "2026-10-08T20:22:16.498Z",
+"created_at": "179149093649800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:22:29.667Z",
+"created_at": "179149094966700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:22:30.508Z",
+"created_at": "179149095050800",
+"msg": "Uncalled bet of 9 returned to \"Fish @ Kw9sDf3Jq_\""
+},
+{
+"at": "2026-10-08T20:22:30.508Z",
+"created_at": "179149095050801",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 23 from pot"
+},
+{
+"at": "2026-10-08T20:22:30.508Z",
+"created_at": "179149095050802",
+"msg": "-- ending hand #25 --"
+},
+{
+"at": "2026-10-08T20:22:33.437Z",
+"created_at": "179149095343700",
+"msg": "-- starting hand #26 (id: ys0kr2j95ezr)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:22:33.437Z",
+"created_at": "179149095343701",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (531) | #2 \"Fish @ Kw9sDf3Jq_\" (436) | #8 \"Tex @ Tz6gBn1Vel\" (245) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (188)"
+},
+{
+"at": "2026-10-08T20:22:33.437Z",
+"created_at": "179149095343706",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:22:33.437Z",
+"created_at": "179149095343707",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:23:03.567Z",
+"created_at": "179149098356700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 7"
+},
+{
+"at": "2026-10-08T20:23:08.880Z",
+"created_at": "179149098888000",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 7"
+},
+{
+"at": "2026-10-08T20:23:11.723Z",
+"created_at": "179149099172300",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 7"
+},
+{
+"at": "2026-10-08T20:23:14.245Z",
+"created_at": "179149099424500",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 7"
+},
+{
+"at": "2026-10-08T20:23:15.077Z",
+"created_at": "179149099507700",
+"msg": "Flop:  [K\u2666, 4\u2660, 7\u2665]"
+},
+{
+"at": "2026-10-08T20:23:17.168Z",
+"created_at": "179149099716800",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:23:19.216Z",
+"created_at": "179149099921600",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:23:28.668Z",
+"created_at": "179149100866800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 14"
+},
+{
+"at": "2026-10-08T20:23:30.037Z",
+"created_at": "179149101003700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:23:32.291Z",
+"created_at": "179149101229100",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:23:33.365Z",
+"created_at": "179149101336500",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:23:34.188Z",
+"created_at": "179149101418800",
+"msg": "Uncalled bet of 14 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:23:34.188Z",
+"created_at": "179149101418801",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 28 from pot"
+},
+{
+"at": "2026-10-08T20:23:34.188Z",
+"created_at": "179149101418802",
+"msg": "-- ending hand #26 --"
+},
+{
+"at": "2026-10-08T20:23:37.161Z",
+"created_at": "179149101716100",
+"msg": "-- starting hand #27 (id: tnxytejsbw0n)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:23:37.161Z",
+"created_at": "179149101716101",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (552) | #2 \"Fish @ Kw9sDf3Jq_\" (429) | #8 \"Tex @ Tz6gBn1Vel\" (238) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (181)"
+},
+{
+"at": "2026-10-08T20:23:37.161Z",
+"created_at": "179149101716106",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:23:37.161Z",
+"created_at": "179149101716107",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:23:40.504Z",
+"created_at": "179149102050400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:23:41.511Z",
+"created_at": "179149102151100",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:23:43.492Z",
+"created_at": "179149102349200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:24:02.248Z",
+"created_at": "179149104224800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 5"
+},
+{
+"at": "2026-10-08T20:24:04.412Z",
+"created_at": "179149104441200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 5"
+},
+{
+"at": "2026-10-08T20:24:05.228Z",
+"created_at": "179149104522800",
+"msg": "Flop:  [K\u2663, 10\u2666, Q\u2660]"
+},
+{
+"at": "2026-10-08T20:24:07.757Z",
+"created_at": "179149104775700",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:24:39.724Z",
+"created_at": "179149107972400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 7"
+},
+{
+"at": "2026-10-08T20:24:41.545Z",
+"created_at": "179149108154500",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 7"
+},
+{
+"at": "2026-10-08T20:24:42.351Z",
+"created_at": "179149108235100",
+"msg": "Turn: K\u2663, 10\u2666, Q\u2660 [4\u2660]"
+},
+{
+"at": "2026-10-08T20:24:45.357Z",
+"created_at": "179149108535700",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:24:52.409Z",
+"created_at": "179149109240900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 24"
+},
+{
+"at": "2026-10-08T20:24:54.374Z",
+"created_at": "179149109437400",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:24:55.191Z",
+"created_at": "179149109519100",
+"msg": "Uncalled bet of 24 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:24:55.191Z",
+"created_at": "179149109519101",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 24 from pot"
+},
+{
+"at": "2026-10-08T20:24:55.191Z",
+"created_at": "179149109519102",
+"msg": "-- ending hand #27 --"
+},
+{
+"at": "2026-10-08T20:24:58.110Z",
+"created_at": "179149109811000",
+"msg": "-- starting hand #28 (id: 7sbimhfrrloe)  No Limit Texas Hold'em (dealer: \"Bluffy Jr. @ Hn4vRt8Ybc\") --"
+},
+{
+"at": "2026-10-08T20:24:58.110Z",
+"created_at": "179149109811001",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (564) | #2 \"Fish @ Kw9sDf3Jq_\" (429) | #8 \"Tex @ Tz6gBn1Vel\" (238) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (169)"
+},
+{
+"at": "2026-10-08T20:24:58.110Z",
+"created_at": "179149109811006",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:24:58.110Z",
+"created_at": "179149109811007",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:25:03.588Z",
+"created_at": "179149110358800",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:25:03.766Z",
+"created_at": "179149110376600",
+"msg": "The player \"Ace @ Qp7zLm2Xa1\" requested a seat."
+},
+{
+"at": "2026-10-08T20:25:04.611Z",
+"created_at": "179149110461100",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:25:05.983Z",
+"created_at": "179149110598300",
+"msg": "The admin approved the player \"Ace @ Qp7zLm2Xa1\" participation with a stack of 200."
+},
+{
+"at": "2026-10-08T20:25:22.750Z",
+"created_at": "179149112275000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 6"
+},
+{
+"at": "2026-10-08T20:25:27.441Z",
+"created_at": "179149112744100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 6"
+},
+{
+"at": "2026-10-08T20:25:29.263Z",
+"created_at": "179149112926300",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 6"
+},
+{
+"at": "2026-10-08T20:25:30.075Z",
+"created_at": "179149113007500",
+"msg": "Flop:  [2\u2665, 3\u2660, 6\u2665]"
+},
+{
+"at": "2026-10-08T20:26:00.501Z",
+"created_at": "179149116050100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:26:06.962Z",
+"created_at": "179149116696200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:26:07.982Z",
+"created_at": "179149116798200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:26:08.811Z",
+"created_at": "179149116881100",
+"msg": "Turn: 2\u2665, 3\u2660, 6\u2665 [9\u2660]"
+},
+{
+"at": "2026-10-08T20:26:19.958Z",
+"created_at": "179149117995800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 13"
+},
+{
+"at": "2026-10-08T20:26:29.450Z",
+"created_at": "179149118945000",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:26:30.422Z",
+"created_at": "179149119042200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:26:31.237Z",
+"created_at": "179149119123700",
+"msg": "Uncalled bet of 13 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:26:31.237Z",
+"created_at": "179149119123701",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 18 from pot"
+},
+{
+"at": "2026-10-08T20:26:31.237Z",
+"created_at": "179149119123702",
+"msg": "-- ending hand #28 --"
+},
+{
+"at": "2026-10-08T20:26:34.179Z",
+"created_at": "179149119417900",
+"msg": "The player \"Ace @ Qp7zLm2Xa1\" joined the game with a stack of 200."
+},
+{
+"at": "2026-10-08T20:26:34.179Z",
+"created_at": "179149119417901",
+"msg": "-- starting hand #29 (id: semitomlrkxh)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:26:34.179Z",
+"created_at": "179149119417902",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (576) | #2 \"Fish @ Kw9sDf3Jq_\" (423) | #7 \"Ace @ Qp7zLm2Xa1\" (200) | #8 \"Tex @ Tz6gBn1Vel\" (238) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (163)"
+},
+{
+"at": "2026-10-08T20:26:34.179Z",
+"created_at": "179149119417908",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:26:34.179Z",
+"created_at": "179149119417909",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:26:56.866Z",
+"created_at": "179149121686600",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:26:57.786Z",
+"created_at": "179149121778600",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:27:02.496Z",
+"created_at": "179149122249600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 9"
+},
+{
+"at": "2026-10-08T20:27:04.220Z",
+"created_at": "179149122422000",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:27:11.308Z",
+"created_at": "179149123130800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 9"
+},
+{
+"at": "2026-10-08T20:27:12.306Z",
+"created_at": "179149123230600",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:27:13.145Z",
+"created_at": "179149123314500",
+"msg": "Flop:  [6\u2660, 6\u2665, 4\u2663]"
+},
+{
+"at": "2026-10-08T20:27:19.838Z",
+"created_at": "179149123983800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 15"
+},
+{
+"at": "2026-10-08T20:27:32.713Z",
+"created_at": "179149125271300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 15"
+},
+{
+"at": "2026-10-08T20:27:33.542Z",
+"created_at": "179149125354200",
+"msg": "Turn: 6\u2660, 6\u2665, 4\u2663 [Q\u2660]"
+},
+{
+"at": "2026-10-08T20:27:37.608Z",
+"created_at": "179149125760800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:27:39.167Z",
+"created_at": "179149125916700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:27:39.985Z",
+"created_at": "179149125998500",
+"msg": "River: 6\u2660, 6\u2665, 4\u2663, Q\u2660 [8\u2665]"
+},
+{
+"at": "2026-10-08T20:27:45.389Z",
+"created_at": "179149126538900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 38"
+},
+{
+"at": "2026-10-08T20:27:56.058Z",
+"created_at": "179149127605800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:27:56.934Z",
+"created_at": "179149127693400",
+"msg": "Uncalled bet of 38 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:27:56.934Z",
+"created_at": "179149127693401",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 51 from pot"
+},
+{
+"at": "2026-10-08T20:27:56.934Z",
+"created_at": "179149127693402",
+"msg": "-- ending hand #29 --"
+},
+{
+"at": "2026-10-08T20:27:59.854Z",
+"created_at": "179149127985400",
+"msg": "-- starting hand #30 (id: 1jf0jdol82ww)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:27:59.854Z",
+"created_at": "179149127985401",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (552) | #2 \"Fish @ Kw9sDf3Jq_\" (422) | #7 \"Ace @ Qp7zLm2Xa1\" (227) | #8 \"Tex @ Tz6gBn1Vel\" (238) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (161)"
+},
+{
+"at": "2026-10-08T20:27:59.854Z",
+"created_at": "179149127985407",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:27:59.854Z",
+"created_at": "179149127985408",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:28:16.792Z",
+"created_at": "179149129679200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:28:17.804Z",
+"created_at": "179149129780400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:28:18.883Z",
+"created_at": "179149129888300",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:28:24.463Z",
+"created_at": "179149130446300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 5"
+},
+{
+"at": "2026-10-08T20:28:25.403Z",
+"created_at": "179149130540300",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:28:26.428Z",
+"created_at": "179149130642800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 5"
+},
+{
+"at": "2026-10-08T20:28:27.254Z",
+"created_at": "179149130725400",
+"msg": "Flop:  [5\u2666, 8\u2663, K\u2665]"
+},
+{
+"at": "2026-10-08T20:28:30.743Z",
+"created_at": "179149131074300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:28:31.771Z",
+"created_at": "179149131177100",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:28:32.583Z",
+"created_at": "179149131258300",
+"msg": "Turn: 5\u2666, 8\u2663, K\u2665 [Q\u2666]"
+},
+{
+"at": "2026-10-08T20:28:35.509Z",
+"created_at": "179149131550900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:28:36.475Z",
+"created_at": "179149131647500",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:28:37.290Z",
+"created_at": "179149131729000",
+"msg": "River: 5\u2666, 8\u2663, K\u2665, Q\u2666 [4\u2665]"
+},
+{
+"at": "2026-10-08T20:28:41.922Z",
+"created_at": "179149132192200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 9"
+},
+{
+"at": "2026-10-08T20:28:43.881Z",
+"created_at": "179149132388100",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 9"
+},
+{
+"at": "2026-10-08T20:28:44.702Z",
+"created_at": "179149132470200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" shows a A\u2660, 3\u2665."
+},
+{
+"at": "2026-10-08T20:28:44.702Z",
+"created_at": "179149132470201",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" shows a 4\u2663, 9\u2663."
+},
+{
+"at": "2026-10-08T20:28:44.702Z",
+"created_at": "179149132470202",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" collected 30 from pot with Pair, 4's (combination: 9\u2663, Q\u2666, K\u2665, 4\u2663, 4\u2665)"
+},
+{
+"at": "2026-10-08T20:28:44.702Z",
+"created_at": "179149132470203",
+"msg": "-- ending hand #30 --"
+},
+{
+"at": "2026-10-08T20:28:50.706Z",
+"created_at": "179149133070600",
+"msg": "-- starting hand #31 (id: gpvrehm9he7t)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T20:28:50.706Z",
+"created_at": "179149133070601",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (552) | #2 \"Fish @ Kw9sDf3Jq_\" (422) | #7 \"Ace @ Qp7zLm2Xa1\" (213) | #8 \"Tex @ Tz6gBn1Vel\" (236) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (177)"
+},
+{
+"at": "2026-10-08T20:28:50.706Z",
+"created_at": "179149133070607",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:28:50.706Z",
+"created_at": "179149133070608",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:29:14.934Z",
+"created_at": "179149135493400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:29:32.006Z",
+"created_at": "179149137200600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:29:33.188Z",
+"created_at": "179149137318800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:29:37.828Z",
+"created_at": "179149137782800",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 6"
+},
+{
+"at": "2026-10-08T20:29:39.789Z",
+"created_at": "179149137978900",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 6"
+},
+{
+"at": "2026-10-08T20:29:40.636Z",
+"created_at": "179149138063600",
+"msg": "Flop:  [3\u2666, K\u2660, J\u2665]"
+},
+{
+"at": "2026-10-08T20:29:44.015Z",
+"created_at": "179149138401500",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:29:44.982Z",
+"created_at": "179149138498200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:29:45.800Z",
+"created_at": "179149138580000",
+"msg": "Turn: 3\u2666, K\u2660, J\u2665 [6\u2666]"
+},
+{
+"at": "2026-10-08T20:29:47.987Z",
+"created_at": "179149138798700",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:29:49.601Z",
+"created_at": "179149138960100",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:29:50.446Z",
+"created_at": "179149139044600",
+"msg": "River: 3\u2666, K\u2660, J\u2665, 6\u2666 [7\u2663]"
+},
+{
+"at": "2026-10-08T20:29:56.167Z",
+"created_at": "179149139616700",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:30:05.990Z",
+"created_at": "179149140599000",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" bets 12"
+},
+{
+"at": "2026-10-08T20:30:11.419Z",
+"created_at": "179149141141900",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:30:12.333Z",
+"created_at": "179149141233300",
+"msg": "Uncalled bet of 12 returned to \"Bluffy Jr. @ Hn4vRt8Ybc\""
+},
+{
+"at": "2026-10-08T20:30:12.333Z",
+"created_at": "179149141233301",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" collected 12 from pot"
+},
+{
+"at": "2026-10-08T20:30:12.333Z",
+"created_at": "179149141233302",
+"msg": "-- ending hand #31 --"
+},
+{
+"at": "2026-10-08T20:30:15.241Z",
+"created_at": "179149141524100",
+"msg": "-- starting hand #32 (id: jwufguubbein)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:30:15.241Z",
+"created_at": "179149141524101",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (552) | #2 \"Fish @ Kw9sDf3Jq_\" (422) | #7 \"Ace @ Qp7zLm2Xa1\" (213) | #8 \"Tex @ Tz6gBn1Vel\" (230) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (183)"
+},
+{
+"at": "2026-10-08T20:30:15.241Z",
+"created_at": "179149141524107",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:30:15.241Z",
+"created_at": "179149141524108",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:30:16.788Z",
+"created_at": "179149141678800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:30:20.049Z",
+"created_at": "179149142004900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:30:20.986Z",
+"created_at": "179149142098600",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:30:22.967Z",
+"created_at": "179149142296700",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:30:24.012Z",
+"created_at": "179149142401200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:30:24.831Z",
+"created_at": "179149142483100",
+"msg": "Flop:  [2\u2666, 8\u2663, A\u2660]"
+},
+{
+"at": "2026-10-08T20:30:30.162Z",
+"created_at": "179149143016200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:30:35.328Z",
+"created_at": "179149143532800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:30:36.159Z",
+"created_at": "179149143615900",
+"msg": "Turn: 2\u2666, 8\u2663, A\u2660 [8\u2665]"
+},
+{
+"at": "2026-10-08T20:30:37.799Z",
+"created_at": "179149143779900",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:30:41.563Z",
+"created_at": "179149144156300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:30:42.386Z",
+"created_at": "179149144238600",
+"msg": "River: 2\u2666, 8\u2663, A\u2660, 8\u2665 [9\u2663]"
+},
+{
+"at": "2026-10-08T20:30:45.651Z",
+"created_at": "179149144565100",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:30:49.567Z",
+"created_at": "179149144956700",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 4"
+},
+{
+"at": "2026-10-08T20:30:58.202Z",
+"created_at": "179149145820200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:30:59.050Z",
+"created_at": "179149145905000",
+"msg": "Uncalled bet of 4 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:30:59.050Z",
+"created_at": "179149145905001",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 6 from pot"
+},
+{
+"at": "2026-10-08T20:30:59.050Z",
+"created_at": "179149145905002",
+"msg": "-- ending hand #32 --"
+},
+{
+"at": "2026-10-08T20:31:01.993Z",
+"created_at": "179149146199300",
+"msg": "-- starting hand #33 (id: gg20trkowond)  No Limit Texas Hold'em (dealer: \"Bluffy Jr. @ Hn4vRt8Ybc\") --"
+},
+{
+"at": "2026-10-08T20:31:01.993Z",
+"created_at": "179149146199301",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (550) | #2 \"Fish @ Kw9sDf3Jq_\" (422) | #7 \"Ace @ Qp7zLm2Xa1\" (217) | #8 \"Tex @ Tz6gBn1Vel\" (230) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (181)"
+},
+{
+"at": "2026-10-08T20:31:01.993Z",
+"created_at": "179149146199307",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:31:01.993Z",
+"created_at": "179149146199308",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:31:05.364Z",
+"created_at": "179149146536400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:31:16.771Z",
+"created_at": "179149147677100",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 7"
+},
+{
+"at": "2026-10-08T20:31:18.738Z",
+"created_at": "179149147873800",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 7"
+},
+{
+"at": "2026-10-08T20:31:26.246Z",
+"created_at": "179149148624600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 7"
+},
+{
+"at": "2026-10-08T20:31:29.476Z",
+"created_at": "179149148947600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 7"
+},
+{
+"at": "2026-10-08T20:31:30.294Z",
+"created_at": "179149149029400",
+"msg": "Flop:  [K\u2663, 5\u2666, 3\u2666]"
+},
+{
+"at": "2026-10-08T20:32:01.875Z",
+"created_at": "179149152187500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:32:24.572Z",
+"created_at": "179149154457200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:32:25.557Z",
+"created_at": "179149154555700",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:32:29.502Z",
+"created_at": "179149154950200",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" checks"
+},
+{
+"at": "2026-10-08T20:32:30.341Z",
+"created_at": "179149155034100",
+"msg": "Turn: K\u2663, 5\u2666, 3\u2666 [J\u2665]"
+},
+{
+"at": "2026-10-08T20:32:53.486Z",
+"created_at": "179149157348600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 14"
+},
+{
+"at": "2026-10-08T20:33:16.601Z",
+"created_at": "179149159660100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:33:32.621Z",
+"created_at": "179149161262100",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:33:42.566Z",
+"created_at": "179149162256600",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 14"
+},
+{
+"at": "2026-10-08T20:33:43.378Z",
+"created_at": "179149162337800",
+"msg": "River: K\u2663, 5\u2666, 3\u2666, J\u2665 [10\u2663]"
+},
+{
+"at": "2026-10-08T20:33:58.793Z",
+"created_at": "179149163879300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 42"
+},
+{
+"at": "2026-10-08T20:34:05.426Z",
+"created_at": "179149164542600",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" raises to 160 and go all in"
+},
+{
+"at": "2026-10-08T20:35:16.357Z",
+"created_at": "179149171635700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 160"
+},
+{
+"at": "2026-10-08T20:35:17.190Z",
+"created_at": "179149171719000",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" shows a 9\u2665, Q\u2665."
+},
+{
+"at": "2026-10-08T20:35:17.190Z",
+"created_at": "179149171719001",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" collected 376 from pot with Straight, K High (combination: 9\u2665, 10\u2663, J\u2665, Q\u2665, K\u2663)"
+},
+{
+"at": "2026-10-08T20:35:17.190Z",
+"created_at": "179149171719002",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 7\u2665, K\u2665."
+},
+{
+"at": "2026-10-08T20:35:17.190Z",
+"created_at": "179149171719003",
+"msg": "-- ending hand #33 --"
+},
+{
+"at": "2026-10-08T20:35:23.197Z",
+"created_at": "179149172319700",
+"msg": "Game Config Changes\n* Allow Rebuy: off \u00bb on"
+},
+{
+"at": "2026-10-08T20:35:23.197Z",
+"created_at": "179149172319701",
+"msg": "-- starting hand #34 (id: 87a6ue3qot1b)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:35:23.197Z",
+"created_at": "179149172319702",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (369) | #2 \"Fish @ Kw9sDf3Jq_\" (415) | #7 \"Ace @ Qp7zLm2Xa1\" (217) | #8 \"Tex @ Tz6gBn1Vel\" (223) | #9 \"Bluffy Jr. @ Hn4vRt8Ybc\" (376)"
+},
+{
+"at": "2026-10-08T20:35:23.197Z",
+"created_at": "179149172319708",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:35:23.197Z",
+"created_at": "179149172319709",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:35:32.850Z",
+"created_at": "179149173285000",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:35:34.176Z",
+"created_at": "179149173417600",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" calls 2"
+},
+{
+"at": "2026-10-08T20:35:40.127Z",
+"created_at": "179149174012700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 7"
+},
+{
+"at": "2026-10-08T20:35:47.919Z",
+"created_at": "179149174791900",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:35:54.043Z",
+"created_at": "179149175404300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 15"
+},
+{
+"at": "2026-10-08T20:35:54.847Z",
+"created_at": "179149175484700",
+"msg": "\"Bluffy Jr. @ Hn4vRt8Ybc\" folds"
+},
+{
+"at": "2026-10-08T20:36:23.025Z",
+"created_at": "179149178302500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:36:23.852Z",
+"created_at": "179149178385200",
+"msg": "Uncalled bet of 8 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:36:23.852Z",
+"created_at": "179149178385201",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 17 from pot"
+},
+{
+"at": "2026-10-08T20:36:23.852Z",
+"created_at": "179149178385202",
+"msg": "-- ending hand #34 --"
+},
+{
+"at": "2026-10-08T20:36:26.774Z",
+"created_at": "179149178677400",
+"msg": "The player \"Bluffy Jr. @ Hn4vRt8Ybc\" stand up with the stack of 374."
+},
+{
+"at": "2026-10-08T20:36:26.774Z",
+"created_at": "179149178677401",
+"msg": "-- starting hand #35 (id: fz0glziewykc)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:36:26.774Z",
+"created_at": "179149178677402",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (362) | #2 \"Fish @ Kw9sDf3Jq_\" (414) | #7 \"Ace @ Qp7zLm2Xa1\" (227) | #8 \"Tex @ Tz6gBn1Vel\" (223)"
+},
+{
+"at": "2026-10-08T20:36:26.774Z",
+"created_at": "179149178677407",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:36:26.774Z",
+"created_at": "179149178677408",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:36:34.843Z",
+"created_at": "179149179484300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:36:46.821Z",
+"created_at": "179149180682100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:37:01.487Z",
+"created_at": "179149182148700",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 5"
+},
+{
+"at": "2026-10-08T20:37:02.643Z",
+"created_at": "179149182264300",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:37:08.793Z",
+"created_at": "179149182879300",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 5"
+},
+{
+"at": "2026-10-08T20:37:09.612Z",
+"created_at": "179149182961200",
+"msg": "Flop:  [J\u2666, 4\u2665, 4\u2663]"
+},
+{
+"at": "2026-10-08T20:37:16.342Z",
+"created_at": "179149183634200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:37:18.766Z",
+"created_at": "179149183876600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:37:19.591Z",
+"created_at": "179149183959100",
+"msg": "Turn: J\u2666, 4\u2665, 4\u2663 [7\u2665]"
+},
+{
+"at": "2026-10-08T20:37:24.164Z",
+"created_at": "179149184416400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 6"
+},
+{
+"at": "2026-10-08T20:37:26.256Z",
+"created_at": "179149184625600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:37:27.134Z",
+"created_at": "179149184713400",
+"msg": "Uncalled bet of 6 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:37:27.134Z",
+"created_at": "179149184713401",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 12 from pot"
+},
+{
+"at": "2026-10-08T20:37:27.134Z",
+"created_at": "179149184713402",
+"msg": "-- ending hand #35 --"
+},
+{
+"at": "2026-10-08T20:37:30.053Z",
+"created_at": "179149185005300",
+"msg": "-- starting hand #36 (id: rxfx86ve880q)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T20:37:30.053Z",
+"created_at": "179149185005301",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (362) | #2 \"Fish @ Kw9sDf3Jq_\" (409) | #7 \"Ace @ Qp7zLm2Xa1\" (234) | #8 \"Tex @ Tz6gBn1Vel\" (221)"
+},
+{
+"at": "2026-10-08T20:37:30.053Z",
+"created_at": "179149185005306",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:37:30.053Z",
+"created_at": "179149185005307",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:37:34.253Z",
+"created_at": "179149185425300",
+"msg": "\"Fish @ Kw9sDf3Jq_\" raises to 5"
+},
+{
+"at": "2026-10-08T20:37:36.282Z",
+"created_at": "179149185628200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:37:37.264Z",
+"created_at": "179149185726400",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:37:52.172Z",
+"created_at": "179149187217200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:37:52.987Z",
+"created_at": "179149187298700",
+"msg": "Uncalled bet of 3 returned to \"Fish @ Kw9sDf3Jq_\""
+},
+{
+"at": "2026-10-08T20:37:52.987Z",
+"created_at": "179149187298701",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 5 from pot"
+},
+{
+"at": "2026-10-08T20:37:52.987Z",
+"created_at": "179149187298702",
+"msg": "-- ending hand #36 --"
+},
+{
+"at": "2026-10-08T20:37:55.961Z",
+"created_at": "179149187596100",
+"msg": "The player \"Ace @ Qp7zLm2Xa1\" stand up with the stack of 234."
+},
+{
+"at": "2026-10-08T20:37:55.961Z",
+"created_at": "179149187596101",
+"msg": "-- starting hand #37 (id: m4nv1ogyhoxz)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:37:55.961Z",
+"created_at": "179149187596102",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (360) | #2 \"Fish @ Kw9sDf3Jq_\" (412) | #8 \"Tex @ Tz6gBn1Vel\" (220)"
+},
+{
+"at": "2026-10-08T20:37:55.961Z",
+"created_at": "179149187596106",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:37:55.961Z",
+"created_at": "179149187596107",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:37:59.939Z",
+"created_at": "179149187993900",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 7"
+},
+{
+"at": "2026-10-08T20:38:10.026Z",
+"created_at": "179149189002600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 7"
+},
+{
+"at": "2026-10-08T20:38:12.737Z",
+"created_at": "179149189273700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:38:13.550Z",
+"created_at": "179149189355000",
+"msg": "Flop:  [6\u2665, J\u2660, 2\u2665]"
+},
+{
+"at": "2026-10-08T20:38:20.973Z",
+"created_at": "179149190097300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:38:29.078Z",
+"created_at": "179149190907800",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 8"
+},
+{
+"at": "2026-10-08T20:38:43.388Z",
+"created_at": "179149192338800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:38:44.245Z",
+"created_at": "179149192424500",
+"msg": "Uncalled bet of 8 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:38:44.245Z",
+"created_at": "179149192424501",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 16 from pot"
+},
+{
+"at": "2026-10-08T20:38:44.245Z",
+"created_at": "179149192424502",
+"msg": "-- ending hand #37 --"
+},
+{
+"at": "2026-10-08T20:38:47.178Z",
+"created_at": "179149192717800",
+"msg": "The player \"Bluffy Jr. @ Hn4vRt8Ybc\" quits the game with a stack of 374."
+},
+{
+"at": "2026-10-08T20:38:47.178Z",
+"created_at": "179149192717801",
+"msg": "-- starting hand #38 (id: nccjnym6vsgk)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:38:47.178Z",
+"created_at": "179149192717802",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (353) | #2 \"Fish @ Kw9sDf3Jq_\" (410) | #8 \"Tex @ Tz6gBn1Vel\" (229)"
+},
+{
+"at": "2026-10-08T20:38:47.178Z",
+"created_at": "179149192717806",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:38:47.178Z",
+"created_at": "179149192717807",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:38:54.694Z",
+"created_at": "179149193469400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:38:56.918Z",
+"created_at": "179149193691800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:39:11.718Z",
+"created_at": "179149195171800",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 8"
+},
+{
+"at": "2026-10-08T20:39:19.251Z",
+"created_at": "179149195925100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:39:20.075Z",
+"created_at": "179149196007500",
+"msg": "Uncalled bet of 6 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:39:20.075Z",
+"created_at": "179149196007501",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T20:39:20.075Z",
+"created_at": "179149196007502",
+"msg": "-- ending hand #38 --"
+},
+{
+"at": "2026-10-08T20:39:22.981Z",
+"created_at": "179149196298100",
+"msg": "-- starting hand #39 (id: rwkwez9xgwnb)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:39:22.981Z",
+"created_at": "179149196298101",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (353) | #2 \"Fish @ Kw9sDf3Jq_\" (408) | #8 \"Tex @ Tz6gBn1Vel\" (231)"
+},
+{
+"at": "2026-10-08T20:39:22.981Z",
+"created_at": "179149196298105",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:39:22.981Z",
+"created_at": "179149196298106",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:39:26.098Z",
+"created_at": "179149196609800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" raises to 5"
+},
+{
+"at": "2026-10-08T20:39:27.006Z",
+"created_at": "179149196700600",
+"msg": "The player \"Ace @ Qp7zLm2Xa1\" sit back with the stack of 234."
+},
+{
+"at": "2026-10-08T20:39:32.378Z",
+"created_at": "179149197237800",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:39:34.406Z",
+"created_at": "179149197440600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:39:35.261Z",
+"created_at": "179149197526100",
+"msg": "Flop:  [8\u2660, 6\u2665, 6\u2660]"
+},
+{
+"at": "2026-10-08T20:39:41.448Z",
+"created_at": "179149198144800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:39:45.622Z",
+"created_at": "179149198562200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" bets 5"
+},
+{
+"at": "2026-10-08T20:39:50.503Z",
+"created_at": "179149199050300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:39:51.331Z",
+"created_at": "179149199133100",
+"msg": "Turn: 8\u2660, 6\u2665, 6\u2660 [4\u2666]"
+},
+{
+"at": "2026-10-08T20:39:53.153Z",
+"created_at": "179149199315300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:39:59.603Z",
+"created_at": "179149199960300",
+"msg": "\"Fish @ Kw9sDf3Jq_\" bets 10"
+},
+{
+"at": "2026-10-08T20:40:08.342Z",
+"created_at": "179149200834200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:40:09.230Z",
+"created_at": "179149200923000",
+"msg": "Uncalled bet of 10 returned to \"Fish @ Kw9sDf3Jq_\""
+},
+{
+"at": "2026-10-08T20:40:09.230Z",
+"created_at": "179149200923001",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 21 from pot"
+},
+{
+"at": "2026-10-08T20:40:09.230Z",
+"created_at": "179149200923002",
+"msg": "-- ending hand #39 --"
+},
+{
+"at": "2026-10-08T20:40:12.137Z",
+"created_at": "179149201213700",
+"msg": "The player \"Ace @ Qp7zLm2Xa1\" joined the game with a stack of 234."
+},
+{
+"at": "2026-10-08T20:40:12.137Z",
+"created_at": "179149201213701",
+"msg": "-- starting hand #40 (id: vdlfbsokdyek)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:40:12.137Z",
+"created_at": "179149201213702",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (343) | #2 \"Fish @ Kw9sDf3Jq_\" (419) | #7 \"Ace @ Qp7zLm2Xa1\" (234) | #8 \"Tex @ Tz6gBn1Vel\" (230)"
+},
+{
+"at": "2026-10-08T20:40:12.137Z",
+"created_at": "179149201213707",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:40:12.137Z",
+"created_at": "179149201213708",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:40:12.137Z",
+"created_at": "179149201213709",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a missing small blind of 1"
+},
+{
+"at": "2026-10-08T20:40:12.137Z",
+"created_at": "179149201213710",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a missed big blind of 2"
+},
+{
+"at": "2026-10-08T20:40:31.135Z",
+"created_at": "179149203113500",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 6"
+},
+{
+"at": "2026-10-08T20:40:38.168Z",
+"created_at": "179149203816800",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 18"
+},
+{
+"at": "2026-10-08T20:40:39.093Z",
+"created_at": "179149203909300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:40:51.879Z",
+"created_at": "179149205187900",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:40:52.888Z",
+"created_at": "179149205288800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 18"
+},
+{
+"at": "2026-10-08T20:40:53.762Z",
+"created_at": "179149205376200",
+"msg": "Flop:  [J\u2666, 2\u2663, 7\u2665]"
+},
+{
+"at": "2026-10-08T20:40:57.444Z",
+"created_at": "179149205744400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:41:01.817Z",
+"created_at": "179149206181700",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 20"
+},
+{
+"at": "2026-10-08T20:41:03.684Z",
+"created_at": "179149206368400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 20"
+},
+{
+"at": "2026-10-08T20:41:04.488Z",
+"created_at": "179149206448800",
+"msg": "Turn: J\u2666, 2\u2663, 7\u2665 [5\u2663]"
+},
+{
+"at": "2026-10-08T20:41:07.283Z",
+"created_at": "179149206728300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:41:17.036Z",
+"created_at": "179149207703600",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:41:17.852Z",
+"created_at": "179149207785200",
+"msg": "River: J\u2666, 2\u2663, 7\u2665, 5\u2663 [Q\u2666]"
+},
+{
+"at": "2026-10-08T20:41:21.369Z",
+"created_at": "179149208136900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:41:22.614Z",
+"created_at": "179149208261400",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:41:23.454Z",
+"created_at": "179149208345400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" shows a 10\u2660, A\u2660."
+},
+{
+"at": "2026-10-08T20:41:23.454Z",
+"created_at": "179149208345401",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a 9\u2666, 9\u2665."
+},
+{
+"at": "2026-10-08T20:41:23.454Z",
+"created_at": "179149208345402",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 80 from pot with Pair, 9's (combination: 7\u2665, J\u2666, Q\u2666, 9\u2666, 9\u2665)"
+},
+{
+"at": "2026-10-08T20:41:23.454Z",
+"created_at": "179149208345403",
+"msg": "-- ending hand #40 --"
+},
+{
+"at": "2026-10-08T20:41:29.457Z",
+"created_at": "179149208945700",
+"msg": "-- starting hand #41 (id: xnow6nfankhp)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:41:29.457Z",
+"created_at": "179149208945701",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (342) | #2 \"Fish @ Kw9sDf3Jq_\" (417) | #7 \"Ace @ Qp7zLm2Xa1\" (195) | #8 \"Tex @ Tz6gBn1Vel\" (272)"
+},
+{
+"at": "2026-10-08T20:41:29.457Z",
+"created_at": "179149208945706",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:41:29.457Z",
+"created_at": "179149208945707",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:41:31.349Z",
+"created_at": "179149209134900",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:41:54.220Z",
+"created_at": "179149211422000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 7"
+},
+{
+"at": "2026-10-08T20:41:57.144Z",
+"created_at": "179149211714400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:42:00.250Z",
+"created_at": "179149212025000",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:42:01.080Z",
+"created_at": "179149212108000",
+"msg": "Uncalled bet of 5 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:42:01.080Z",
+"created_at": "179149212108001",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 5 from pot"
+},
+{
+"at": "2026-10-08T20:42:01.080Z",
+"created_at": "179149212108002",
+"msg": "-- ending hand #41 --"
+},
+{
+"at": "2026-10-08T20:42:04.035Z",
+"created_at": "179149212403500",
+"msg": "-- starting hand #42 (id: beduxkmjazu7)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:42:04.035Z",
+"created_at": "179149212403501",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (345) | #2 \"Fish @ Kw9sDf3Jq_\" (416) | #7 \"Ace @ Qp7zLm2Xa1\" (193) | #8 \"Tex @ Tz6gBn1Vel\" (272)"
+},
+{
+"at": "2026-10-08T20:42:04.035Z",
+"created_at": "179149212403506",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:42:04.035Z",
+"created_at": "179149212403507",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:42:15.107Z",
+"created_at": "179149213510700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:42:25.858Z",
+"created_at": "179149214585800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:42:36.164Z",
+"created_at": "179149215616400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 6"
+},
+{
+"at": "2026-10-08T20:42:40.749Z",
+"created_at": "179149216074900",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 6"
+},
+{
+"at": "2026-10-08T20:42:47.372Z",
+"created_at": "179149216737200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 6"
+},
+{
+"at": "2026-10-08T20:42:48.185Z",
+"created_at": "179149216818500",
+"msg": "Flop:  [3\u2663, 4\u2663, 6\u2663]"
+},
+{
+"at": "2026-10-08T20:42:58.643Z",
+"created_at": "179149217864300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 2"
+},
+{
+"at": "2026-10-08T20:43:02.705Z",
+"created_at": "179149218270500",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 2"
+},
+{
+"at": "2026-10-08T20:43:08.405Z",
+"created_at": "179149218840500",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:43:09.252Z",
+"created_at": "179149218925200",
+"msg": "Turn: 3\u2663, 4\u2663, 6\u2663 [7\u2666]"
+},
+{
+"at": "2026-10-08T20:43:18.004Z",
+"created_at": "179149219800400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:43:27.748Z",
+"created_at": "179149220774800",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 12"
+},
+{
+"at": "2026-10-08T20:43:35.807Z",
+"created_at": "179149221580700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:43:37.133Z",
+"created_at": "179149221713300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:43:37.958Z",
+"created_at": "179149221795800",
+"msg": "Uncalled bet of 12 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:43:37.958Z",
+"created_at": "179149221795801",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 24 from pot"
+},
+{
+"at": "2026-10-08T20:43:37.958Z",
+"created_at": "179149221795802",
+"msg": "-- ending hand #42 --"
+},
+{
+"at": "2026-10-08T20:43:39.992Z",
+"created_at": "179149221999200",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a A\u2663, J\u2663."
+},
+{
+"at": "2026-10-08T20:43:41.572Z",
+"created_at": "179149222157200",
+"msg": "-- starting hand #43 (id: rpwkjdqqzlqk)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T20:43:41.572Z",
+"created_at": "179149222157201",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (345) | #2 \"Fish @ Kw9sDf3Jq_\" (408) | #7 \"Ace @ Qp7zLm2Xa1\" (185) | #8 \"Tex @ Tz6gBn1Vel\" (288)"
+},
+{
+"at": "2026-10-08T20:43:41.572Z",
+"created_at": "179149222157206",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:43:41.572Z",
+"created_at": "179149222157207",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:43:43.374Z",
+"created_at": "179149222337400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:43:48.483Z",
+"created_at": "179149222848300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:43:52.105Z",
+"created_at": "179149223210500",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 6"
+},
+{
+"at": "2026-10-08T20:43:59.673Z",
+"created_at": "179149223967300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 6"
+},
+{
+"at": "2026-10-08T20:44:00.487Z",
+"created_at": "179149224048700",
+"msg": "Flop:  [J\u2666, 9\u2660, A\u2666]"
+},
+{
+"at": "2026-10-08T20:44:11.036Z",
+"created_at": "179149225103600",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 6"
+},
+{
+"at": "2026-10-08T20:44:13.297Z",
+"created_at": "179149225329700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 6"
+},
+{
+"at": "2026-10-08T20:44:14.109Z",
+"created_at": "179149225410900",
+"msg": "Turn: J\u2666, 9\u2660, A\u2666 [5\u2660]"
+},
+{
+"at": "2026-10-08T20:44:17.569Z",
+"created_at": "179149225756900",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:44:19.765Z",
+"created_at": "179149225976500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:44:20.594Z",
+"created_at": "179149226059400",
+"msg": "River: J\u2666, 9\u2660, A\u2666, 5\u2660 [K\u2660]"
+},
+{
+"at": "2026-10-08T20:44:31.647Z",
+"created_at": "179149227164700",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 12"
+},
+{
+"at": "2026-10-08T20:45:15.706Z",
+"created_at": "179149231570600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:45:16.532Z",
+"created_at": "179149231653200",
+"msg": "Uncalled bet of 12 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:45:16.532Z",
+"created_at": "179149231653201",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 24 from pot"
+},
+{
+"at": "2026-10-08T20:45:16.532Z",
+"created_at": "179149231653202",
+"msg": "-- ending hand #43 --"
+},
+{
+"at": "2026-10-08T20:45:18.797Z",
+"created_at": "179149231879700",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a K\u2665."
+},
+{
+"at": "2026-10-08T20:45:20.151Z",
+"created_at": "179149232015100",
+"msg": "-- starting hand #44 (id: pyo9s2zxtpct)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:45:20.151Z",
+"created_at": "179149232015101",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (333) | #2 \"Fish @ Kw9sDf3Jq_\" (408) | #7 \"Ace @ Qp7zLm2Xa1\" (185) | #8 \"Tex @ Tz6gBn1Vel\" (300)"
+},
+{
+"at": "2026-10-08T20:45:20.151Z",
+"created_at": "179149232015106",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:45:20.151Z",
+"created_at": "179149232015107",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:45:26.323Z",
+"created_at": "179149232632300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:45:36.581Z",
+"created_at": "179149233658100",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 8"
+},
+{
+"at": "2026-10-08T20:45:37.955Z",
+"created_at": "179149233795500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:46:20.474Z",
+"created_at": "179149238047400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:46:21.533Z",
+"created_at": "179149238153300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:46:22.337Z",
+"created_at": "179149238233700",
+"msg": "Uncalled bet of 6 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T20:46:22.337Z",
+"created_at": "179149238233701",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 7 from pot"
+},
+{
+"at": "2026-10-08T20:46:22.337Z",
+"created_at": "179149238233702",
+"msg": "-- ending hand #44 --"
+},
+{
+"at": "2026-10-08T20:46:25.266Z",
+"created_at": "179149238526600",
+"msg": "-- starting hand #45 (id: sfe3esmbkqnq)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:46:25.266Z",
+"created_at": "179149238526601",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (332) | #2 \"Fish @ Kw9sDf3Jq_\" (406) | #7 \"Ace @ Qp7zLm2Xa1\" (183) | #8 \"Tex @ Tz6gBn1Vel\" (305)"
+},
+{
+"at": "2026-10-08T20:46:25.266Z",
+"created_at": "179149238526606",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:46:25.266Z",
+"created_at": "179149238526607",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:46:27.090Z",
+"created_at": "179149238709000",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:46:29.348Z",
+"created_at": "179149238934800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 2"
+},
+{
+"at": "2026-10-08T20:46:50.096Z",
+"created_at": "179149241009600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:46:55.928Z",
+"created_at": "179149241592800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:46:56.776Z",
+"created_at": "179149241677600",
+"msg": "Flop:  [2\u2665, 7\u2665, 5\u2663]"
+},
+{
+"at": "2026-10-08T20:47:14.888Z",
+"created_at": "179149243488800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:47:18.012Z",
+"created_at": "179149243801200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:47:28.436Z",
+"created_at": "179149244843600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 3"
+},
+{
+"at": "2026-10-08T20:47:31.878Z",
+"created_at": "179149245187800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 3"
+},
+{
+"at": "2026-10-08T20:47:41.768Z",
+"created_at": "179149246176800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:47:42.575Z",
+"created_at": "179149246257500",
+"msg": "Turn: 2\u2665, 7\u2665, 5\u2663 [J\u2666]"
+},
+{
+"at": "2026-10-08T20:47:47.471Z",
+"created_at": "179149246747100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:47:49.667Z",
+"created_at": "179149246966700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:47:50.478Z",
+"created_at": "179149247047800",
+"msg": "River: 2\u2665, 7\u2665, 5\u2663, J\u2666 [Q\u2660]"
+},
+{
+"at": "2026-10-08T20:47:56.879Z",
+"created_at": "179149247687900",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:47:58.149Z",
+"created_at": "179149247814900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:47:58.989Z",
+"created_at": "179149247898900",
+"msg": "\"Fish @ Kw9sDf3Jq_\" shows a 8\u2663, 9\u2663."
+},
+{
+"at": "2026-10-08T20:47:58.989Z",
+"created_at": "179149247898901",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 5\u2666, 6\u2665."
+},
+{
+"at": "2026-10-08T20:47:58.989Z",
+"created_at": "179149247898902",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 12 from pot with Pair, 5's (combination: 7\u2665, J\u2666, Q\u2660, 5\u2666, 5\u2663)"
+},
+{
+"at": "2026-10-08T20:47:58.989Z",
+"created_at": "179149247898903",
+"msg": "-- ending hand #45 --"
+},
+{
+"at": "2026-10-08T20:48:05.013Z",
+"created_at": "179149248501300",
+"msg": "-- starting hand #46 (id: bhtmjkpqjnev)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:48:05.013Z",
+"created_at": "179149248501301",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (339) | #2 \"Fish @ Kw9sDf3Jq_\" (401) | #7 \"Ace @ Qp7zLm2Xa1\" (181) | #8 \"Tex @ Tz6gBn1Vel\" (305)"
+},
+{
+"at": "2026-10-08T20:48:05.013Z",
+"created_at": "179149248501306",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:48:05.013Z",
+"created_at": "179149248501307",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:48:06.402Z",
+"created_at": "179149248640200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:48:12.086Z",
+"created_at": "179149249208600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:48:14.489Z",
+"created_at": "179149249448900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:48:15.427Z",
+"created_at": "179149249542700",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:48:16.271Z",
+"created_at": "179149249627100",
+"msg": "Flop:  [A\u2665, J\u2666, 8\u2666]"
+},
+{
+"at": "2026-10-08T20:48:23.769Z",
+"created_at": "179149250376900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:48:24.719Z",
+"created_at": "179149250471900",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:48:25.551Z",
+"created_at": "179149250555100",
+"msg": "Turn: A\u2665, J\u2666, 8\u2666 [5\u2663]"
+},
+{
+"at": "2026-10-08T20:48:32.633Z",
+"created_at": "179149251263300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 4"
+},
+{
+"at": "2026-10-08T20:48:33.934Z",
+"created_at": "179149251393400",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 4"
+},
+{
+"at": "2026-10-08T20:48:34.758Z",
+"created_at": "179149251475800",
+"msg": "River: A\u2665, J\u2666, 8\u2666, 5\u2663 [8\u2660]"
+},
+{
+"at": "2026-10-08T20:48:40.339Z",
+"created_at": "179149252033900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 12"
+},
+{
+"at": "2026-10-08T20:48:50.071Z",
+"created_at": "179149253007100",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:48:50.877Z",
+"created_at": "179149253087700",
+"msg": "Uncalled bet of 12 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:48:50.877Z",
+"created_at": "179149253087701",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 12 from pot"
+},
+{
+"at": "2026-10-08T20:48:50.877Z",
+"created_at": "179149253087702",
+"msg": "-- ending hand #46 --"
+},
+{
+"at": "2026-10-08T20:48:53.781Z",
+"created_at": "179149253378100",
+"msg": "-- starting hand #47 (id: kiyftzhtpfup)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T20:48:53.781Z",
+"created_at": "179149253378101",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (339) | #2 \"Fish @ Kw9sDf3Jq_\" (401) | #7 \"Ace @ Qp7zLm2Xa1\" (187) | #8 \"Tex @ Tz6gBn1Vel\" (299)"
+},
+{
+"at": "2026-10-08T20:48:53.781Z",
+"created_at": "179149253378106",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:48:53.781Z",
+"created_at": "179149253378107",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:49:02.886Z",
+"created_at": "179149254288600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:49:05.689Z",
+"created_at": "179149254568900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:49:06.700Z",
+"created_at": "179149254670000",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:49:11.514Z",
+"created_at": "179149255151400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 4"
+},
+{
+"at": "2026-10-08T20:49:14.011Z",
+"created_at": "179149255401100",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 4"
+},
+{
+"at": "2026-10-08T20:49:14.845Z",
+"created_at": "179149255484500",
+"msg": "Flop:  [8\u2666, 8\u2663, 8\u2665]"
+},
+{
+"at": "2026-10-08T20:49:30.278Z",
+"created_at": "179149257027800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:49:32.493Z",
+"created_at": "179149257249300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:49:33.337Z",
+"created_at": "179149257333700",
+"msg": "Turn: 8\u2666, 8\u2663, 8\u2665 [5\u2660]"
+},
+{
+"at": "2026-10-08T20:49:36.271Z",
+"created_at": "179149257627100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:49:40.494Z",
+"created_at": "179149258049400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:49:41.297Z",
+"created_at": "179149258129700",
+"msg": "River: 8\u2666, 8\u2663, 8\u2665, 5\u2660 [5\u2665]"
+},
+{
+"at": "2026-10-08T20:49:51.799Z",
+"created_at": "179149259179900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 335 and go all in"
+},
+{
+"at": "2026-10-08T20:49:58.808Z",
+"created_at": "179149259880800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:49:59.660Z",
+"created_at": "179149259966000",
+"msg": "Uncalled bet of 335 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:49:59.660Z",
+"created_at": "179149259966001",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 9 from pot"
+},
+{
+"at": "2026-10-08T20:49:59.660Z",
+"created_at": "179149259966002",
+"msg": "-- ending hand #47 --"
+},
+{
+"at": "2026-10-08T20:50:02.381Z",
+"created_at": "179149260238100",
+"msg": "\"Ace @ Qp7zLm2Xa1\" shows a J\u2666, 4\u2666."
+},
+{
+"at": "2026-10-08T20:50:03.294Z",
+"created_at": "179149260329400",
+"msg": "-- starting hand #48 (id: tzi1cmn5jtbg)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:50:03.294Z",
+"created_at": "179149260329401",
+"msg": "Player stacks: #1 \"Rocky @ Mx2cPj5Wor\" (344) | #2 \"Fish @ Kw9sDf3Jq_\" (401) | #7 \"Ace @ Qp7zLm2Xa1\" (183) | #8 \"Tex @ Tz6gBn1Vel\" (298)"
+},
+{
+"at": "2026-10-08T20:50:03.294Z",
+"created_at": "179149260329406",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:50:03.294Z",
+"created_at": "179149260329407",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:50:18.248Z",
+"created_at": "179149261824800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 4"
+},
+{
+"at": "2026-10-08T20:50:31.760Z",
+"created_at": "179149263176000",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 6"
+},
+{
+"at": "2026-10-08T20:50:34.341Z",
+"created_at": "179149263434100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 24"
+},
+{
+"at": "2026-10-08T20:50:36.984Z",
+"created_at": "179149263698400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:50:44.813Z",
+"created_at": "179149264481300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 24"
+},
+{
+"at": "2026-10-08T20:50:48.525Z",
+"created_at": "179149264852500",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:50:49.345Z",
+"created_at": "179149264934500",
+"msg": "Flop:  [9\u2666, 4\u2665, Q\u2666]"
+},
+{
+"at": "2026-10-08T20:50:54.230Z",
+"created_at": "179149265423000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:50:57.768Z",
+"created_at": "179149265776800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:50:58.572Z",
+"created_at": "179149265857200",
+"msg": "Turn: 9\u2666, 4\u2665, Q\u2666 [K\u2665]"
+},
+{
+"at": "2026-10-08T20:50:59.444Z",
+"created_at": "179149265944400",
+"msg": "The admin \"Tex @ Tz6gBn1Vel\" enqueued the game stop on next hand."
+},
+{
+"at": "2026-10-08T20:51:05.056Z",
+"created_at": "179149266505600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 42"
+},
+{
+"at": "2026-10-08T20:51:07.293Z",
+"created_at": "179149266729300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:51:08.105Z",
+"created_at": "179149266810500",
+"msg": "Uncalled bet of 42 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:51:08.105Z",
+"created_at": "179149266810501",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 56 from pot"
+},
+{
+"at": "2026-10-08T20:51:08.105Z",
+"created_at": "179149266810502",
+"msg": "-- ending hand #48 --"
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328200",
+"msg": "-- starting hand #49 (id: 1aftilusgjbr)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328201",
+"msg": "The player \"Ace @ Qp7zLm2Xa1\" joined the game with a stack of 159."
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328202",
+"msg": "The player \"Tex @ Tz6gBn1Vel\" joined the game with a stack of 292."
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328203",
+"msg": "The player \"Rocky @ Mx2cPj5Wor\" joined the game with a stack of 376."
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328204",
+"msg": "The player \"Fish @ Kw9sDf3Jq_\" joined the game with a stack of 399."
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328205",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (159) | #4 \"Tex @ Tz6gBn1Vel\" (292) | #8 \"Rocky @ Mx2cPj5Wor\" (376) | #10 \"Fish @ Kw9sDf3Jq_\" (399)"
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328210",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:51:13.282Z",
+"created_at": "179149267328211",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:51:18.554Z",
+"created_at": "179149267855400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 2"
+},
+{
+"at": "2026-10-08T20:51:20.375Z",
+"created_at": "179149268037500",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:51:24.487Z",
+"created_at": "179149268448700",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:51:30.598Z",
+"created_at": "179149269059800",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:51:31.474Z",
+"created_at": "179149269147400",
+"msg": "Flop:  [A\u2665, 3\u2665, 4\u2660]"
+},
+{
+"at": "2026-10-08T20:51:35.048Z",
+"created_at": "179149269504800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:51:35.998Z",
+"created_at": "179149269599800",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:51:38.421Z",
+"created_at": "179149269842100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 2"
+},
+{
+"at": "2026-10-08T20:51:49.322Z",
+"created_at": "179149270932200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:51:52.648Z",
+"created_at": "179149271264800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:51:57.522Z",
+"created_at": "179149271752200",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:51:58.346Z",
+"created_at": "179149271834600",
+"msg": "Turn: A\u2665, 3\u2665, 4\u2660 [6\u2665]"
+},
+{
+"at": "2026-10-08T20:52:03.449Z",
+"created_at": "179149272344900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:52:08.365Z",
+"created_at": "179149272836500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:52:15.450Z",
+"created_at": "179149273545000",
+"msg": "\"Fish @ Kw9sDf3Jq_\" bets 7"
+},
+{
+"at": "2026-10-08T20:52:18.968Z",
+"created_at": "179149273896800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:52:36.475Z",
+"created_at": "179149275647500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 7"
+},
+{
+"at": "2026-10-08T20:52:37.293Z",
+"created_at": "179149275729300",
+"msg": "River: A\u2665, 3\u2665, 4\u2660, 6\u2665 [4\u2663]"
+},
+{
+"at": "2026-10-08T20:52:42.378Z",
+"created_at": "179149276237800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:52:45.703Z",
+"created_at": "179149276570300",
+"msg": "\"Fish @ Kw9sDf3Jq_\" bets 14"
+},
+{
+"at": "2026-10-08T20:52:56.585Z",
+"created_at": "179149277658500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:52:57.408Z",
+"created_at": "179149277740800",
+"msg": "Uncalled bet of 14 returned to \"Fish @ Kw9sDf3Jq_\""
+},
+{
+"at": "2026-10-08T20:52:57.408Z",
+"created_at": "179149277740801",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 28 from pot"
+},
+{
+"at": "2026-10-08T20:52:57.408Z",
+"created_at": "179149277740802",
+"msg": "-- ending hand #49 --"
+},
+{
+"at": "2026-10-08T20:53:00.334Z",
+"created_at": "179149278033400",
+"msg": "-- starting hand #50 (id: zjvqhuq6p0wm)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T20:53:00.334Z",
+"created_at": "179149278033401",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (155) | #4 \"Tex @ Tz6gBn1Vel\" (290) | #8 \"Rocky @ Mx2cPj5Wor\" (365) | #10 \"Fish @ Kw9sDf3Jq_\" (416)"
+},
+{
+"at": "2026-10-08T20:53:00.334Z",
+"created_at": "179149278033406",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:53:00.334Z",
+"created_at": "179149278033407",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:53:02.398Z",
+"created_at": "179149278239800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:53:29.530Z",
+"created_at": "179149280953000",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 5"
+},
+{
+"at": "2026-10-08T20:53:30.479Z",
+"created_at": "179149281047900",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:53:32.922Z",
+"created_at": "179149281292200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 5"
+},
+{
+"at": "2026-10-08T20:54:08.148Z",
+"created_at": "179149284814800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 5"
+},
+{
+"at": "2026-10-08T20:54:08.961Z",
+"created_at": "179149284896100",
+"msg": "Flop:  [4\u2660, 3\u2665, 8\u2666]"
+},
+{
+"at": "2026-10-08T20:54:21.383Z",
+"created_at": "179149286138300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:54:22.977Z",
+"created_at": "179149286297700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:54:24.254Z",
+"created_at": "179149286425400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:54:25.059Z",
+"created_at": "179149286505900",
+"msg": "Turn: 4\u2660, 3\u2665, 8\u2666 [10\u2665]"
+},
+{
+"at": "2026-10-08T20:54:47.698Z",
+"created_at": "179149288769800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:54:49.127Z",
+"created_at": "179149288912700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:54:50.144Z",
+"created_at": "179149289014400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:54:50.949Z",
+"created_at": "179149289094900",
+"msg": "River: 4\u2660, 3\u2665, 8\u2666, 10\u2665 [K\u2665]"
+},
+{
+"at": "2026-10-08T20:54:53.861Z",
+"created_at": "179149289386100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:54:58.257Z",
+"created_at": "179149289825700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:55:00.221Z",
+"created_at": "179149290022100",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:55:01.051Z",
+"created_at": "179149290105100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a J\u2660, A\u2663."
+},
+{
+"at": "2026-10-08T20:55:01.051Z",
+"created_at": "179149290105101",
+"msg": "\"Fish @ Kw9sDf3Jq_\" shows a 6\u2660, K\u2660."
+},
+{
+"at": "2026-10-08T20:55:01.051Z",
+"created_at": "179149290105102",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 16 from pot with Pair, K's (combination: 6\u2660, 8\u2666, 10\u2665, K\u2660, K\u2665)"
+},
+{
+"at": "2026-10-08T20:55:01.051Z",
+"created_at": "179149290105103",
+"msg": "-- ending hand #50 --"
+},
+{
+"at": "2026-10-08T20:55:07.062Z",
+"created_at": "179149290706200",
+"msg": "-- starting hand #51 (id: tznrgfajlyj2)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:55:07.062Z",
+"created_at": "179149290706201",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (150) | #4 \"Tex @ Tz6gBn1Vel\" (289) | #8 \"Rocky @ Mx2cPj5Wor\" (360) | #10 \"Fish @ Kw9sDf3Jq_\" (427)"
+},
+{
+"at": "2026-10-08T20:55:07.062Z",
+"created_at": "179149290706206",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:55:07.062Z",
+"created_at": "179149290706207",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:55:14.569Z",
+"created_at": "179149291456900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 4"
+},
+{
+"at": "2026-10-08T20:55:15.508Z",
+"created_at": "179149291550800",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:55:44.643Z",
+"created_at": "179149294464300",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 4"
+},
+{
+"at": "2026-10-08T20:55:46.140Z",
+"created_at": "179149294614000",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 4"
+},
+{
+"at": "2026-10-08T20:55:46.971Z",
+"created_at": "179149294697100",
+"msg": "Flop:  [2\u2660, 6\u2660, J\u2660]"
+},
+{
+"at": "2026-10-08T20:55:50.181Z",
+"created_at": "179149295018100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:55:53.584Z",
+"created_at": "179149295358400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:55:58.322Z",
+"created_at": "179149295832200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 12"
+},
+{
+"at": "2026-10-08T20:56:07.979Z",
+"created_at": "179149296797900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:56:09.762Z",
+"created_at": "179149296976200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 12"
+},
+{
+"at": "2026-10-08T20:56:10.571Z",
+"created_at": "179149297057100",
+"msg": "Turn: 2\u2660, 6\u2660, J\u2660 [Q\u2666]"
+},
+{
+"at": "2026-10-08T20:56:12.616Z",
+"created_at": "179149297261600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:56:16.802Z",
+"created_at": "179149297680200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 36"
+},
+{
+"at": "2026-10-08T20:56:19.354Z",
+"created_at": "179149297935400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:56:20.172Z",
+"created_at": "179149298017200",
+"msg": "Uncalled bet of 36 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:56:20.172Z",
+"created_at": "179149298017201",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 36 from pot"
+},
+{
+"at": "2026-10-08T20:56:20.172Z",
+"created_at": "179149298017202",
+"msg": "-- ending hand #51 --"
+},
+{
+"at": "2026-10-08T20:56:23.091Z",
+"created_at": "179149298309100",
+"msg": "-- starting hand #52 (id: sahqfebdqhll)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:56:23.091Z",
+"created_at": "179149298309101",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (170) | #4 \"Tex @ Tz6gBn1Vel\" (289) | #8 \"Rocky @ Mx2cPj5Wor\" (356) | #10 \"Fish @ Kw9sDf3Jq_\" (411)"
+},
+{
+"at": "2026-10-08T20:56:23.091Z",
+"created_at": "179149298309106",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:56:23.091Z",
+"created_at": "179149298309107",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:56:25.395Z",
+"created_at": "179149298539500",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:56:40.559Z",
+"created_at": "179149300055900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 7"
+},
+{
+"at": "2026-10-08T20:56:41.604Z",
+"created_at": "179149300160400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:56:42.663Z",
+"created_at": "179149300266300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:56:43.481Z",
+"created_at": "179149300348100",
+"msg": "Uncalled bet of 5 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:56:43.481Z",
+"created_at": "179149300348101",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 5 from pot"
+},
+{
+"at": "2026-10-08T20:56:43.481Z",
+"created_at": "179149300348102",
+"msg": "-- ending hand #52 --"
+},
+{
+"at": "2026-10-08T20:56:46.444Z",
+"created_at": "179149300644400",
+"msg": "-- starting hand #53 (id: efqpvrt4nkfk)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T20:56:46.444Z",
+"created_at": "179149300644401",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (168) | #4 \"Tex @ Tz6gBn1Vel\" (289) | #8 \"Rocky @ Mx2cPj5Wor\" (359) | #10 \"Fish @ Kw9sDf3Jq_\" (410)"
+},
+{
+"at": "2026-10-08T20:56:46.444Z",
+"created_at": "179149300644406",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:56:46.444Z",
+"created_at": "179149300644407",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:57:24.536Z",
+"created_at": "179149304453600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:57:30.327Z",
+"created_at": "179149305032700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 2"
+},
+{
+"at": "2026-10-08T20:57:31.458Z",
+"created_at": "179149305145800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:57:32.383Z",
+"created_at": "179149305238300",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T20:57:33.191Z",
+"created_at": "179149305319100",
+"msg": "Flop:  [3\u2665, 9\u2666, 3\u2660]"
+},
+{
+"at": "2026-10-08T20:57:42.338Z",
+"created_at": "179149306233800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 6"
+},
+{
+"at": "2026-10-08T20:57:43.288Z",
+"created_at": "179149306328800",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:57:44.552Z",
+"created_at": "179149306455200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:57:45.366Z",
+"created_at": "179149306536600",
+"msg": "Uncalled bet of 6 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:57:45.366Z",
+"created_at": "179149306536601",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 6 from pot"
+},
+{
+"at": "2026-10-08T20:57:45.366Z",
+"created_at": "179149306536602",
+"msg": "-- ending hand #53 --"
+},
+{
+"at": "2026-10-08T20:57:48.271Z",
+"created_at": "179149306827100",
+"msg": "-- starting hand #54 (id: 5ialwgfqhqis)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T20:57:48.271Z",
+"created_at": "179149306827101",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (172) | #4 \"Tex @ Tz6gBn1Vel\" (287) | #8 \"Rocky @ Mx2cPj5Wor\" (359) | #10 \"Fish @ Kw9sDf3Jq_\" (408)"
+},
+{
+"at": "2026-10-08T20:57:48.271Z",
+"created_at": "179149306827106",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:57:48.271Z",
+"created_at": "179149306827107",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:57:49.757Z",
+"created_at": "179149306975700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:57:52.493Z",
+"created_at": "179149307249300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T20:57:53.484Z",
+"created_at": "179149307348400",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:58:07.678Z",
+"created_at": "179149308767800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:58:08.502Z",
+"created_at": "179149308850200",
+"msg": "Flop:  [2\u2663, 8\u2663, 3\u2666]"
+},
+{
+"at": "2026-10-08T20:58:20.461Z",
+"created_at": "179149310046100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T20:58:21.529Z",
+"created_at": "179149310152900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:58:22.341Z",
+"created_at": "179149310234100",
+"msg": "Turn: 2\u2663, 8\u2663, 3\u2666 [4\u2663]"
+},
+{
+"at": "2026-10-08T20:58:28.555Z",
+"created_at": "179149310855500",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 13"
+},
+{
+"at": "2026-10-08T20:58:48.791Z",
+"created_at": "179149312879100",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T20:58:49.607Z",
+"created_at": "179149312960700",
+"msg": "Uncalled bet of 13 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T20:58:49.607Z",
+"created_at": "179149312960701",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 5 from pot"
+},
+{
+"at": "2026-10-08T20:58:49.607Z",
+"created_at": "179149312960702",
+"msg": "-- ending hand #54 --"
+},
+{
+"at": "2026-10-08T20:58:52.511Z",
+"created_at": "179149313251100",
+"msg": "-- starting hand #55 (id: nuguclysssyw)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T20:58:52.511Z",
+"created_at": "179149313251101",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (170) | #4 \"Tex @ Tz6gBn1Vel\" (286) | #8 \"Rocky @ Mx2cPj5Wor\" (362) | #10 \"Fish @ Kw9sDf3Jq_\" (408)"
+},
+{
+"at": "2026-10-08T20:58:52.511Z",
+"created_at": "179149313251106",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:58:52.511Z",
+"created_at": "179149313251107",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T20:59:08.491Z",
+"created_at": "179149314849100",
+"msg": "\"Ace @ Qp7zLm2Xa1\" raises to 5"
+},
+{
+"at": "2026-10-08T20:59:09.473Z",
+"created_at": "179149314947300",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T20:59:23.584Z",
+"created_at": "179149316358400",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T20:59:29.536Z",
+"created_at": "179149316953600",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 5"
+},
+{
+"at": "2026-10-08T20:59:30.368Z",
+"created_at": "179149317036800",
+"msg": "Flop:  [Q\u2665, K\u2666, 6\u2665]"
+},
+{
+"at": "2026-10-08T20:59:34.564Z",
+"created_at": "179149317456400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:59:39.053Z",
+"created_at": "179149317905300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 8"
+},
+{
+"at": "2026-10-08T20:59:40.437Z",
+"created_at": "179149318043700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" calls 8"
+},
+{
+"at": "2026-10-08T20:59:41.263Z",
+"created_at": "179149318126300",
+"msg": "Turn: Q\u2665, K\u2666, 6\u2665 [Q\u2660]"
+},
+{
+"at": "2026-10-08T20:59:43.091Z",
+"created_at": "179149318309100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:59:44.562Z",
+"created_at": "179149318456200",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T20:59:45.375Z",
+"created_at": "179149318537500",
+"msg": "River: Q\u2665, K\u2666, 6\u2665, Q\u2660 [K\u2663]"
+},
+{
+"at": "2026-10-08T20:59:49.272Z",
+"created_at": "179149318927200",
+"msg": "\"Fish @ Kw9sDf3Jq_\" checks"
+},
+{
+"at": "2026-10-08T20:59:54.158Z",
+"created_at": "179149319415800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 27"
+},
+{
+"at": "2026-10-08T20:59:55.551Z",
+"created_at": "179149319555100",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T20:59:56.364Z",
+"created_at": "179149319636400",
+"msg": "Uncalled bet of 27 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T20:59:56.364Z",
+"created_at": "179149319636401",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 27 from pot"
+},
+{
+"at": "2026-10-08T20:59:56.364Z",
+"created_at": "179149319636402",
+"msg": "-- ending hand #55 --"
+},
+{
+"at": "2026-10-08T20:59:59.274Z",
+"created_at": "179149319927400",
+"msg": "-- starting hand #56 (id: udiirsctk96m)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T20:59:59.274Z",
+"created_at": "179149319927401",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (184) | #4 \"Tex @ Tz6gBn1Vel\" (286) | #8 \"Rocky @ Mx2cPj5Wor\" (361) | #10 \"Fish @ Kw9sDf3Jq_\" (395)"
+},
+{
+"at": "2026-10-08T20:59:59.274Z",
+"created_at": "179149319927406",
+"msg": "\"Fish @ Kw9sDf3Jq_\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T20:59:59.274Z",
+"created_at": "179149319927407",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:00:02.563Z",
+"created_at": "179149320256300",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 7"
+},
+{
+"at": "2026-10-08T21:00:16.980Z",
+"created_at": "179149321698000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 7"
+},
+{
+"at": "2026-10-08T21:00:30.288Z",
+"created_at": "179149323028800",
+"msg": "\"Fish @ Kw9sDf3Jq_\" raises to 18"
+},
+{
+"at": "2026-10-08T21:00:31.454Z",
+"created_at": "179149323145400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T21:00:35.414Z",
+"created_at": "179149323541400",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 18"
+},
+{
+"at": "2026-10-08T21:00:36.366Z",
+"created_at": "179149323636600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T21:00:37.249Z",
+"created_at": "179149323724900",
+"msg": "Flop:  [2\u2666, 7\u2665, 9\u2665]"
+},
+{
+"at": "2026-10-08T21:00:45.554Z",
+"created_at": "179149324555400",
+"msg": "\"Fish @ Kw9sDf3Jq_\" bets 22"
+},
+{
+"at": "2026-10-08T21:00:48.368Z",
+"created_at": "179149324836800",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T21:00:49.257Z",
+"created_at": "179149324925700",
+"msg": "Uncalled bet of 22 returned to \"Fish @ Kw9sDf3Jq_\""
+},
+{
+"at": "2026-10-08T21:00:49.257Z",
+"created_at": "179149324925701",
+"msg": "\"Fish @ Kw9sDf3Jq_\" collected 45 from pot"
+},
+{
+"at": "2026-10-08T21:00:49.257Z",
+"created_at": "179149324925702",
+"msg": "-- ending hand #56 --"
+},
+{
+"at": "2026-10-08T21:00:52.172Z",
+"created_at": "179149325217200",
+"msg": "-- starting hand #57 (id: z7uf74jd11cl)  No Limit Texas Hold'em (dealer: \"Fish @ Kw9sDf3Jq_\") --"
+},
+{
+"at": "2026-10-08T21:00:52.172Z",
+"created_at": "179149325217201",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (182) | #4 \"Tex @ Tz6gBn1Vel\" (268) | #8 \"Rocky @ Mx2cPj5Wor\" (354) | #10 \"Fish @ Kw9sDf3Jq_\" (422)"
+},
+{
+"at": "2026-10-08T21:00:52.172Z",
+"created_at": "179149325217206",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T21:00:52.172Z",
+"created_at": "179149325217207",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:01:01.190Z",
+"created_at": "179149326119000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 7"
+},
+{
+"at": "2026-10-08T21:01:02.367Z",
+"created_at": "179149326236700",
+"msg": "\"Fish @ Kw9sDf3Jq_\" folds"
+},
+{
+"at": "2026-10-08T21:01:06.253Z",
+"created_at": "179149326625300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T21:01:11.722Z",
+"created_at": "179149327172200",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T21:01:12.540Z",
+"created_at": "179149327254000",
+"msg": "Uncalled bet of 5 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T21:01:12.540Z",
+"created_at": "179149327254001",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 5 from pot"
+},
+{
+"at": "2026-10-08T21:01:12.540Z",
+"created_at": "179149327254002",
+"msg": "-- ending hand #57 --"
+},
+{
+"at": "2026-10-08T21:01:15.483Z",
+"created_at": "179149327548300",
+"msg": "The player \"Fish @ Kw9sDf3Jq_\" quits the game with a stack of 422."
+},
+{
+"at": "2026-10-08T21:01:15.483Z",
+"created_at": "179149327548301",
+"msg": "-- starting hand #58 (id: 872i3y3imdof)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T21:01:15.483Z",
+"created_at": "179149327548302",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (181) | #4 \"Tex @ Tz6gBn1Vel\" (266) | #8 \"Rocky @ Mx2cPj5Wor\" (357)"
+},
+{
+"at": "2026-10-08T21:01:15.483Z",
+"created_at": "179149327548306",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T21:01:15.483Z",
+"created_at": "179149327548307",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:01:19.768Z",
+"created_at": "179149327976800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T21:01:22.207Z",
+"created_at": "179149328220700",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T21:01:25.820Z",
+"created_at": "179149328582000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T21:01:26.627Z",
+"created_at": "179149328662700",
+"msg": "Flop:  [10\u2666, 9\u2666, 6\u2663]"
+},
+{
+"at": "2026-10-08T21:01:36.649Z",
+"created_at": "179149329664900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T21:01:45.136Z",
+"created_at": "179149330513600",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 5"
+},
+{
+"at": "2026-10-08T21:01:58.778Z",
+"created_at": "179149331877800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 16"
+},
+{
+"at": "2026-10-08T21:02:02.818Z",
+"created_at": "179149332281800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 16"
+},
+{
+"at": "2026-10-08T21:02:03.650Z",
+"created_at": "179149332365000",
+"msg": "Turn: 10\u2666, 9\u2666, 6\u2663 [2\u2666]"
+},
+{
+"at": "2026-10-08T21:02:26.358Z",
+"created_at": "179149334635800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 18"
+},
+{
+"at": "2026-10-08T21:02:36.176Z",
+"created_at": "179149335617600",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 18"
+},
+{
+"at": "2026-10-08T21:02:37.039Z",
+"created_at": "179149335703900",
+"msg": "River: 10\u2666, 9\u2666, 6\u2663, 2\u2666 [3\u2665]"
+},
+{
+"at": "2026-10-08T21:03:06.670Z",
+"created_at": "179149338667000",
+"msg": "\"Rocky @ Mx2cPj5Wor\" bets 147"
+},
+{
+"at": "2026-10-08T21:03:15.848Z",
+"created_at": "179149339584800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 145 and go all in"
+},
+{
+"at": "2026-10-08T21:03:16.662Z",
+"created_at": "179149339666200",
+"msg": "Uncalled bet of 2 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T21:03:16.662Z",
+"created_at": "179149339666201",
+"msg": "\"Rocky @ Mx2cPj5Wor\" shows a 4\u2663, 8\u2663."
+},
+{
+"at": "2026-10-08T21:03:16.662Z",
+"created_at": "179149339666202",
+"msg": "\"Ace @ Qp7zLm2Xa1\" shows a 5\u2665, 10\u2665."
+},
+{
+"at": "2026-10-08T21:03:16.662Z",
+"created_at": "179149339666203",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 363 from pot with Pair, 10's (combination: 5\u2665, 6\u2663, 9\u2666, 10\u2665, 10\u2666)"
+},
+{
+"at": "2026-10-08T21:03:16.662Z",
+"created_at": "179149339666204",
+"msg": "-- ending hand #58 --"
+},
+{
+"at": "2026-10-08T21:03:22.665Z",
+"created_at": "179149340266500",
+"msg": "-- starting hand #59 (id: d6kwpgdzg0ub)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T21:03:22.665Z",
+"created_at": "179149340266501",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (363) | #4 \"Tex @ Tz6gBn1Vel\" (265) | #8 \"Rocky @ Mx2cPj5Wor\" (176)"
+},
+{
+"at": "2026-10-08T21:03:22.665Z",
+"created_at": "179149340266505",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T21:03:22.665Z",
+"created_at": "179149340266506",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:03:33.496Z",
+"created_at": "179149341349600",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 5"
+},
+{
+"at": "2026-10-08T21:03:34.571Z",
+"created_at": "179149341457100",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T21:03:50.673Z",
+"created_at": "179149343067300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 5"
+},
+{
+"at": "2026-10-08T21:03:51.489Z",
+"created_at": "179149343148900",
+"msg": "Flop:  [3\u2663, 8\u2665, 6\u2666]"
+},
+{
+"at": "2026-10-08T21:03:59.873Z",
+"created_at": "179149343987300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 5"
+},
+{
+"at": "2026-10-08T21:04:02.066Z",
+"created_at": "179149344206600",
+"msg": "\"Tex @ Tz6gBn1Vel\" calls 5"
+},
+{
+"at": "2026-10-08T21:04:02.884Z",
+"created_at": "179149344288400",
+"msg": "Turn: 3\u2663, 8\u2665, 6\u2666 [3\u2665]"
+},
+{
+"at": "2026-10-08T21:04:19.093Z",
+"created_at": "179149345909300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 2"
+},
+{
+"at": "2026-10-08T21:04:36.437Z",
+"created_at": "179149347643700",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 10"
+},
+{
+"at": "2026-10-08T21:04:41.834Z",
+"created_at": "179149348183400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 10"
+},
+{
+"at": "2026-10-08T21:04:42.651Z",
+"created_at": "179149348265100",
+"msg": "River: 3\u2663, 8\u2665, 6\u2666, 3\u2665 [6\u2660]"
+},
+{
+"at": "2026-10-08T21:04:54.694Z",
+"created_at": "179149349469400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T21:04:55.656Z",
+"created_at": "179149349565600",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T21:04:56.479Z",
+"created_at": "179149349647900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" shows a 4\u2666, 4\u2660."
+},
+{
+"at": "2026-10-08T21:04:56.479Z",
+"created_at": "179149349647901",
+"msg": "\"Tex @ Tz6gBn1Vel\" shows a J\u2663, 8\u2666."
+},
+{
+"at": "2026-10-08T21:04:56.479Z",
+"created_at": "179149349647902",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 41 from pot with Two Pair, 8's & 6's (combination: J\u2663, 6\u2666, 6\u2660, 8\u2666, 8\u2665)"
+},
+{
+"at": "2026-10-08T21:04:56.479Z",
+"created_at": "179149349647903",
+"msg": "-- ending hand #59 --"
+},
+{
+"at": "2026-10-08T21:05:02.519Z",
+"created_at": "179149350251900",
+"msg": "-- starting hand #60 (id: ix0fndfvh8vu)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T21:05:02.519Z",
+"created_at": "179149350251901",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (343) | #4 \"Tex @ Tz6gBn1Vel\" (286) | #8 \"Rocky @ Mx2cPj5Wor\" (175)"
+},
+{
+"at": "2026-10-08T21:05:02.519Z",
+"created_at": "179149350251905",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T21:05:02.519Z",
+"created_at": "179149350251906",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:05:24.412Z",
+"created_at": "179149352441200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T21:05:32.693Z",
+"created_at": "179149353269300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T21:05:35.648Z",
+"created_at": "179149353564800",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T21:05:36.478Z",
+"created_at": "179149353647800",
+"msg": "Flop:  [10\u2660, 4\u2660, 8\u2663]"
+},
+{
+"at": "2026-10-08T21:05:43.898Z",
+"created_at": "179149354389800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T21:05:46.744Z",
+"created_at": "179149354674400",
+"msg": "\"Tex @ Tz6gBn1Vel\" checks"
+},
+{
+"at": "2026-10-08T21:05:47.554Z",
+"created_at": "179149354755400",
+"msg": "Turn: 10\u2660, 4\u2660, 8\u2663 [4\u2663]"
+},
+{
+"at": "2026-10-08T21:05:51.058Z",
+"created_at": "179149355105800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T21:05:55.344Z",
+"created_at": "179149355534400",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 4"
+},
+{
+"at": "2026-10-08T21:05:58.693Z",
+"created_at": "179149355869300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T21:05:59.505Z",
+"created_at": "179149355950500",
+"msg": "Uncalled bet of 4 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T21:05:59.505Z",
+"created_at": "179149355950501",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T21:05:59.505Z",
+"created_at": "179149355950502",
+"msg": "-- ending hand #60 --"
+},
+{
+"at": "2026-10-08T21:06:02.444Z",
+"created_at": "179149356244400",
+"msg": "-- starting hand #61 (id: izvoryrwh62x)  No Limit Texas Hold'em (dealer: \"Ace @ Qp7zLm2Xa1\") --"
+},
+{
+"at": "2026-10-08T21:06:02.444Z",
+"created_at": "179149356244401",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (341) | #4 \"Tex @ Tz6gBn1Vel\" (288) | #8 \"Rocky @ Mx2cPj5Wor\" (175)"
+},
+{
+"at": "2026-10-08T21:06:02.444Z",
+"created_at": "179149356244405",
+"msg": "\"Tex @ Tz6gBn1Vel\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T21:06:02.444Z",
+"created_at": "179149356244406",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:06:08.993Z",
+"created_at": "179149356899300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 2"
+},
+{
+"at": "2026-10-08T21:06:13.674Z",
+"created_at": "179149357367400",
+"msg": "\"Tex @ Tz6gBn1Vel\" raises to 8"
+},
+{
+"at": "2026-10-08T21:06:15.529Z",
+"created_at": "179149357552900",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T21:06:19.994Z",
+"created_at": "179149357999400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" calls 8"
+},
+{
+"at": "2026-10-08T21:06:20.842Z",
+"created_at": "179149358084200",
+"msg": "Flop:  [9\u2663, K\u2666, 2\u2666]"
+},
+{
+"at": "2026-10-08T21:06:30.349Z",
+"created_at": "179149359034900",
+"msg": "\"Tex @ Tz6gBn1Vel\" bets 9"
+},
+{
+"at": "2026-10-08T21:06:34.553Z",
+"created_at": "179149359455300",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T21:06:35.360Z",
+"created_at": "179149359536000",
+"msg": "Uncalled bet of 9 returned to \"Tex @ Tz6gBn1Vel\""
+},
+{
+"at": "2026-10-08T21:06:35.360Z",
+"created_at": "179149359536001",
+"msg": "\"Tex @ Tz6gBn1Vel\" collected 18 from pot"
+},
+{
+"at": "2026-10-08T21:06:35.360Z",
+"created_at": "179149359536002",
+"msg": "-- ending hand #61 --"
+},
+{
+"at": "2026-10-08T21:06:38.308Z",
+"created_at": "179149359830800",
+"msg": "-- starting hand #62 (id: 2malw8vienjd)  No Limit Texas Hold'em (dealer: \"Tex @ Tz6gBn1Vel\") --"
+},
+{
+"at": "2026-10-08T21:06:38.308Z",
+"created_at": "179149359830801",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (333) | #4 \"Tex @ Tz6gBn1Vel\" (298) | #8 \"Rocky @ Mx2cPj5Wor\" (173)"
+},
+{
+"at": "2026-10-08T21:06:38.308Z",
+"created_at": "179149359830805",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T21:06:38.308Z",
+"created_at": "179149359830806",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:06:40.007Z",
+"created_at": "179149360000700",
+"msg": "\"Tex @ Tz6gBn1Vel\" folds"
+},
+{
+"at": "2026-10-08T21:06:53.752Z",
+"created_at": "179149361375200",
+"msg": "\"Rocky @ Mx2cPj5Wor\" raises to 5"
+},
+{
+"at": "2026-10-08T21:06:54.848Z",
+"created_at": "179149361484800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" folds"
+},
+{
+"at": "2026-10-08T21:06:55.678Z",
+"created_at": "179149361567800",
+"msg": "Uncalled bet of 3 returned to \"Rocky @ Mx2cPj5Wor\""
+},
+{
+"at": "2026-10-08T21:06:55.678Z",
+"created_at": "179149361567801",
+"msg": "\"Rocky @ Mx2cPj5Wor\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T21:06:55.678Z",
+"created_at": "179149361567802",
+"msg": "-- ending hand #62 --"
+},
+{
+"at": "2026-10-08T21:06:58.592Z",
+"created_at": "179149361859200",
+"msg": "The player \"Tex @ Tz6gBn1Vel\" stand up with the stack of 298."
+},
+{
+"at": "2026-10-08T21:06:58.592Z",
+"created_at": "179149361859201",
+"msg": "-- starting hand #63 (id: h3kohqksegoy)  No Limit Texas Hold'em (dealer: \"Rocky @ Mx2cPj5Wor\") --"
+},
+{
+"at": "2026-10-08T21:06:58.592Z",
+"created_at": "179149361859202",
+"msg": "Player stacks: #2 \"Ace @ Qp7zLm2Xa1\" (331) | #8 \"Rocky @ Mx2cPj5Wor\" (175)"
+},
+{
+"at": "2026-10-08T21:06:58.592Z",
+"created_at": "179149361859205",
+"msg": "\"Rocky @ Mx2cPj5Wor\" posts a small blind of 1"
+},
+{
+"at": "2026-10-08T21:06:58.592Z",
+"created_at": "179149361859206",
+"msg": "\"Ace @ Qp7zLm2Xa1\" posts a big blind of 2"
+},
+{
+"at": "2026-10-08T21:07:11.827Z",
+"created_at": "179149363182700",
+"msg": "\"Rocky @ Mx2cPj5Wor\" calls 2"
+},
+{
+"at": "2026-10-08T21:07:12.958Z",
+"created_at": "179149363295800",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T21:07:13.770Z",
+"created_at": "179149363377000",
+"msg": "Flop:  [2\u2665, 10\u2663, 4\u2665]"
+},
+{
+"at": "2026-10-08T21:07:26.054Z",
+"created_at": "179149364605400",
+"msg": "\"Ace @ Qp7zLm2Xa1\" checks"
+},
+{
+"at": "2026-10-08T21:07:27.748Z",
+"created_at": "179149364774800",
+"msg": "\"Rocky @ Mx2cPj5Wor\" checks"
+},
+{
+"at": "2026-10-08T21:07:28.582Z",
+"created_at": "179149364858200",
+"msg": "Turn: 2\u2665, 10\u2663, 4\u2665 [2\u2663]"
+},
+{
+"at": "2026-10-08T21:07:36.199Z",
+"created_at": "179149365619900",
+"msg": "\"Ace @ Qp7zLm2Xa1\" bets 4"
+},
+{
+"at": "2026-10-08T21:07:43.786Z",
+"created_at": "179149366378600",
+"msg": "\"Rocky @ Mx2cPj5Wor\" folds"
+},
+{
+"at": "2026-10-08T21:07:44.590Z",
+"created_at": "179149366459000",
+"msg": "Uncalled bet of 4 returned to \"Ace @ Qp7zLm2Xa1\""
+},
+{
+"at": "2026-10-08T21:07:44.590Z",
+"created_at": "179149366459001",
+"msg": "\"Ace @ Qp7zLm2Xa1\" collected 4 from pot"
+},
+{
+"at": "2026-10-08T21:07:44.590Z",
+"created_at": "179149366459002",
+"msg": "-- ending hand #63 --"
+},
+{
+"at": "2026-10-08T21:07:47.542Z",
+"created_at": "179149366754200",
+"msg": "The player \"Rocky @ Mx2cPj5Wor\" quits the game with a stack of 173."
+},
+{
+"at": "2026-10-08T21:07:53.219Z",
+"created_at": "179149367321900",
+"msg": "The player \"Ace @ Qp7zLm2Xa1\" stand up with the stack of 333."
+},
+{
+"at": "2026-10-08T21:29:18.217Z",
+"created_at": "179149495821700",
+"msg": "The player \"Kid @ Kw9sDf3Jq_\" requested a seat."
+},
+{
+"at": "2026-10-09T00:37:16.510Z",
+"created_at": "179150623651000",
+"msg": "The player \"Kidd @ Kw9sDf3Jq_\" requested a seat."
+},
+{
+"at": "2026-10-09T00:49:46.751Z",
+"created_at": "179150698675100",
+"msg": "The player \"Kidd @ Kw9sDf3Jq_\" canceled the seat request."
+}
+]

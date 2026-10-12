@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.pytest_cache/
+.log-store/
+frontend/scripts/.render-check-*
+frontend/public/*.whl
+server.log
+build.log

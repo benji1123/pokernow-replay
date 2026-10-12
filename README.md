@@ -22,6 +22,8 @@ Tests: `cd backend && uv run pytest`. The frontend render check (no browser need
     cd backend && uv run python -m pokernow_analyzer.dump ../fixtures/sample.json > /tmp/session.json
     cd ../frontend && node scripts/render-check.mjs /tmp/session.json
 
+Avatar sprites live in `frontend/src/sprites.js`; preview the sheet with `node scripts/sprite-sheet.mjs /tmp/sprites.png 10`.
+
 ## Deploy
 
 `.github/workflows/pages.yml` runs the tests, builds the wheel and the site, and publishes `frontend/dist` to

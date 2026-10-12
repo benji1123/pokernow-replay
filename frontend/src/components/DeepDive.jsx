@@ -103,7 +103,7 @@ const POS_GROUPS = [
   { key: "blinds", label: "Blinds", pos: (p) => p === "SB" || p === "BB" },
 ];
 const LINE_LABEL = { raise: "raised", "3bet": "3-bet", call: "called", limp: "limped", check: "checked" };
-const lineColor = (line) => (line === "raise" || line === "3bet" ? "var(--hi)" : line === "check" ? "var(--muted)" : "var(--lo)");
+const lineColor = (line) => (line === "raise" || line === "3bet" ? "var(--hi)" : "var(--lo)");
 // Same classes as hole_class() in profile.py, derived from the combo key.
 function comboClass(c) {
   const [a, b] = [RANKS.indexOf(c[0]), RANKS.indexOf(c[1])];
@@ -115,7 +115,8 @@ function comboClass(c) {
 }
 
 export function RangeGrid({ player, color, openHands }) {
-  const all = player.profile.preflop.range || [];
+  // Hands with no voluntary preflop action (a free check in the big blind) say nothing about the range.
+  const all = (player.profile.preflop.range || []).filter((e) => e.line !== "check");
   const [lineKey, setLineKey] = useState("all");
   const [posKey, setPosKey] = useState("all");
   const lineGroup = LINE_GROUPS.find((g) => g.key === lineKey);
@@ -160,9 +161,8 @@ export function RangeGrid({ player, color, openHands }) {
       </div>
       <div className="range-legend">
         <Legend items={[
-          { key: "raised", label: "Raised / 3-bet", color: sizeColor("var(--hi)", 70) },
-          { key: "called", label: "Called / limped", color: sizeColor("var(--lo)", 70) },
-          { key: "check", label: "Checked", color: sizeColor("var(--muted)", 70) },
+          { key: "raised", label: "Raised", color: sizeColor("var(--hi)", 70) },
+          { key: "called", label: "Called", color: sizeColor("var(--lo)", 70) },
           { key: "never", label: "Never shown", color: "var(--bg-deep)" },
         ]} />
         <span className="range-ramp" title="Darker = seen more often">

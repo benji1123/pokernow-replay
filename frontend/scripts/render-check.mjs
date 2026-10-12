@@ -50,7 +50,7 @@ export function run(session) {
   // Preflop range grid: 169 cells for every player, and the seen-cell count must match the backend's shown hands.
   out.range = session.players.map((p) => {
     const html = renderToString(React.createElement(DD.RangeGrid, { player: p, color: colors[p.player_id].main, openHands() {} }));
-    const combos = new Set(p.profile.preflop.range.map((e) => e.combo)).size;
+    const combos = new Set(p.profile.preflop.range.filter((e) => e.line !== "check").map((e) => e.combo)).size;
     return { name: p.name, cells: (html.match(/class="range-cell /g) || []).length, seen: (html.match(/range-cell [^"]*seen/g) || []).length, combos, shown: p.profile.preflop.range.length };
   });
   out.handDetails = session.hands.map((h) =>

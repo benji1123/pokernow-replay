@@ -1,7 +1,15 @@
 import React, { useRef, useState } from "react";
 import { Sprite } from "./FloatingIcons.jsx";
 
-export default function UploadScreen({ onUpload, loading, error, engineStatus }) {
+function savedLabel({ files, summary, savedAt }) {
+  const n = files.length;
+  const parts = [`${n} log${n === 1 ? "" : "s"}`];
+  if (summary) parts.push(`${summary.hand_count} hands`, `${summary.players} players`);
+  parts.push(new Date(savedAt).toLocaleDateString(undefined, { month: "short", day: "numeric" }));
+  return parts.join(" · ");
+}
+
+export default function UploadScreen({ onUpload, loading, error, engineStatus, saved, onLoadSaved, onForgetSaved }) {
   const [over, setOver] = useState(false);
   const input = useRef();
 
@@ -49,8 +57,18 @@ export default function UploadScreen({ onUpload, loading, error, engineStatus })
       </div>
       {error ? <p className="error engine-status">{error}</p> : <p className="muted small engine-status">{engineStatus}</p>}
 
+      {saved && (
+        <div className="saved-session panel">
+          <span className="saved-text">
+            <b>Last session</b> · {savedLabel(saved)}
+          </span>
+          <button className="btn primary small" disabled={loading} onClick={onLoadSaved}>Load</button>
+          <button className="link small" onClick={onForgetSaved} title="Remove the cached logs from this browser">Forget</button>
+        </div>
+      )}
+
       <p className="how">
-        In your PokerNow room: <b>Ledger → Download log</b>. Several games combine into one set of stats. Everything is analyzed in your browser; the files never leave your device.
+        In your PokerNow room: <b>Ledger → Download log</b>. Several games combine into one set of stats. Everything is analyzed in your browser; the files never leave your device, and the last upload is kept in this browser so you can reload it next time.
       </p>
     </main>
   );

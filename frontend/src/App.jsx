@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { analyzeLogs, warmUp } from "./analyzer.js";
+import { forgetLastSession, loadLastSession, saveLastSession } from "./storage.js";
 import FloatingIcons from "./components/FloatingIcons.jsx";
 import UploadScreen from "./components/UploadScreen.jsx";
 import PlayersTable from "./components/PlayersTable.jsx";
@@ -34,12 +35,14 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [engineStatus, setEngineStatus] = useState("");
+  const [saved, setSaved] = useState(null); // last session cached in this browser, if any
   const colors = useMemo(() => (session ? assignColors(session.players) : {}), [session]);
   const series = useMemo(() => (session ? cumulativeNets(session.hands, session.players) : {}), [session]);
   const openPlayer = (id, handId) => setRoute(go({ page: "player", playerId: id, handId }));
 
   useEffect(() => {
     warmUp(setEngineStatus).catch((e) => setError(e.message)); // fetch Pyodide while the user finds their file
+    loadLastSession().then(setSaved);
   }, []);
 
   useEffect(() => {
@@ -55,11 +58,14 @@ export default function App() {
     setLoading(true);
     setError(null);
     try {
-      setSession(await analyzeLogs(all, { merges: m, autoMerge: a }, setEngineStatus));
+      const next = await analyzeLogs(all, { merges: m, autoMerge: a }, setEngineStatus);
+      setSession(next);
       setFiles(all);
       setMerges(m);
       setAutoMerge(a);
       if (route.page === "upload") setRoute(go({ page: "players" }));
+      const summary = { hand_count: next.hand_count, players: next.players.length, games: next.games.length };
+      saveLastSession(all, { merges: m, autoMerge: a }, summary).then(() => setSaved({ files: all, merges: m, autoMerge: a, summary, savedAt: Date.now() }));
     } catch (e) {
       setError(e.message);
     } finally {
@@ -76,7 +82,15 @@ export default function App() {
       <ThemeToggle />
       <KofiButton />
       {!session || route.page === "upload" ? (
-        <UploadScreen onUpload={load} loading={loading} error={error} engineStatus={engineStatus} />
+        <UploadScreen
+          onUpload={load}
+          loading={loading}
+          error={error}
+          engineStatus={engineStatus}
+          saved={saved}
+          onLoadSaved={() => load(saved.files, { merges: saved.merges, autoMerge: saved.autoMerge })}
+          onForgetSaved={() => forgetLastSession().then(() => setSaved(null))}
+        />
       ) : (
         <main className="app">
           <header className="topbar">

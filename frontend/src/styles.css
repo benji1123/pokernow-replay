@@ -115,6 +115,9 @@ button.link:hover, button.back:hover { text-decoration: underline; }
 .drop-title { font-size: 19px; font-weight: 600; margin: 14px 0 4px; }
 .drop-sub { color: var(--muted); margin: 0; }
 .how { color: var(--muted); font-size: 14px; margin-top: 28px; }
+.saved-session { display: flex; align-items: center; gap: 10px; margin: 14px auto 0; padding: 8px 12px; width: max-content; max-width: 100%; font-size: 13.5px; color: var(--ink-2); }
+.saved-session .btn.small { padding: 4px 12px; font-size: 12.5px; }
+.saved-session .link.small { font-size: 12.5px; color: var(--muted); }
 
 /* ---- tables ---- */
 table { border-collapse: collapse; width: 100%; }

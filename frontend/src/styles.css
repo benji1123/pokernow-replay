@@ -18,6 +18,8 @@
   --draw: #8a5cf6; /* semi-bluffs sit between air and a made pair */
   --red-suit: #d6455d;
   --black-suit: #1b1b1f;
+  --diamond-suit: #1f6fd6;
+  --club-suit: #1e8a4c;
   /* Stat tones: cool = tighter/more passive than typical, warm = looser/more aggressive. */
   --lo: #1c7ed6;
   --lo-soft: #e4f1fc;
@@ -293,7 +295,9 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .card-xs { width: 22px; height: 29px; font-size: 11px; gap: 0; border-radius: 4px; }
 .card-xs .suit { font-size: 0.9em; }
 .card .suit { font-size: 0.95em; }
-.card.suit-h, .card.suit-d { color: var(--red-suit); }
+.card.suit-h { color: var(--red-suit); }
+.card.suit-d { color: var(--diamond-suit); }
+.card.suit-c { color: var(--club-suit); }
 .card-back { background: repeating-linear-gradient(45deg, #5b7cfa 0 3px, #4c6ef5 3px 6px); border-color: #3b5bdb; }
 
 .engine-status { text-align: center; margin: 12px 0 0; min-height: 1.3em; }

@@ -1,27 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { hash } from "../theme.js";
+import { spriteFor, spriteRuns, SPRITE_SIZE } from "../sprites.js";
 
-// 8x8 mirrored pixel sprite derived from the player id: a little pixel "critter" in the player's color.
+const FILL = { w: "#f4f1ea", o: "#1b1b1f" };
+
+// Poker-themed 12x12 pixel sprite picked by the player id, drawn in the player's colour.
 export default function PixelAvatar({ id, color, size = 36 }) {
-  const h = hash(id);
-  const cells = [];
-  for (let y = 0; y < 8; y++) {
-    for (let x = 0; x < 4; x++) {
-      const bit = (h >>> ((y * 4 + x) % 32)) & 1;
-      const bit2 = (hash(id + y) >>> x) & 1;
-      if (bit ^ bit2) cells.push([x, y], [7 - x, y]);
-    }
-  }
-  // Eyes so it reads as a face.
-  const eyeY = 2 + (h % 2);
+  const name = spriteFor(hash(id));
+  const runs = useMemo(() => spriteRuns(name), [name]);
   return (
-    <svg className="pixel-avatar" width={size} height={size} viewBox="0 0 8 8" shapeRendering="crispEdges" aria-hidden="true">
-      <rect width="8" height="8" fill={`${color}22`} />
-      {cells.map(([x, y], i) => (
-        <rect key={i} x={x} y={y} width="1" height="1" fill={color} />
+    <svg className={`pixel-avatar sprite-${name}`} width={size} height={size} viewBox={`0 0 ${SPRITE_SIZE} ${SPRITE_SIZE}`} shapeRendering="crispEdges" aria-hidden="true">
+      <rect width={SPRITE_SIZE} height={SPRITE_SIZE} fill={`${color}22`} />
+      {runs.map((r, i) => (
+        <rect key={i} x={r.x} y={r.y} width={r.w} height="1" fill={FILL[r.ch] ?? color} fillOpacity={r.ch === "+" ? 0.55 : 1} />
       ))}
-      <rect x="2" y={eyeY} width="1" height="1" fill="#1b1b1f" />
-      <rect x="5" y={eyeY} width="1" height="1" fill="#1b1b1f" />
     </svg>
   );
 }

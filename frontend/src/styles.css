@@ -411,6 +411,10 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .range-summary { margin-left: auto; font-weight: 500; }
 .range-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: 10px; }
 .range-controls .seg { --c: var(--accent); }
+.range-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; margin-bottom: 8px; max-width: 560px; }
+.range-ramp { display: inline-flex; align-items: center; gap: 2px; }
+.range-ramp .swatch { width: 10px; height: 10px; border-radius: 2px; }
+.range-ramp .small-text { margin-left: 4px; }
 .range-grid { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 2px; max-width: 560px; }
 .range-cell { position: relative; aspect-ratio: 1; min-width: 0; padding: 0; border: none; border-radius: 3px; background: var(--bg-deep); color: var(--muted); font: inherit; font-size: 10px; font-weight: 600; line-height: 1; display: grid; place-items: center; cursor: default; }
 .range-cell.pair { background: color-mix(in srgb, var(--bg-deep) 60%, var(--line)); }

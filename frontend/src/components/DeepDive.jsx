@@ -158,6 +158,18 @@ export function RangeGrid({ player, color, openHands }) {
         <Seg groups={POS_GROUPS} value={posKey} onChange={setPosKey} />
         <span className="muted small-text">{entries.length} hands</span>
       </div>
+      <div className="range-legend">
+        <Legend items={[
+          { key: "raised", label: "Raised / 3-bet", color: sizeColor("var(--hi)", 70) },
+          { key: "called", label: "Called / limped", color: sizeColor("var(--lo)", 70) },
+          { key: "check", label: "Checked", color: sizeColor("var(--muted)", 70) },
+          { key: "never", label: "Never shown", color: "var(--bg-deep)" },
+        ]} />
+        <span className="range-ramp" title="Darker = seen more often">
+          {[25, 50, 75, 100].map((m) => <span key={m} className="swatch" style={{ background: sizeColor("var(--hi)", m) }} />)}
+          <span className="muted small-text">seen more</span>
+        </span>
+      </div>
       <div className="range-grid" style={{ "--c": color }}>
         {[...RANKS].map((r, i) =>
           [...RANKS].map((c, j) => {
@@ -188,7 +200,7 @@ export function RangeGrid({ player, color, openHands }) {
         <Legend items={HOLE_CLASSES} />
       </div>
       <p className="hint range-hint">
-        Only hands revealed at showdown or shown voluntarily, so raises that won preflop and bluffs that got a fold never appear. Warm = raised, cool = called or limped; darker = seen more often. Click a cell or a segment to see those hands.
+        Only hands revealed at showdown or shown voluntarily, so raises that won preflop and bluffs that got a fold never appear. Click a cell or a segment to see those hands.
       </p>
     </section>
   );

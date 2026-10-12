@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import PixelAvatar from "./PixelAvatar.jsx";
 import { signed } from "../hands.js";
 
@@ -88,13 +88,115 @@ function Legend({ items }) {
 
 const sizeColor = (color, mix) => `color-mix(in srgb, ${color} ${mix}%, var(--surface))`;
 
+/* ---------------- Preflop range grid ---------------- */
+const RANKS = "AKQJT98765432";
+const LINE_GROUPS = [
+  { key: "all", label: "All", lines: null },
+  { key: "raised", label: "Raised", lines: ["raise", "3bet"], title: "Opened or 3-bet" },
+  { key: "call", label: "Called", lines: ["call"], title: "Called a raise" },
+  { key: "limp", label: "Limped", lines: ["limp"], title: "Called in an unopened pot" },
+];
+const POS_GROUPS = [
+  { key: "all", label: "All", pos: null },
+  { key: "early", label: "Early", pos: (p) => p.startsWith("UTG") || p === "LJ" || p === "HJ" },
+  { key: "late", label: "CO/BTN", pos: (p) => p === "CO" || p === "BTN" },
+  { key: "blinds", label: "Blinds", pos: (p) => p === "SB" || p === "BB" },
+];
+const LINE_LABEL = { raise: "raised", "3bet": "3-bet", call: "called", limp: "limped", check: "checked" };
+const lineColor = (line) => (line === "raise" || line === "3bet" ? "var(--hi)" : line === "check" ? "var(--muted)" : "var(--lo)");
+// Same classes as hole_class() in profile.py, derived from the combo key.
+function comboClass(c) {
+  const [a, b] = [RANKS.indexOf(c[0]), RANKS.indexOf(c[1])];
+  if (a === b) return "pair";
+  if (a <= RANKS.indexOf("T") && b <= RANKS.indexOf("T")) return "broadway";
+  if (c[0] === "A") return "Ax";
+  if (c[2] === "s" && b - a <= 2) return "suited_connector";
+  return "junk";
+}
+
+export function RangeGrid({ player, color, openHands }) {
+  const all = player.profile.preflop.range || [];
+  const [lineKey, setLineKey] = useState("all");
+  const [posKey, setPosKey] = useState("all");
+  const lineGroup = LINE_GROUPS.find((g) => g.key === lineKey);
+  const posGroup = POS_GROUPS.find((g) => g.key === posKey);
+  const entries = all.filter((e) => (!lineGroup.lines || lineGroup.lines.includes(e.line)) && (!posGroup.pos || posGroup.pos(e.pos)));
+  const cells = useMemo(() => {
+    const m = new Map();
+    for (const e of entries) {
+      const c = m.get(e.combo) || { n: 0, net: 0, ids: [], lines: {} };
+      c.n += 1; c.net += e.net; c.ids.push(e.hand_id); c.lines[e.line] = (c.lines[e.line] || 0) + 1;
+      m.set(e.combo, c);
+    }
+    return m;
+  }, [entries]);
+  const max = Math.max(1, ...[...cells.values()].map((c) => c.n));
+  const raisedCombos = new Set(all.filter((e) => e.line === "raise" || e.line === "3bet").map((e) => e.combo)).size;
+  const classSegs = HOLE_CLASSES.map((h) => {
+    const ids = entries.filter((e) => comboClass(e.combo) === h.key).map((e) => e.hand_id);
+    return { ...h, n: ids.length, onClick: ids.length ? () => openHands(`${lineGroup.label.toLowerCase()} preflop (${posGroup.label.toLowerCase()}) and showed ${h.label.toLowerCase()}`, ids) : undefined };
+  });
+  const Seg = ({ groups, value, onChange }) => (
+    <span className="seg" role="radiogroup">
+      {groups.map((g) => (
+        <button key={g.key} role="radio" aria-checked={value === g.key} className={`seg-btn ${value === g.key ? "on" : ""}`} onClick={() => onChange(g.key)} title={g.title}>
+          {g.label}
+        </button>
+      ))}
+    </span>
+  );
+  return (
+    <section className="panel dd-card range-card">
+      <h4>
+        Range <span className="muted small-text">shown hands only</span>
+        <span className="range-summary muted small-text">
+          shown {all.length} of {player.hands} hands · {new Set(all.map((e) => e.combo)).size} of 169 combos · raised with {raisedCombos}
+        </span>
+      </h4>
+      <div className="range-controls">
+        <Seg groups={LINE_GROUPS} value={lineKey} onChange={setLineKey} />
+        <Seg groups={POS_GROUPS} value={posKey} onChange={setPosKey} />
+        <span className="muted small-text">{entries.length} hands</span>
+      </div>
+      <div className="range-grid" style={{ "--c": color }}>
+        {[...RANKS].map((r, i) =>
+          [...RANKS].map((c, j) => {
+            const key = i === j ? r + c : i < j ? r + c + "s" : c + r + "o";
+            const cell = cells.get(key);
+            const top = cell && Object.entries(cell.lines).sort((a, b) => b[1] - a[1])[0][0];
+            const title = cell
+              ? `${key} · ${cell.n} shown · ${Object.entries(cell.lines).map(([l, n]) => `${LINE_LABEL[l]} ${n}`).join(", ")} · net ${signed(cell.net)} · click to see the hands`
+              : `${key} · never shown`;
+            return (
+              <button
+                key={key}
+                className={`range-cell ${i === j ? "pair" : i < j ? "suited" : "offsuit"} ${cell ? "seen clickable" : ""}`}
+                style={cell ? { background: sizeColor(lineColor(top), 25 + Math.round((75 * cell.n) / max)) } : undefined}
+                title={title}
+                disabled={!cell}
+                onClick={cell ? () => openHands(`showed ${key}`, cell.ids) : undefined}
+              >
+                <span className="range-combo">{key}</span>
+                {cell && cell.n > 1 && <span className="range-n">{cell.n}</span>}
+              </button>
+            );
+          })
+        )}
+      </div>
+      <div className="range-foot">
+        <Bar segments={classSegs} faded={entries.length < THIN} />
+        <Legend items={HOLE_CLASSES} />
+      </div>
+      <p className="hint range-hint">
+        Only hands revealed at showdown or shown voluntarily, so raises that won preflop and bluffs that got a fold never appear. Warm = raised, cool = called or limped; darker = seen more often. Click a cell or a segment to see those hands.
+      </p>
+    </section>
+  );
+}
+
 /* ---------------- Preflop ---------------- */
 export function PreflopTab({ player, color, openHands }) {
   const pf = player.profile.preflop;
-  const shownBar = (tag) => {
-    const by = pf.shown[tag] || {};
-    return HOLE_CLASSES.map((c) => ({ ...c, n: (by[c.key] || []).length, onClick: by[c.key]?.length ? () => openHands(`${tag} preflop and showed ${c.label.toLowerCase()}`, by[c.key]) : undefined }));
-  };
   const posRows = POSITIONS.filter((p) => pf.vpip_by_pos[p]?.d).map((p) => ({ pos: p, ...pf.vpip_by_pos[p] }));
   return (
     <div className="dd">
@@ -105,6 +207,7 @@ export function PreflopTab({ player, color, openHands }) {
         <Tile label="3-bet size" value={pf.three_bet_mult ? `${pf.three_bet_mult.median}× open` : "–"} sub={pf.three_bet_mult ? `median of ${pf.three_bet_mult.n}` : "no 3-bets"} help="Median 3-bet as a multiple of the open it was over" />
         <Tile label="All-ins" value={pf.allins} sub={`in ${player.hands} hands`} help="Actions that put the whole stack in" />
       </section>
+      <RangeGrid player={player} color={color} openHands={openHands} />
       <div className="dd-grid">
         <section className="panel dd-card">
           <h4>VPIP by position</h4>
@@ -119,25 +222,6 @@ export function PreflopTab({ player, color, openHands }) {
               ))}
             </tbody>
           </table>
-        </section>
-        <section className="panel dd-card">
-          <h4>What they showed up with <span className="muted small-text">shown hands only</span></h4>
-          <table className="dd-table">
-            <tbody>
-              {["raised", "called"].map((tag) => {
-                const segs = shownBar(tag);
-                const total = segs.reduce((a, s) => a + s.n, 0);
-                return (
-                  <tr key={tag}>
-                    <td className="dd-rowlabel">{tag === "raised" ? "Raised preflop" : "Called preflop"}</td>
-                    <td className="bar-cell"><Bar segments={segs} faded={total < THIN} /></td>
-                    <td className="num muted small-text">{total}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-          <Legend items={HOLE_CLASSES} />
         </section>
       </div>
     </div>

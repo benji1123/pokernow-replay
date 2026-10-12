@@ -107,6 +107,27 @@ def hole_class(hole: list[str]) -> str:
     return "junk"
 
 
+def combo(hole: list[str]) -> str:
+    """Range-grid key: 'AKs', 'AKo' or 'KK' (high rank first)."""
+    r1, r2 = sorted((hole[0][0], hole[1][0]), key=RANKS.index, reverse=True)
+    if r1 == r2:
+        return r1 + r2
+    return r1 + r2 + ("s" if hole[0][1] == hole[1][1] else "o")
+
+
+def preflop_line(kinds: list[str], raises_before: list[int]) -> str:
+    """Summarize a player's preflop actions: raise (opened), 3bet (raised over a raise), call (called a raise),
+    limp (called in an unopened pot) or check (never put money in voluntarily)."""
+    for k, before in zip(kinds, raises_before):
+        if k == "raise":
+            return "raise" if before == 0 else "3bet"
+    if any(k == "call" and before > 0 for k, before in zip(kinds, raises_before)):
+        return "call"
+    if "call" in kinds:
+        return "limp"
+    return "check"
+
+
 def size_bucket(frac: float) -> str:
     return "small" if frac < 0.4 else "mid" if frac <= 0.8 else "big" if frac <= 1.2 else "over"
 
@@ -160,6 +181,7 @@ class Profile:
         # (street, kind, size) -> strength -> [hand ids], for hands later shown
         self.meanings: dict[tuple, dict[str, list[str]]] = defaultdict(lambda: defaultdict(list))
         self.shown_preflop: dict[str, dict[str, list[str]]] = {"raised": defaultdict(list), "called": defaultdict(list)}
+        self.range: list[dict] = []  # one entry per shown hand: combo, preflop line, position, net, hand id
 
     def to_dict(self) -> dict:
         def spread(xs: list[float]) -> dict | None:
@@ -177,6 +199,7 @@ class Profile:
                 "allins": self.allins,
                 "vpip_by_pos": {pos: r.to_dict() for pos, r in sorted(self.vpip_by_pos.items())},
                 "shown": {tag: {cls: ids for cls, ids in by.items()} for tag, by in self.shown_preflop.items()},
+                "range": self.range,
             },
             "streets": {
                 s: {"actions": dict(self.actions[s]), "sizes": spread(self.sizes[s]), "check_raise": self.check_raise[s]}
@@ -216,6 +239,7 @@ def compute_profiles(hands: list[Hand]) -> dict[str, dict]:
         faced_cbet: set = set()
         river_aggr = None
         river_bettors: set = set()
+        pf_lines: dict[str, list[tuple[str, int]]] = defaultdict(list)  # player -> [(kind, raises before it)]
         for i, a in enumerate(h.actions):
             p = profiles[a.player_id]
             if a.kind in POST_KINDS:
@@ -226,6 +250,7 @@ def compute_profiles(hands: list[Hand]) -> dict[str, dict]:
             pot = pot_before(h, i)
             if a.street == "preflop":
                 pos = h.positions.get(a.player_id, "?")
+                pf_lines[a.player_id].append((a.kind, pf_raises))
                 if pf_raises == 0 and a.kind in ("call", "raise"):
                     p.limp.add(a.kind == "call")
                 if pf_raises == 0 and pos in ("CO", "BTN", "SB") and folded_to_me and a.kind in ("raise", "fold", "call"):
@@ -287,6 +312,8 @@ def compute_profiles(hands: list[Hand]) -> dict[str, dict]:
             pf = [a.kind for a in h.actions if a.player_id == pid and a.street == "preflop" and a.kind in ("raise", "call")]
             if pf:
                 profiles[pid].shown_preflop["raised" if "raise" in pf else "called"][hole_class(hole)].append(h.hand_id)
+            kinds, before = zip(*pf_lines[pid]) if pf_lines[pid] else ((), ())
+            profiles[pid].range.append({"combo": combo(hole), "line": preflop_line(list(kinds), list(before)), "pos": h.positions.get(pid, "?"), "net": h.net(pid), "hand_id": h.hand_id})
             if len(h.board) == 5 and pid in river_bettors:
                 lab = strength_label(hole, h.board)
                 profiles[pid].river_aggr_shown[lab] += 1

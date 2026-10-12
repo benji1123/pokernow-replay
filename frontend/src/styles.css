@@ -404,6 +404,22 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .seg-btn:last-child { border-right: none; }
 .seg-btn:hover { color: var(--ink); }
 .seg-btn.on { background: color-mix(in srgb, var(--c) 16%, var(--surface)); color: var(--ink); }
+
+/* Preflop range grid: 13x13, pairs on the diagonal, suited above, offsuit below. */
+.range-card { margin-bottom: 12px; }
+.range-card h4 { flex-wrap: wrap; }
+.range-summary { margin-left: auto; font-weight: 500; }
+.range-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: 10px; }
+.range-controls .seg { --c: var(--accent); }
+.range-grid { display: grid; grid-template-columns: repeat(13, minmax(0, 1fr)); gap: 2px; max-width: 560px; }
+.range-cell { position: relative; aspect-ratio: 1; min-width: 0; padding: 0; border: none; border-radius: 3px; background: var(--bg-deep); color: var(--muted); font: inherit; font-size: 10px; font-weight: 600; line-height: 1; display: grid; place-items: center; cursor: default; }
+.range-cell.pair { background: color-mix(in srgb, var(--bg-deep) 60%, var(--line)); }
+.range-cell.seen { color: var(--ink); cursor: pointer; }
+.range-cell.seen:hover { outline: 2px solid var(--c); outline-offset: -1px; }
+.range-n { position: absolute; right: 2px; bottom: 1px; font-size: 8px; color: var(--ink-2); }
+.range-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 10px; max-width: 560px; }
+.range-foot .bar { flex: 1 1 200px; }
+.range-hint { padding: 8px 0 0; font-size: 12px; max-width: 560px; }
 .filter-chip { display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px; border-radius: 999px; background: color-mix(in srgb, var(--c) 14%, var(--surface)); border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); font-size: 12.5px; }
 .chip-x { font: inherit; border: none; background: none; cursor: pointer; color: var(--ink-2); padding: 0 2px; }
 .chip-x:hover { color: var(--neg); }
@@ -471,6 +487,9 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
   .stylemap-svg text { font-size: 20px; }
   .style-name { font-size: 22px; }
   .race-tip { min-width: 130px; font-size: 11px; }
+  .range-cell { font-size: 8px; border-radius: 2px; }
+  .range-n { display: none; }
+  .range-summary { margin-left: 0; flex-basis: 100%; }
   .upload-screen { padding: 8vh 16px 32px; }
   .hero h1 { font-size: 22px; }
 }

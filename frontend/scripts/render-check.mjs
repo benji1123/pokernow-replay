@@ -47,6 +47,12 @@ export function run(session) {
   out.deepDive = Object.fromEntries(Object.entries(tabs).map(([k, C]) => [k, session.players.map((p) =>
     renderToString(React.createElement(C, { player: p, players: session.players, colors, color: colors[p.player_id].main, openHands() {}, onSelectPlayer() {} })).length
   )]));
+  // Preflop range grid: 169 cells for every player, and the seen-cell count must match the backend's shown hands.
+  out.range = session.players.map((p) => {
+    const html = renderToString(React.createElement(DD.RangeGrid, { player: p, color: colors[p.player_id].main, openHands() {} }));
+    const combos = new Set(p.profile.preflop.range.map((e) => e.combo)).size;
+    return { name: p.name, cells: (html.match(/class="range-cell /g) || []).length, seen: (html.match(/range-cell [^"]*seen/g) || []).length, combos, shown: p.profile.preflop.range.length };
+  });
   out.handDetails = session.hands.map((h) =>
     renderToString(React.createElement(HandDetail, { hand: h, focus: h.seats[0].player_id, colors })).length
   );
@@ -80,6 +86,10 @@ const tones = Object.fromEntries(["lo", "mid", "hi", "thin"].map((t) => [t, (out
 console.log(`stat tones: ${Object.entries(tones).map(([k, v]) => `${k} ${v}`).join(", ")}`);
 console.log(`crowns: ${(out.players.match(/class="crown"/g) || []).length} (12 columns), merged tags: ${(out.players.match(/merged-tag/g) || []).length}`);
 console.log(`player views: ${out.playerViews.length} rendered, min ${Math.min(...out.playerViews)} chars`);
+for (const r of out.range) {
+  if (r.cells !== 169 || r.seen !== r.combos) throw new Error(`range grid for ${r.name}: ${r.cells} cells, ${r.seen} seen vs ${r.combos} combos`);
+}
+console.log(`range grids: ${out.range.map((r) => `${r.name} ${r.seen} combos / ${r.shown} shown`).join(", ")}`);
 console.log(`highlights (${out.highlightsHtml} chars):`);
 for (const h of out.highlights) console.log(`  ${h.label}: ${h.value} — ${h.sub}`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);

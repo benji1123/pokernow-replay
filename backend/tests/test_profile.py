@@ -4,7 +4,7 @@ from pathlib import Path
 
 from pokernow_analyzer.models import POST_KINDS
 from pokernow_analyzer.parser import parse_json_entries
-from pokernow_analyzer.profile import compute_profiles, hole_class, size_bucket, straight_outs, strength_label
+from pokernow_analyzer.profile import combo, compute_profiles, hole_class, preflop_line, size_bucket, straight_outs, strength_label
 
 FIXTURES = Path(__file__).resolve().parents[2] / "fixtures"
 ROOM = "sample"
@@ -88,3 +88,23 @@ def test_meanings_only_from_shown_hands_and_in_order():
                 assert all(pid in by_id[i].shown for i in ids)
         order = [("flop", "turn", "river").index(m["street"]) for m in p["meanings"]]
         assert order == sorted(order)
+
+
+def test_combo_and_preflop_line():
+    assert combo(["Ks", "Ah"]) == "AKo" and combo(["Kd", "Ad"]) == "AKs" and combo(["7c", "7d"]) == "77"
+    assert preflop_line(["raise"], [0]) == "raise"
+    assert preflop_line(["call", "raise"], [0, 1]) == "3bet"  # limp-reraise counts as a 3-bet
+    assert preflop_line(["raise"], [1]) == "3bet"
+    assert preflop_line(["call"], [1]) == "call"
+    assert preflop_line(["call", "call"], [0, 1]) == "call"  # limped, then called a raise
+    assert preflop_line(["call"], [0]) == "limp"
+    assert preflop_line(["check"], [0]) == "check" and preflop_line([], []) == "check"
+
+
+def test_fixture_range_entries():
+    r = compute_profiles(load())[ROCKY]["preflop"]["range"]
+    assert len(r) == 9 and all(set(e) == {"combo", "line", "pos", "net", "hand_id"} for e in r)
+    # Hand 22: Rocky opened KJo from the CO and lost 209.
+    h22 = next(e for e in r if e["net"] == -209)
+    assert (h22["combo"], h22["line"], h22["pos"]) == ("KJo", "raise", "CO")
+    assert Counter(e["line"] for e in r) == {"call": 3, "raise": 3, "check": 2, "limp": 1}

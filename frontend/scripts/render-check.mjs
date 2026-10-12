@@ -46,6 +46,8 @@ export function run(session) {
   );
   out.playerViews = out.playerViewsHtml.map((h) => h.length);
   out.tcardMissing = session.players.filter((p, i) => !out.playerViewsHtml[i].includes("tcard-row")).map((p) => p.name);
+  // Every hand row shows a winner.
+  out.winnerGap = session.players.map((p, i) => (out.playerViewsHtml[i].match(/class="winner /g) || []).length - p.hands).filter((d) => d !== 0).length;
   const tabs = { preflop: DD.PreflopTab, streets: DD.StreetsTab, meanings: DD.MeaningsTab, showdown: DD.ShowdownTab, flow: DD.MoneyFlowTab };
   out.deepDive = Object.fromEntries(Object.entries(tabs).map(([k, C]) => [k, session.players.map((p) =>
     renderToString(React.createElement(C, { player: p, players: session.players, colors, color: colors[p.player_id].main, openHands() {}, onSelectPlayer() {} })).length
@@ -100,6 +102,7 @@ console.log(`awards (${out.awards.length}):`);
 for (const a of out.awards) console.log(`  ${a.emoji} ${a.label}: ${session.players.find((p) => p.player_id === a.pid).name} ${a.value} ${a.sub}`);
 console.log(`ratings (loose/aggr/bluff/stubborn): ${out.ratings.join("; ")}`);
 if (out.tcardMissing.length) throw new Error(`trading card missing for ${out.tcardMissing.join(", ")}`);
+if (out.winnerGap) throw new Error(`${out.winnerGap} player views have hand rows without a winner cell`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);
 if (out.cumMismatch.length) throw new Error(`cumulative net != session net for ${out.cumMismatch.join(", ")}`);
 console.log(`hand details: ${out.handDetails.length} rendered, min ${Math.min(...out.handDetails)} chars`);

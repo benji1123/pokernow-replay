@@ -256,6 +256,9 @@ th.sorted .sort-arrow { opacity: 1; }
 .error.small { font-size: 13px; padding: 4px 10px; }
 button.link:disabled { color: var(--muted); cursor: progress; text-decoration: none; }
 .preflop { color: var(--ink-2); }
+.winner { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--ink-2); white-space: nowrap; }
+.winner .pixel-avatar { border-radius: 3px; }
+.winner.me .winner-name { font-weight: 700; color: var(--ink); }
 .pos-badge { display: inline-block; min-width: 3em; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 2px 6px; border-radius: 6px; background: var(--bg-deep); color: var(--ink-2); }
 
 .detail-pane { position: sticky; top: 16px; padding: 14px 16px; max-height: calc(100vh - 32px); overflow: auto; overscroll-behavior: contain; }
@@ -463,6 +466,7 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
   .detail-pane.sheet-open { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; max-height: 85vh; overflow: auto; border-radius: 16px 16px 0 0; padding-top: 18px; box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.25); }
   .sheet-close { display: inline-flex; position: sticky; top: 0; float: right; margin: -8px -6px 0 0; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-size: 14px; z-index: 1; }
   .hands th:nth-child(4), .hands td:nth-child(4) { display: none; } /* preflop line; the detail has it */
+  .winner-name { display: none; } /* avatar only on phones */
   .dd-grid { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
   .dd-card { overflow-x: auto; }
   /* SVG text is in viewBox units; at phone widths it needs to be set larger to come out at a readable size. */

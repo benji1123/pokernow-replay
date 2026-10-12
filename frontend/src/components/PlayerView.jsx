@@ -29,6 +29,20 @@ function useFitBelowTop(ref, margin = 16) {
   });
 }
 
+// Who collected the pot, largest share first. A split pot lists every collector's avatar with one name.
+function Winner({ hand, me, players, colors }) {
+  const winners = Object.entries(hand.collected).sort((a, b) => b[1] - a[1]).map(([pid]) => pid);
+  if (!winners.length) return <span className="muted small-text">–</span>;
+  const name = (pid) => players.find((p) => p.player_id === pid)?.name ?? "?";
+  const title = winners.map((pid) => `${name(pid)} ${hand.collected[pid]}`).join(", ");
+  return (
+    <span className={`winner ${winners.includes(me) ? "me" : ""}`} title={title}>
+      {winners.map((pid) => <PixelAvatar key={pid} id={pid} color={colors[pid]?.main} size={16} />)}
+      <span className="winner-name">{winners.length > 1 ? `${name(winners[0])} +${winners.length - 1}` : name(winners[0])}</span>
+    </span>
+  );
+}
+
 export default function PlayerView({ player, players, hands, colors, initialHandId, onSelectPlayer }) {
   const [selected, setSelected] = useState(() => hands.find((h) => h.hand_id === initialHandId) ?? null);
   const [sort, setSort] = useState({ key: "number", dir: 1 });
@@ -169,6 +183,7 @@ export default function PlayerView({ player, players, hands, colors, initialHand
                 <th>Cards</th>
                 <th>Preflop</th>
                 <th>Board</th>
+                <th>Winner</th>
                 <SortHeader k="net">Net</SortHeader>
               </tr>
             </thead>
@@ -189,6 +204,7 @@ export default function PlayerView({ player, players, hands, colors, initialHand
                   <td>{h.shown[player.player_id] ? <Cards cards={h.shown[player.player_id]} size="xs" /> : <HiddenCards size="xs" />}</td>
                   <td className="preflop">{preflopSummary(h, player.player_id)}</td>
                   <td>{h.board.length ? <Cards cards={h.board} size="xs" /> : <span className="muted small-text">no flop</span>}</td>
+                  <td><Winner hand={h} me={player.player_id} players={players} colors={colors} /></td>
                   <td className="num">
                     <Net net={h.net[player.player_id]} flat />
                   </td>

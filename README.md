@@ -1,6 +1,6 @@
 # PokerNow Session Analyzer
 
-Upload a PokerNow hand log, get every hand and per-player stats (VPIP, PFR, 3-bet, fold to PFR/3-bet, AF, WTSD, W$SD),
+Upload PokerNow logs, get every hand and per-player stats (VPIP, PFR, 3-bet, fold to PFR/3-bet, AF, WTSD, W$SD),
 nemesis / best friend, and archetype badges.
 
 It is a static site: the Python analysis runs in the browser under [Pyodide](https://pyodide.org), so there is no

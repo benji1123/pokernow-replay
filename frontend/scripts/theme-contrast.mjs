@@ -12,7 +12,7 @@ for (const [, id, body] of blocks) {
   if (!id) Object.assign(base, vars);
   else themes[id] = vars;
 }
-themes.light = {};
+themes.sepia = {}; // the base :root block
 
 const lum = (hex) => {
   let h = hex.slice(1);

@@ -1,80 +1,6 @@
-/* Palette: warm cream background, ink text, one accent (felt green) for interaction,
-   per-player hues from theme.js via --c. Status colors: green for +, coral for -. */
+/* Palette: tan paper background, brown ink, oxblood accent (low-contrast light); per-player hues from theme.js via --c.
+   Status colors: olive for +, red for -. Dusk and Midnight override below. */
 :root {
-  --bg: #fbf7ef;
-  --bg-deep: #f3ecdd;
-  --surface: #ffffff;
-  --ink: #1b1b1f;
-  --ink-2: #4a4a55;
-  --muted: #8a8a96;
-  --line: #ebe4d4;
-  --accent: #1f8a5b;
-  --accent-ink: #0f5c3a;
-  --accent-soft: #e3f4ea;
-  --pos: #1f8a5b;
-  --pos-soft: #e3f4ea;
-  --neg: #d6455d;
-  --neg-soft: #fde8ec;
-  --draw: #8a5cf6; /* semi-bluffs sit between air and a made pair */
-  --red-suit: #d6455d;
-  --black-suit: #1b1b1f;
-  --diamond-suit: #1f6fd6;
-  --club-suit: #1e8a4c;
-  /* Stat tones: cool = tighter/more passive than typical, warm = looser/more aggressive. */
-  --lo: #1c7ed6;
-  --lo-soft: #e4f1fc;
-  --hi: #d9480f;
-  --hi-soft: #ffeede;
-  --warm-ink: #9a4a00;
-  --warm-soft: #fff0dc;
-  --neg-ink: #9f2d41;
-  --card-face: #ffffff;
-  --card-edge: #ddd5c2;
-  --dash: #cfc5ad;
-  --glow-1: #fff6e0;
-  --glow-2: #e6f4ec;
-  --radius: 14px;
-  --shadow: 0 1px 2px rgba(27, 27, 31, 0.04), 0 8px 24px -12px rgba(27, 27, 31, 0.18);
-  --on-accent: #ffffff;
-  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --pixel: "Press Start 2P", monospace;
-  color-scheme: light;
-}
-:root[data-theme="dark"] {
-  --bg: #15161c;
-  --bg-deep: #22242d;
-  --surface: #1c1e26;
-  --ink: #ececf1;
-  --ink-2: #b9bac6;
-  --muted: #7f8190;
-  --line: #2c2f3a;
-  --accent: #3dbb80;
-  --accent-ink: #7fdcae;
-  --accent-soft: #173327;
-  --pos: #5bd59a;
-  --pos-soft: #173327;
-  --neg: #ff7a8a;
-  --draw: #b394ff;
-  --neg-soft: #3a1d24;
-  --black-suit: #1b1b1f;
-  --lo: #74c0fc;
-  --lo-soft: #182a3d;
-  --hi: #ffa94d;
-  --hi-soft: #3d2a17;
-  --warm-ink: #ffb86b;
-  --warm-soft: #3d2a17;
-  --neg-ink: #ff8fa0;
-  --card-face: #f4f1ea;
-  --card-edge: #b8b2a3;
-  --dash: #3a3d4a;
-  --glow-1: #22202a;
-  --glow-2: #15241d;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
-  --on-accent: #0e2a1c;
-  color-scheme: dark;
-}
-/* Sepia: low-contrast light. Tan paper, brown ink, oxblood accent. */
-:root[data-theme="sepia"] {
   --bg: #e8dcc4;
   --bg-deep: #dccfb3;
   --surface: #f1e8d6;
@@ -95,6 +21,7 @@
   --black-suit: #2b2118;
   --diamond-suit: #2a63b8;
   --club-suit: #3f7a3a;
+  /* Stat tones: cool = tighter/more passive than typical, warm = looser/more aggressive. */
   --lo: #2a63b8;
   --lo-soft: #d9e2ee;
   --hi: #b85c1a;
@@ -109,6 +36,45 @@
   --glow-2: #e2d6bb;
   --shadow: 0 1px 2px rgba(59, 47, 34, 0.05), 0 8px 24px -12px rgba(59, 47, 34, 0.2);
   color-scheme: light;
+  --radius: 14px;
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --pixel: "Press Start 2P", monospace;
+}
+:root[data-theme="dark"] {
+  --bg: #15161c;
+  --bg-deep: #22242d;
+  --surface: #1c1e26;
+  --ink: #ececf1;
+  --ink-2: #b9bac6;
+  --muted: #7f8190;
+  --line: #2c2f3a;
+  --accent: #3dbb80;
+  --accent-ink: #7fdcae;
+  --accent-soft: #173327;
+  --pos: #5bd59a;
+  --pos-soft: #173327;
+  --neg: #ff7a8a;
+  --draw: #b394ff;
+  --neg-soft: #3a1d24;
+  --black-suit: #1b1b1f;
+  --red-suit: #d6455d;
+  --diamond-suit: #1f6fd6;
+  --club-suit: #1e8a4c;
+  --lo: #74c0fc;
+  --lo-soft: #182a3d;
+  --hi: #ffa94d;
+  --hi-soft: #3d2a17;
+  --warm-ink: #ffb86b;
+  --warm-soft: #3d2a17;
+  --neg-ink: #ff8fa0;
+  --card-face: #f4f1ea;
+  --card-edge: #b8b2a3;
+  --dash: #3a3d4a;
+  --glow-1: #22202a;
+  --glow-2: #15241d;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --on-accent: #0e2a1c;
+  color-scheme: dark;
 }
 /* Dusk: mid-tone grey-blue halfway between light and dark, ~7:1 text contrast instead of 15:1. */
 :root[data-theme="dusk"] {
@@ -129,6 +95,9 @@
   --neg-soft: #5f3f47;
   --draw: #c3abff;
   --black-suit: #1b1b1f;
+  --red-suit: #d6455d;
+  --diamond-suit: #1f6fd6;
+  --club-suit: #1e8a4c;
   --lo: #8fc8f7;
   --lo-soft: #3c4d5f;
   --hi: #ffb570;
@@ -142,40 +111,6 @@
   --glow-1: #525662;
   --glow-2: #485448;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 24px -12px rgba(0, 0, 0, 0.45);
-  color-scheme: dark;
-}
-/* Felt: poker table. Deep green, warm white ink, gold accent; winnings are gold since green is the table. */
-:root[data-theme="felt"] {
-  --bg: #1f4d3a;
-  --bg-deep: #1a4231;
-  --surface: #27604a;
-  --ink: #f1f4ea;
-  --ink-2: #cfdcc9;
-  --muted: #9db8a5;
-  --line: #356f58;
-  --accent: #e3b341;
-  --accent-ink: #f0cc6e;
-  --accent-soft: #44583a;
-  --on-accent: #2a2208;
-  --pos: #e3b341;
-  --pos-soft: #44583a;
-  --neg: #ff8a8a;
-  --neg-soft: #5a3a3a;
-  --draw: #c7b2ff;
-  --black-suit: #1b1b1f;
-  --lo: #8fd0f5;
-  --lo-soft: #2b5560;
-  --hi: #ffab66;
-  --hi-soft: #5a4a32;
-  --warm-ink: #ffbf80;
-  --warm-soft: #5a4a32;
-  --neg-ink: #ffa3a3;
-  --card-face: #f6f2e6;
-  --card-edge: #b9b39f;
-  --dash: #4a7a62;
-  --glow-1: #26583f;
-  --glow-2: #1b4a3c;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 24px -12px rgba(0, 0, 0, 0.55);
   color-scheme: dark;
 }
 
@@ -403,9 +338,9 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 /* ---- cards ---- */
 .cards { display: inline-flex; gap: 4px; vertical-align: middle; }
 .card { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; background: var(--card-face); border: 1px solid var(--card-edge); border-radius: 5px; font-weight: 700; line-height: 1; box-shadow: 0 1px 0 rgba(0,0,0,0.06); color: var(--black-suit); }
-.card-md { width: 36px; height: 48px; font-size: 16px; gap: 2px; }
-.card-sm { width: 30px; height: 40px; font-size: 14px; gap: 1px; }
-.card-xs { width: 26px; height: 35px; font-size: 13px; gap: 0; border-radius: 4px; }
+.card-md { width: 42px; height: 56px; font-size: 19px; gap: 2px; }
+.card-sm { width: 36px; height: 48px; font-size: 17px; gap: 2px; }
+.card-xs { width: 30px; height: 40px; font-size: 15px; gap: 0; border-radius: 4px; }
 .card-xs .suit { font-size: 0.9em; }
 .card .suit { font-size: 0.95em; }
 .card.suit-h { color: var(--red-suit); }

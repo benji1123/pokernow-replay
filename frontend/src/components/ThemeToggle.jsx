@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react";
 
 // Ordered light -> dark so each click walks down the brightness ladder. Keep in step with styles.css and index.html.
 export const THEMES = [
-  { id: "light", name: "Paper", icon: "☀" },
-  { id: "sepia", name: "Sepia", icon: "📜" },
+  { id: "sepia", name: "Sepia", icon: "☀" },
   { id: "dusk", name: "Dusk", icon: "🌆" },
-  { id: "felt", name: "Felt", icon: "🃏" },
   { id: "dark", name: "Midnight", icon: "☾" },
 ];
 const ids = THEMES.map((t) => t.id);
 
 // index.html applies the saved theme before first paint; this just keeps the attribute and localStorage in step.
 const initial = () => {
-  const t = typeof document === "undefined" ? "light" : document.documentElement.dataset.theme;
-  return ids.includes(t) ? t : "light";
+  const t = typeof document === "undefined" ? "sepia" : document.documentElement.dataset.theme;
+  return ids.includes(t) ? t : "sepia";
 };
 
 export default function ThemeToggle() {

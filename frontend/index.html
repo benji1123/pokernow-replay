@@ -10,7 +10,7 @@
       // Apply the saved (or OS) theme before first paint so dark mode doesn't flash white. Ids match THEMES in ThemeToggle.jsx.
       var saved = localStorage.getItem("theme");
       document.documentElement.dataset.theme =
-        ["light", "sepia", "dusk", "felt", "dark"].indexOf(saved) >= 0 ? saved : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        ["sepia", "dusk", "dark"].indexOf(saved) >= 0 ? saved : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "sepia";
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

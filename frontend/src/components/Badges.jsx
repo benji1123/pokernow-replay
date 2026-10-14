@@ -29,7 +29,7 @@ export function Rivals({ player, players, colors, onSelectPlayer }) {
       {cards.map(({ key, title, sub, ref, sign }) => {
         const other = ref && players.find((p) => p.player_id === ref.player_id);
         return (
-          <div key={key} className={`rival ${key} ${other ? "clickable" : "none"}`} style={other ? { "--c": colors[other.player_id].main } : undefined} onClick={() => other && onSelectPlayer(other.player_id)}>
+          <div key={key} className={`rival ${key} ${other ? "clickable" : "none"}`} style={other ? { "--c": colors[other.player_id].main } : undefined} onClick={() => other && onSelectPlayer(other.player_id)} title={other ? `${title}: ${sub} ${other.name}` : undefined}>
             <span className="rival-title">{title}</span>
             {other ? (
               <>

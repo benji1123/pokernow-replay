@@ -29,6 +29,10 @@ const TABLE_COLUMNS = STAT_COLUMNS.filter((c) => c.table !== false);
 // First column of each group gets a left rule so the header groups read down the whole table.
 const groupStart = (c) => TABLE_COLUMNS.find((x) => x.group === c.group) === c;
 
+// What sorting and crowns compare: the displayed count for count columns, otherwise the stat's value.
+// A count column's `value` is the share behind its tint, which would order 5/8 above 7/20.
+const rankValue = (stat, col) => (col.fmt === count || col.fmt === approx ? (stat.value == null ? null : stat.n) : stat.value);
+
 const MIN_SAMPLE = 10; // below this many opportunities the value is noise, so it is shown muted instead of tinted
 
 // "lo" | "hi" | "mid" | "thin" for a stat against its column's typical range.
@@ -101,7 +105,8 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
 
   // Stats sort by value; a stat with no opportunities sorts last either way. Ties fall back to hands played.
   const sorted = useMemo(() => {
-    const value = (p) => (sort.key === "hands" || sort.key === "net" ? p[sort.key] : p[sort.key].value);
+    const col = STAT_COLUMNS.find((c) => c.key === sort.key);
+    const value = (p) => (col ? rankValue(p[sort.key], col) : p[sort.key]);
     return [...players].sort((a, b) => {
       const va = value(a), vb = value(b);
       if (va == null || vb == null) return (va == null) - (vb == null);
@@ -117,8 +122,8 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
     }
     for (const c of STAT_COLUMNS) {
       const eligible = players.filter((p) => statTone(p[c.key], c) !== "thin");
-      const top = Math.max(...eligible.map((p) => p[c.key].value ?? -Infinity));
-      out[c.key] = new Set(eligible.filter((p) => p[c.key].value === top).map((p) => p.player_id));
+      const top = Math.max(...eligible.map((p) => rankValue(p[c.key], c) ?? -Infinity));
+      out[c.key] = new Set(eligible.filter((p) => rankValue(p[c.key], c) === top).map((p) => p.player_id));
     }
     return out;
   }, [players]);

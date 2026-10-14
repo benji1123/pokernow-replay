@@ -11,7 +11,7 @@ export const STAT_COLUMNS = [
   { key: "pfr", group: "Preflop", label: "PFR", fmt: pct, range: [15, 25], help: "Raised preflop / hands dealt" },
   { key: "three_bet", group: "Preflop", label: "3-bet", fmt: pct, range: [5, 10], help: "Raised facing one raise / times facing one raise" },
   { key: "fold_to_pfr", group: "Preflop", label: "Fold→PFR", fmt: pct, range: [55, 70], help: "Folded facing one raise / times facing one raise" },
-  { key: "fold_to_three_bet", group: "Preflop", label: "Fold→3bet", fmt: pct, range: [40, 60], help: "Opened then folded to a 3-bet / times opener faced a 3-bet" },
+  { key: "fold_to_three_bet", group: "Preflop", table: false, label: "Fold→3bet", fmt: pct, range: [40, 60], help: "Opened then folded to a 3-bet / times opener faced a 3-bet" },
   { key: "af_total", group: "Aggression", label: "AF", fmt: ratio, range: [1.5, 3], help: "(bets + raises) / calls, all streets" },
   { key: "af_preflop", group: "Aggression", label: "AF pre", fmt: ratio, range: [2, 5], help: "(bets + raises) / calls, preflop" },
   { key: "af_postflop", group: "Aggression", label: "AF post", fmt: ratio, range: [1.5, 3], help: "(bets + raises) / calls, flop onward" },
@@ -20,12 +20,14 @@ export const STAT_COLUMNS = [
   // Bluffing: the log only reveals cards at showdown or when shown, so bluffs that worked are invisible. `asPct`
   // marks count columns whose value is a share, so the tint compares that share against the range.
   { key: "bluffs_shown", group: "Bluffing", label: "Bluffs", fmt: count, asPct: true, range: [20, 40], help: "Bets and raises from the flop on whose cards were later seen and were air or a draw at the time. Tint compares the share of shown bets that were bluffs." },
-  { key: "est_bluffs", group: "Bluffing", label: "~Bluffs", fmt: approx, asPct: true, range: [20, 40], help: "Estimated bluffs: the shown-bluff share applied to every postflop bet and raise, seen or not. Assumes unseen bets have the same mix as shown ones; players show value more than bluffs, so this overstates. Needs 5 shown bets." },
+  { key: "est_bluffs", group: "Bluffing", table: false, label: "~Bluffs", fmt: approx, asPct: true, range: [20, 40], help: "Estimated bluffs: the shown-bluff share applied to every postflop bet and raise, seen or not. Assumes unseen bets have the same mix as shown ones; players show value more than bluffs, so this overstates. Needs 5 shown bets." },
   { key: "takedown", group: "Bluffing", label: "Takedown", fmt: pct, range: [40, 60], help: "Postflop bets and raises that won the pot on the spot (everyone folded) / postflop bets and raises. Under the same-mix assumption this is also the estimated bluff success rate." },
 ];
 
+// `table: false` columns show only on the profile page; the table has to fit the page width without scrolling.
+const TABLE_COLUMNS = STAT_COLUMNS.filter((c) => c.table !== false);
 // First column of each group gets a left rule so the header groups read down the whole table.
-const groupStart = (c) => STAT_COLUMNS.find((x) => x.group === c.group) === c;
+const groupStart = (c) => TABLE_COLUMNS.find((x) => x.group === c.group) === c;
 
 const MIN_SAMPLE = 10; // below this many opportunities the value is noise, so it is shown muted instead of tinted
 
@@ -63,7 +65,7 @@ export function Net({ net, big, flat }) {
   return <span className={`net ${cls} ${big ? "net-big" : ""} ${flat ? "net-flat" : ""}`}>{signed(net)}</span>;
 }
 
-export function PlayerChip({ player, color, size = 34 }) {
+export function PlayerChip({ player, color, size = 28 }) {
   const [open, setOpen] = useState(false);
   const merged = player.merged_ids?.length ?? 0;
   const otherNames = (player.names ?? []).filter((n) => n !== player.name);
@@ -179,13 +181,13 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
             <SortHeader k="hands" rowSpan={2}>Hands</SortHeader>
             <SortHeader k="net" rowSpan={2}>Net</SortHeader>
             {STAT_GROUPS.map((g) => (
-              <th key={g} className="group group-start" colSpan={STAT_COLUMNS.filter((c) => c.group === g).length}>
+              <th key={g} className="group group-start" colSpan={TABLE_COLUMNS.filter((c) => c.group === g).length}>
                 {g}
               </th>
             ))}
           </tr>
           <tr>
-            {STAT_COLUMNS.map((c) => (
+            {TABLE_COLUMNS.map((c) => (
               <SortHeader key={c.key} k={c.key} title={c.help} className={groupStart(c) ? "group-start" : ""}>
                 {c.label}
               </SortHeader>
@@ -216,7 +218,7 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
                 <Net net={p.net} />
                 <Crown k="net" p={p} />
               </td>
-              {STAT_COLUMNS.map((c) => (
+              {TABLE_COLUMNS.map((c) => (
                 <td key={c.key} className={`num ${groupStart(c) ? "group-start" : ""}`}>
                   <StatValue stat={p[c.key]} col={c} />
                   <Crown k={c.key} p={p} />

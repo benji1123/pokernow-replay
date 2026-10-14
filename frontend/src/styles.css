@@ -171,14 +171,16 @@ tbody tr:last-child td { border-bottom: none; }
 tr.clickable { cursor: pointer; transition: background 0.12s; }
 tr.clickable:hover { background: color-mix(in srgb, var(--c, var(--accent)) 8%, var(--surface)); }
 tr.selected { background: color-mix(in srgb, var(--c, var(--accent)) 14%, var(--surface)); }
-.players th, .players td { padding: 7px 9px; font-size: 15px; }
-.players th { font-size: 13px; color: var(--ink-2); letter-spacing: 0.03em; }
+.players th, .players td { padding: 6px 7px; font-size: 15px; }
+.players th { font-size: 12.5px; color: var(--ink-2); letter-spacing: 0.02em; white-space: nowrap; }
+.players th.sortable { position: relative; padding-right: 16px; }
+.players th.sortable .sort-arrow { position: absolute; right: 3px; top: 50%; transform: translateY(-50%); margin: 0; }
 .players th.group { text-align: center; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); padding: 5px 9px 2px; border-bottom: 1px solid var(--line); }
 .players .group-start { border-left: 1px solid var(--line); }
-.players td:first-child { padding-left: 12px; padding-right: 14px; }
+.players td:first-child { padding-left: 12px; padding-right: 8px; }
 .players .stat { min-width: 2.9em; padding: 1px 5px; }
 .players .net { min-width: 3em; padding: 1px 7px; font-size: 15px; }
-@media (max-width: 1180px) { .table-panel { overflow-x: auto; } }
+.table-panel { overflow-x: auto; } /* the table must never spill past the panel; trimming columns keeps this from scrolling on desktop */
 .players tr.clickable td:first-child { box-shadow: inset 4px 0 0 var(--c); }
 .players.merging tr.clickable td:first-child { box-shadow: none; }
 .players.merging tr.clickable td:nth-child(2) { box-shadow: inset 4px 0 0 var(--c); }
@@ -203,11 +205,8 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .btn.primary:hover:not(:disabled) { background: var(--accent-ink); color: var(--surface); }
 .btn:disabled { opacity: 0.5; cursor: default; }
 
-.player-chip { display: grid; grid-template-columns: auto auto 1fr; grid-template-areas: "avatar name tag" "avatar badges badges"; column-gap: 10px; row-gap: 3px; align-items: center; font-weight: 600; }
-.player-chip .pixel-avatar { grid-area: avatar; }
-.player-chip .player-name { grid-area: name; font-size: 16px; line-height: 1.2; }
-.player-chip .merged-wrap { grid-area: tag; justify-self: start; }
-.player-chip .badges { grid-area: badges; }
+.player-chip { display: flex; align-items: center; gap: 8px; font-weight: 600; white-space: nowrap; }
+.player-chip .player-name { font-size: 16px; line-height: 1.2; }
 .pixel-avatar { border-radius: 8px; flex: none; }
 
 .net { display: inline-block; min-width: 3.4em; text-align: center; padding: 2px 9px; border-radius: 999px; font-weight: 600; font-variant-numeric: tabular-nums; }
@@ -455,7 +454,6 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .legend { display: inline-flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--ink-2); }
 .legend-item { display: inline-flex; align-items: center; gap: 5px; }
 .swatch { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
-.player-chip.simple { grid-template-areas: "avatar name"; grid-template-columns: auto 1fr; }
 .flow-cell { width: 50%; }
 .flow-track { position: relative; display: block; height: 14px; background: var(--bg-deep); border-radius: 7px; }
 .flow-track::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: var(--muted); }

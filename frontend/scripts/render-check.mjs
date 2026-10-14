@@ -98,7 +98,7 @@ console.log(`app shell: ${out.app} chars`);
 console.log(`players table: ${out.players.length} chars, ${session.players.length} rows, ${badgeCount} badges`);
 const tones = Object.fromEntries(["lo", "mid", "hi", "thin"].map((t) => [t, (out.players.match(new RegExp(`tone-${t}`, "g")) || []).length]));
 console.log(`stat tones: ${Object.entries(tones).map(([k, v]) => `${k} ${v}`).join(", ")}`);
-console.log(`crowns: ${(out.players.match(/class="crown"/g) || []).length} (15 columns), merged tags: ${(out.players.match(/merged-tag/g) || []).length}`);
+console.log(`crowns: ${(out.players.match(/class="crown"/g) || []).length} (13 columns), merged tags: ${(out.players.match(/merged-tag/g) || []).length}`);
 console.log(`player views: ${out.playerViews.length} rendered, min ${Math.min(...out.playerViews)} chars`);
 for (const r of out.range) {
   if (r.cells !== 169 || r.seen !== r.combos) throw new Error(`range grid for ${r.name}: ${r.cells} cells, ${r.seen} seen vs ${r.combos} combos`);

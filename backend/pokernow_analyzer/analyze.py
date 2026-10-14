@@ -12,7 +12,7 @@ from .aliases import merge_players
 from .archetypes import assign_archetypes
 from .models import Hand
 from .parser import parse_csv
-from .profile import compute_profiles
+from .profile import compute_profiles, shown_bet_mix
 from .ratings import ratings
 from .reads import reads
 from .stats import compute_stats
@@ -26,6 +26,23 @@ def room_from_filename(name: str | None) -> str:
     # Browsers rename repeat downloads to "... (1).csv"; the room code is what precedes that.
     m = re.search(r"poker_now_log_([A-Za-z0-9_-]+?)(?: \(\d+\))?\.csv", name or "")
     return m.group(1) if m else (name or "upload")
+
+
+MIN_SHOWN_FOR_ESTIMATE = 5
+
+
+def bluff_stats(profile: dict, postflop_aggr: int) -> dict:
+    """bluffs_shown: shown postflop bets that were air/draw, over shown bets.
+    est_bluffs: that share applied to every postflop bet and raise, seen or not. Assumes unseen bets have the same
+    mix as shown ones; players tend to show value more than bluffs, so it overstates. Under that assumption the
+    estimated bluff success rate equals the takedown rate, so no separate figure is published."""
+    bluffs, shown = shown_bet_mix(profile)
+    share = bluffs / shown if shown else None
+    est = round(share * postflop_aggr) if shown >= MIN_SHOWN_FOR_ESTIMATE else None
+    return {
+        "bluffs_shown": {"n": bluffs, "d": shown, "value": share},
+        "est_bluffs": {"n": est, "d": postflop_aggr, "value": share if est is not None else None},
+    }
 
 
 def merge_games(games: list[tuple[str, list[Hand]]]) -> list[Hand]:
@@ -53,6 +70,7 @@ def build_session(games: list[tuple[str, list[Hand]]], merges: list[list[str]] =
     for pid, s in stats.items():
         d = s.to_dict()
         d.update(archetypes=badges[pid], merged_ids=merged.get(pid, []), profile=profiles[pid])
+        d.update(bluff_stats(profiles[pid], s.af_postflop.n))
         d["reads"] = reads(d, profiles[pid], s.hands)
         d["ratings"] = ratings(d, profiles[pid])
         players.append(d)

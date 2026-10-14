@@ -6,6 +6,8 @@ number means the same thing across sessions. A rating is None when its sample is
 
 from __future__ import annotations
 
+from .profile import shown_bet_mix
+
 MIN_HANDS = 20
 MIN_SHOWN = 5
 
@@ -42,12 +44,7 @@ def ratings(stats: dict, profile: dict) -> list[dict]:
                 "detail": f"AF {af_v:.1f} · PFR {pfr:.0%}" if af_v is not None and pfr is not None else "AF -"})
 
     # Bluffing: share of shown bets and raises (any street) that were air or a draw. 0% -> 0, 60% -> 99.
-    shown = bluffs = 0
-    for cell in profile.get("meanings", []):
-        for lab, ids in cell.get("strengths", {}).items():
-            shown += len(ids)
-            if lab in ("air", "draw"):
-                bluffs += len(ids)
+    bluffs, shown = shown_bet_mix(profile)
     out.append({"key": "bluff", "label": "Bluffing", "value": None if shown < MIN_SHOWN else _scale(bluffs / shown, 0.0, 0.60),
                 "detail": f"{bluffs} of {shown} shown bets were air or a draw" if shown else "no shown bets"})
 

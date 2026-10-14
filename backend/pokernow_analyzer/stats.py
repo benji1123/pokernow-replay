@@ -10,6 +10,7 @@ Definitions (posts never count as voluntary actions):
   AF            (bets + raises) / calls, on the given streets (ratio, not a percentage)
   WTSD          reached showdown                                             / saw the flop
   W$SD          won chips at showdown                                        / reached showdown
+  Takedown      postflop bets/raises after which everyone folded              / postflop bets + raises
   vs            per opponent, chips taken from them minus chips lost to them (see money_flow)
 """
 from __future__ import annotations
@@ -56,6 +57,7 @@ class PlayerStats:
     af_postflop: Stat = field(default_factory=Stat)
     wtsd: Stat = field(default_factory=Stat)
     wsd: Stat = field(default_factory=Stat)
+    takedown: Stat = field(default_factory=Stat)  # n = postflop bets/raises that ended the hand, d = postflop bets/raises
     # opponent id -> chips taken from (positive) or lost to (negative) that opponent, summed over hands.
     vs: dict[str, float] = field(default_factory=dict)
 
@@ -108,6 +110,7 @@ class HandFacts:
     saw_flop: bool = False
     showdown: bool = False
     won_at_showdown: bool = False
+    takedowns: int = 0             # postflop bets/raises that made everyone else fold (at most one per hand)
     aggr: dict[str, int] = field(default_factory=lambda: {"preflop": 0, "postflop": 0})
     calls: dict[str, int] = field(default_factory=lambda: {"preflop": 0, "postflop": 0})
 
@@ -153,6 +156,10 @@ def hand_facts(hand: Hand) -> dict[str, HandFacts]:
         f.saw_flop = len(hand.board) >= 3 and pid not in folded_preflop
         f.showdown = showdown and pid in alive
         f.won_at_showdown = f.showdown and hand.collected.get(pid, 0) > 0
+    if not showdown and alive:
+        last = next((a for a in reversed(hand.actions) if a.kind in AGGRESSIVE_KINDS), None)
+        if last is not None and last.street != "preflop" and last.player_id == alive[0]:
+            facts[alive[0]].takedowns = 1
     return facts
 
 
@@ -176,6 +183,8 @@ def compute_stats(hands: list[Hand]) -> dict[str, PlayerStats]:
             s.fold_to_three_bet.add(f.folded_to_3bet, f.opened_and_faced_3bet)
             s.wtsd.add(f.showdown, f.saw_flop)
             s.wsd.add(f.won_at_showdown, f.showdown)
+            s.takedown.n += f.takedowns
+            s.takedown.d += f.aggr["postflop"]
             for bucket, target in (("preflop", s.af_preflop), ("postflop", s.af_postflop)):
                 target.n += f.aggr[bucket]
                 target.d += f.calls[bucket]

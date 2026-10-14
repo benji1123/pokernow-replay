@@ -115,3 +115,14 @@ def test_room_from_filename_handles_browser_copies():
     assert room_from_filename("poker_now_log_pglQyJjZdRs (12).csv") == "pglQyJjZdRs"
     assert room_from_filename("something_else.csv") == "something_else.csv"
     assert room_from_filename(None) == "upload"
+
+
+def test_bluff_stats_on_fixture():
+    body = analyze([(f"poker_now_log_{ROOM}.csv", fixture_csv())])
+    rocky = next(p for p in body["players"] if p["name"] == "Rocky")
+    tex = next(p for p in body["players"] if p["name"] == "Tex")
+    assert rocky["bluffs_shown"] == {"n": 5, "d": 8, "value": 0.625}
+    # 5/8 of shown bets were air or a draw, applied to all 22 postflop bets/raises -> ~14
+    assert rocky["est_bluffs"] == {"n": 14, "d": 22, "value": 0.625}
+    # Fewer than 5 shown bets: no estimate, but the shown count is still reported
+    assert tex["bluffs_shown"]["d"] == 3 and tex["est_bluffs"]["n"] is None and tex["est_bluffs"]["value"] is None

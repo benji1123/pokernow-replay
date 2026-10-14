@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from "react";
 import PixelAvatar from "./PixelAvatar.jsx";
 import { Badges } from "./Badges.jsx";
-import { pct, ratio, sample, signed } from "../hands.js";
+import { approx, count, pct, ratio, sample, signed } from "../hands.js";
 
 // `range` is the typical band for a 5-6 handed game (values are %, or a ratio for AF). Below it reads as
 // tight/passive (cool tint), above as loose/aggressive (warm tint); inside it stays plain.
-export const STAT_GROUPS = ["Preflop", "Aggression", "Showdown"];
+export const STAT_GROUPS = ["Preflop", "Aggression", "Showdown", "Bluffing"];
 export const STAT_COLUMNS = [
   { key: "vpip", group: "Preflop", label: "VPIP", fmt: pct, range: [22, 35], help: "Voluntarily put chips in preflop / hands dealt" },
   { key: "pfr", group: "Preflop", label: "PFR", fmt: pct, range: [15, 25], help: "Raised preflop / hands dealt" },
@@ -17,7 +17,15 @@ export const STAT_COLUMNS = [
   { key: "af_postflop", group: "Aggression", label: "AF post", fmt: ratio, range: [1.5, 3], help: "(bets + raises) / calls, flop onward" },
   { key: "wtsd", group: "Showdown", label: "WTSD", fmt: pct, range: [22, 32], help: "Reached showdown / saw the flop" },
   { key: "wsd", group: "Showdown", label: "W$SD", fmt: pct, range: [45, 55], help: "Won at showdown / reached showdown" },
+  // Bluffing: the log only reveals cards at showdown or when shown, so bluffs that worked are invisible. `asPct`
+  // marks count columns whose value is a share, so the tint compares that share against the range.
+  { key: "bluffs_shown", group: "Bluffing", label: "Bluffs", fmt: count, asPct: true, range: [20, 40], help: "Bets and raises from the flop on whose cards were later seen and were air or a draw at the time. Tint compares the share of shown bets that were bluffs." },
+  { key: "est_bluffs", group: "Bluffing", label: "~Bluffs", fmt: approx, asPct: true, range: [20, 40], help: "Estimated bluffs: the shown-bluff share applied to every postflop bet and raise, seen or not. Assumes unseen bets have the same mix as shown ones; players show value more than bluffs, so this overstates. Needs 5 shown bets." },
+  { key: "takedown", group: "Bluffing", label: "Takedown", fmt: pct, range: [40, 60], help: "Postflop bets and raises that won the pot on the spot (everyone folded) / postflop bets and raises. Under the same-mix assumption this is also the estimated bluff success rate." },
 ];
+
+// First column of each group gets a left rule so the header groups read down the whole table.
+const groupStart = (c) => STAT_COLUMNS.find((x) => x.group === c.group) === c;
 
 const MIN_SAMPLE = 10; // below this many opportunities the value is noise, so it is shown muted instead of tinted
 
@@ -28,7 +36,7 @@ const sampleSize = (stat, col) => (col.fmt === ratio ? stat.n + stat.d : stat.d)
 export function statTone(stat, col) {
   if (!stat || sampleSize(stat, col) < MIN_SAMPLE) return "thin";
   if (stat.value == null) return col.fmt === ratio && stat.n > 0 ? "hi" : "thin"; // AF with zero calls is infinite
-  const v = col.fmt === pct ? stat.value * 100 : stat.value;
+  const v = col.fmt === pct || col.asPct ? stat.value * 100 : stat.value;
   return v < col.range[0] ? "lo" : v > col.range[1] ? "hi" : "mid";
 }
 
@@ -36,7 +44,7 @@ export function statTone(stat, col) {
 export function statTitle(stat, col) {
   const tone = statTone(stat, col);
   const [lo, hi] = col.range;
-  const band = col.fmt === pct ? `${lo}–${hi}%` : `${lo}–${hi}`;
+  const band = col.fmt === pct || col.asPct ? `${lo}–${hi}%` : `${lo}–${hi}`;
   const why = tone === "thin" ? `only ${stat ? sampleSize(stat, col) : 0} opportunities (need ${MIN_SAMPLE})` : tone === "mid" ? `typical: ${band}` : `${tone === "lo" ? "below" : "above"} the typical ${band}`;
   return `${sample(stat)} · ${why}`;
 }
@@ -115,8 +123,8 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
   const Crown = ({ k, p }) => (leaders[k]?.has(p.player_id) ? <sup className="crown" title="Highest at the table">👑</sup> : null);
   // First click on a column shows the biggest values first; a second click flips it.
   const toggleSort = (key) => setSort((s) => (s.key === key ? { key, dir: -s.dir } : { key, dir: -1 }));
-  const SortHeader = ({ k, title, children }) => (
-    <th className={`num sortable ${sort.key === k ? "sorted" : ""}`} onClick={() => toggleSort(k)} title={title ? `${title}\nClick to sort` : "Click to sort"}>
+  const SortHeader = ({ k, title, children, className = "", ...rest }) => (
+    <th className={`num sortable ${className} ${sort.key === k ? "sorted" : ""}`} onClick={() => toggleSort(k)} title={title ? `${title}\nClick to sort` : "Click to sort"} {...rest}>
       {children}
       <span className="sort-arrow">{sort.key === k ? (sort.dir > 0 ? "↑" : "↓") : "↕"}</span>
     </th>
@@ -165,13 +173,20 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
       </div>
       <table className={`players ${merging ? "merging" : ""}`}>
         <thead>
+          <tr className="group-row">
+            {merging && <th rowSpan={2} />}
+            <th className="player-col" rowSpan={2}>Player</th>
+            <SortHeader k="hands" rowSpan={2}>Hands</SortHeader>
+            <SortHeader k="net" rowSpan={2}>Net</SortHeader>
+            {STAT_GROUPS.map((g) => (
+              <th key={g} className="group group-start" colSpan={STAT_COLUMNS.filter((c) => c.group === g).length}>
+                {g}
+              </th>
+            ))}
+          </tr>
           <tr>
-            {merging && <th />}
-            <th className="player-col">Player</th>
-            <SortHeader k="hands">Hands</SortHeader>
-            <SortHeader k="net">Net</SortHeader>
             {STAT_COLUMNS.map((c) => (
-              <SortHeader key={c.key} k={c.key} title={c.help}>
+              <SortHeader key={c.key} k={c.key} title={c.help} className={groupStart(c) ? "group-start" : ""}>
                 {c.label}
               </SortHeader>
             ))}
@@ -202,7 +217,7 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
                 <Crown k="net" p={p} />
               </td>
               {STAT_COLUMNS.map((c) => (
-                <td key={c.key} className="num">
+                <td key={c.key} className={`num ${groupStart(c) ? "group-start" : ""}`}>
                   <StatValue stat={p[c.key]} col={c} />
                   <Crown k={c.key} p={p} />
                 </td>

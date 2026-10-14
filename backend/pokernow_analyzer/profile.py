@@ -322,3 +322,14 @@ def compute_profiles(hands: list[Hand]) -> dict[str, dict]:
                 elif lab != "air":
                     profiles[pid].value_shown += 1
     return {pid: p.to_dict() for pid, p in profiles.items()}
+
+
+def shown_bet_mix(profile: dict) -> tuple[int, int]:
+    """(bluffs, shown): postflop bets and raises whose cards were later seen, and how many of those were air or a draw."""
+    shown = bluffs = 0
+    for cell in profile.get("meanings", []):
+        for lab, ids in cell.get("strengths", {}).items():
+            shown += len(ids)
+            if lab in ("air", "draw"):
+                bluffs += len(ids)
+    return bluffs, shown

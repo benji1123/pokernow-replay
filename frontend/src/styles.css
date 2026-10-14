@@ -57,9 +57,9 @@
   --draw: #b394ff;
   --neg-soft: #3a1d24;
   --black-suit: #1b1b1f;
-  --red-suit: #d6455d;
+  --red-suit: #c22f47;
   --diamond-suit: #1f6fd6;
-  --club-suit: #1e8a4c;
+  --club-suit: #167a40;
   --lo: #74c0fc;
   --lo-soft: #182a3d;
   --hi: #ffa94d;
@@ -67,8 +67,8 @@
   --warm-ink: #ffb86b;
   --warm-soft: #3d2a17;
   --neg-ink: #ff8fa0;
-  --card-face: #f4f1ea;
-  --card-edge: #b8b2a3;
+  --card-face: #d8d4ca;
+  --card-edge: #8e8a80;
   --dash: #3a3d4a;
   --glow-1: #22202a;
   --glow-2: #15241d;
@@ -105,8 +105,8 @@
   --warm-ink: #ffc38a;
   --warm-soft: #5f4a38;
   --neg-ink: #ffaab4;
-  --card-face: #f1eee6;
-  --card-edge: #a9a69c;
+  --card-face: #e2dfd6;
+  --card-edge: #9a978e;
   --dash: #6a7080;
   --glow-1: #525662;
   --glow-2: #485448;
@@ -173,6 +173,8 @@ tr.clickable:hover { background: color-mix(in srgb, var(--c, var(--accent)) 8%, 
 tr.selected { background: color-mix(in srgb, var(--c, var(--accent)) 14%, var(--surface)); }
 .players th, .players td { padding: 7px 9px; font-size: 15px; }
 .players th { font-size: 13px; color: var(--ink-2); letter-spacing: 0.03em; }
+.players th.group { text-align: center; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); padding: 5px 9px 2px; border-bottom: 1px solid var(--line); }
+.players .group-start { border-left: 1px solid var(--line); }
 .players td:first-child { padding-left: 12px; padding-right: 14px; }
 .players .stat { min-width: 2.9em; padding: 1px 5px; }
 .players .net { min-width: 3em; padding: 1px 7px; font-size: 15px; }

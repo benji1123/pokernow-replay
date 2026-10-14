@@ -133,3 +133,16 @@ def test_money_flow_splits_across_losers_proportionally():
     hand = parse_messages(lines)[0]
     assert hand.net("a1") == 22 and hand.net("b2") == -16 and hand.net("c3") == -6
     assert money_flow(hand) == {"b2": {"a1": 16.0}, "c3": {"a1": 6.0}}
+
+
+def test_takedown_is_a_postflop_bet_that_ends_the_hand(hands):
+    # #2: Rocky bets the turn, Tex folds -> takedown. #11: Rocky's bets get called and the river checks through -> none.
+    assert hand_facts(by_number(hands, 2))[ROCKY].takedowns == 1
+    assert hand_facts(by_number(hands, 11))[ROCKY].takedowns == 0
+    # Everyone folding to a preflop raise is a steal, not a postflop takedown.
+    assert all(f.takedowns == 0 for h in hands if len(h.board) == 0 for f in hand_facts(h).values())
+
+
+def test_takedown_stat_for_rocky(stats):
+    assert (stats[ROCKY].takedown.n, stats[ROCKY].takedown.d) == (9, 22)
+    assert stats[ROCKY].takedown.d == stats[ROCKY].af_postflop.n

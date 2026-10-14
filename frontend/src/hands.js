@@ -12,6 +12,15 @@ export function ratio(stat) {
   return (stat.n / stat.d).toFixed(1);
 }
 
+// Count stats: n is the figure, value (a share) only drives the tint and the "–" for thin samples.
+export function count(stat) {
+  return stat.value == null ? "–" : String(stat.n);
+}
+
+export function approx(stat) {
+  return stat.value == null ? "–" : `~${stat.n}`;
+}
+
 export function sample(stat) {
   return `${stat.n} / ${stat.d}`;
 }

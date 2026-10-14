@@ -93,7 +93,6 @@ for (const g of ["Preflop", "Aggression", "Showdown", "Bluffing"]) {
 }
 const groupRules = (out.players.match(/group-start/g) || []).length;
 if (groupRules !== 4 * (session.players.length + 2)) throw new Error(`group rules: ${groupRules}, expected 4 per header row and per player row`);
-if (!/~\d+<\/span>/.test(out.players)) throw new Error("no estimated-bluff cell rendered (fixture has one player with 5+ shown bets)");
 console.log(`app shell: ${out.app} chars`);
 console.log(`players table: ${out.players.length} chars, ${session.players.length} rows, ${badgeCount} badges`);
 const tones = Object.fromEntries(["lo", "mid", "hi", "thin"].map((t) => [t, (out.players.match(new RegExp(`tone-${t}`, "g")) || []).length]));
@@ -111,6 +110,8 @@ console.log(`awards (${out.awards.length}):`);
 for (const a of out.awards) console.log(`  ${a.emoji} ${a.label}: ${session.players.find((p) => p.player_id === a.pid).name} ${a.value} ${a.sub}`);
 console.log(`ratings (loose/aggr/bluff/stubborn): ${out.ratings.join("; ")}`);
 if (out.tcardMissing.length) throw new Error(`trading card missing for ${out.tcardMissing.join(", ")}`);
+if (out.players.includes(">~Bluffs<") || out.players.includes(">Fold→3bet<")) throw new Error("profile-only columns leaked into the players table");
+if (!out.playerViewsHtml.some((h) => /~\d+<\/span>/.test(h))) throw new Error("no estimated-bluff tile on any profile (fixture has one player with 5+ shown bets)");
 if (!out.savedPanel) throw new Error("upload screen does not show the saved-session panel");
 if (out.winnerGap) throw new Error(`${out.winnerGap} player views have hand rows without a winner cell`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);

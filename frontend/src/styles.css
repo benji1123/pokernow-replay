@@ -35,6 +35,7 @@
   --glow-2: #e6f4ec;
   --radius: 14px;
   --shadow: 0 1px 2px rgba(27, 27, 31, 0.04), 0 8px 24px -12px rgba(27, 27, 31, 0.18);
+  --on-accent: #ffffff;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --pixel: "Press Start 2P", monospace;
   color-scheme: light;
@@ -69,6 +70,112 @@
   --glow-1: #22202a;
   --glow-2: #15241d;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --on-accent: #0e2a1c;
+  color-scheme: dark;
+}
+/* Sepia: low-contrast light. Tan paper, brown ink, oxblood accent. */
+:root[data-theme="sepia"] {
+  --bg: #e8dcc4;
+  --bg-deep: #dccfb3;
+  --surface: #f1e8d6;
+  --ink: #3b2f22;
+  --ink-2: #5e4e3c;
+  --muted: #86755c;
+  --line: #d3c4a3;
+  --accent: #a3362f;
+  --accent-ink: #7d2721;
+  --accent-soft: #efd9d1;
+  --on-accent: #fff6ee;
+  --pos: #4f7a3a;
+  --pos-soft: #dde6cf;
+  --neg: #b4433a;
+  --neg-soft: #f0d6cf;
+  --draw: #7a55c9;
+  --red-suit: #b4433a;
+  --black-suit: #2b2118;
+  --diamond-suit: #2a63b8;
+  --club-suit: #3f7a3a;
+  --lo: #2a63b8;
+  --lo-soft: #d9e2ee;
+  --hi: #b85c1a;
+  --hi-soft: #f2dfc9;
+  --warm-ink: #7f3f0a;
+  --warm-soft: #f2dfc9;
+  --neg-ink: #7d2721;
+  --card-face: #f7f1e3;
+  --card-edge: #c9b997;
+  --dash: #bfae8e;
+  --glow-1: #efe3cb;
+  --glow-2: #e2d6bb;
+  --shadow: 0 1px 2px rgba(59, 47, 34, 0.05), 0 8px 24px -12px rgba(59, 47, 34, 0.2);
+  color-scheme: light;
+}
+/* Dusk: mid-tone grey-blue halfway between light and dark, ~7:1 text contrast instead of 15:1. */
+:root[data-theme="dusk"] {
+  --bg: #4a4e5a;
+  --bg-deep: #3f434e;
+  --surface: #565b68;
+  --ink: #e6e7ec;
+  --ink-2: #d2d5de;
+  --muted: #adb2c0;
+  --line: #666c7a;
+  --accent: #7dd3a3;
+  --accent-ink: #a8e6c5;
+  --accent-soft: #3d5a4c;
+  --on-accent: #1a2e24;
+  --pos: #8be0b3;
+  --pos-soft: #3d5a4c;
+  --neg: #ff9aa6;
+  --neg-soft: #5f3f47;
+  --draw: #c3abff;
+  --black-suit: #1b1b1f;
+  --lo: #8fc8f7;
+  --lo-soft: #3c4d5f;
+  --hi: #ffb570;
+  --hi-soft: #5f4a38;
+  --warm-ink: #ffc38a;
+  --warm-soft: #5f4a38;
+  --neg-ink: #ffaab4;
+  --card-face: #f1eee6;
+  --card-edge: #a9a69c;
+  --dash: #6a7080;
+  --glow-1: #525662;
+  --glow-2: #485448;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 8px 24px -12px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+/* Felt: poker table. Deep green, warm white ink, gold accent; winnings are gold since green is the table. */
+:root[data-theme="felt"] {
+  --bg: #1f4d3a;
+  --bg-deep: #1a4231;
+  --surface: #27604a;
+  --ink: #f1f4ea;
+  --ink-2: #cfdcc9;
+  --muted: #9db8a5;
+  --line: #356f58;
+  --accent: #e3b341;
+  --accent-ink: #f0cc6e;
+  --accent-soft: #44583a;
+  --on-accent: #2a2208;
+  --pos: #e3b341;
+  --pos-soft: #44583a;
+  --neg: #ff8a8a;
+  --neg-soft: #5a3a3a;
+  --draw: #c7b2ff;
+  --black-suit: #1b1b1f;
+  --lo: #8fd0f5;
+  --lo-soft: #2b5560;
+  --hi: #ffab66;
+  --hi-soft: #5a4a32;
+  --warm-ink: #ffbf80;
+  --warm-soft: #5a4a32;
+  --neg-ink: #ffa3a3;
+  --card-face: #f6f2e6;
+  --card-edge: #b9b39f;
+  --dash: #4a7a62;
+  --glow-1: #26583f;
+  --glow-2: #1b4a3c;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 24px -12px rgba(0, 0, 0, 0.55);
   color-scheme: dark;
 }
 
@@ -155,7 +262,7 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .toolbar .toggle input { accent-color: var(--accent); }
 .btn { font: inherit; font-size: 15px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); cursor: pointer; }
 .btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent-ink); }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .btn.primary:hover:not(:disabled) { background: var(--accent-ink); color: var(--surface); }
 .btn:disabled { opacity: 0.5; cursor: default; }
 
@@ -347,8 +454,7 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .tabs { display: inline-flex; gap: 2px; padding: 3px; margin-bottom: 10px; background: var(--bg-deep); border: 1px solid var(--line); border-radius: 999px; }
 .tab { font: inherit; font-size: 15px; font-weight: 600; padding: 5px 14px; border-radius: 999px; border: none; background: transparent; color: var(--ink-2); }
 .tab:hover { color: var(--ink); }
-.tab.active { background: var(--accent); color: #fff; box-shadow: var(--shadow); }
-:root[data-theme="dark"] .tab.active { color: #0e2a1c; }
+.tab.active { background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow); }
 .race-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
 .race-head h3 { font-size: 17px; }
 .race-body { position: relative; }

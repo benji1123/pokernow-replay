@@ -7,9 +7,10 @@
     <title>Session Replay · PokerNow analyzer</title>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2" />
     <script>
-      // Apply the saved (or OS) theme before first paint so dark mode doesn't flash white.
+      // Apply the saved (or OS) theme before first paint so dark mode doesn't flash white. Ids match THEMES in ThemeToggle.jsx.
+      var saved = localStorage.getItem("theme");
       document.documentElement.dataset.theme =
-        localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        ["light", "sepia", "dusk", "felt", "dark"].indexOf(saved) >= 0 ? saved : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

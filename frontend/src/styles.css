@@ -1,21 +1,21 @@
 /* Palette: tan paper background, brown ink, oxblood accent (low-contrast light); per-player hues from theme.js via --c.
    Status colors: olive for +, red for -. Dusk and Midnight override below. */
 :root {
-  --bg: #e8dcc4;
-  --bg-deep: #dccfb3;
-  --surface: #f1e8d6;
+  --bg: #ddd0b4;
+  --bg-deep: #cfc1a2;
+  --surface: #e7dcc5;
   --ink: #3b2f22;
   --ink-2: #5e4e3c;
   --muted: #86755c;
-  --line: #d3c4a3;
+  --line: #c6b793;
   --accent: #a3362f;
   --accent-ink: #7d2721;
-  --accent-soft: #efd9d1;
+  --accent-soft: #e6cfc5;
   --on-accent: #fff6ee;
   --pos: #4f7a3a;
-  --pos-soft: #dde6cf;
+  --pos-soft: #d3dcc2;
   --neg: #b4433a;
-  --neg-soft: #f0d6cf;
+  --neg-soft: #e6cbc2;
   --draw: #7a55c9;
   --red-suit: #b4433a;
   --black-suit: #2b2118;
@@ -23,17 +23,17 @@
   --club-suit: #3f7a3a;
   /* Stat tones: cool = tighter/more passive than typical, warm = looser/more aggressive. */
   --lo: #2a63b8;
-  --lo-soft: #d9e2ee;
+  --lo-soft: #cfd9e4;
   --hi: #b85c1a;
-  --hi-soft: #f2dfc9;
+  --hi-soft: #e8d4bb;
   --warm-ink: #7f3f0a;
-  --warm-soft: #f2dfc9;
+  --warm-soft: #e8d4bb;
   --neg-ink: #7d2721;
-  --card-face: #f7f1e3;
-  --card-edge: #c9b997;
+  --card-face: #efe7d6;
+  --card-edge: #b9a883;
   --dash: #bfae8e;
-  --glow-1: #efe3cb;
-  --glow-2: #e2d6bb;
+  --glow-1: #e3d6ba;
+  --glow-2: #d6c9ac;
   --shadow: 0 1px 2px rgba(59, 47, 34, 0.05), 0 8px 24px -12px rgba(59, 47, 34, 0.2);
   color-scheme: light;
   --radius: 14px;
@@ -44,8 +44,8 @@
   --bg: #15161c;
   --bg-deep: #22242d;
   --surface: #1c1e26;
-  --ink: #ececf1;
-  --ink-2: #b9bac6;
+  --ink: #d8d4ca;
+  --ink-2: #b3afa6;
   --muted: #7f8190;
   --line: #2c2f3a;
   --accent: #3dbb80;
@@ -81,8 +81,8 @@
   --bg: #4a4e5a;
   --bg-deep: #3f434e;
   --surface: #565b68;
-  --ink: #e6e7ec;
-  --ink-2: #d2d5de;
+  --ink: #e2dfd6;
+  --ink-2: #dad7ce;
   --muted: #adb2c0;
   --line: #666c7a;
   --accent: #7dd3a3;
@@ -221,7 +221,8 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .stat.tone-lo { color: var(--lo); background: var(--lo-soft); font-weight: 600; }
 .stat.tone-hi { color: var(--hi); background: var(--hi-soft); font-weight: 600; }
 .stat.tone-thin { color: var(--muted); }
-.crown { font-size: 11px; line-height: 0; margin-left: 1px; cursor: help; }
+.players td.num { position: relative; }
+.crown { position: absolute; top: 2px; right: 1px; font-size: 10px; line-height: 1; cursor: help; }
 
 /* ---- player view ---- */
 .player-header { display: flex; align-items: center; gap: 14px; padding: 8px 14px; margin-bottom: 8px; border-top: 4px solid var(--c); }
@@ -364,7 +365,7 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 /* ---- theme toggle ---- */
 .theme-toggle { position: fixed; top: 14px; right: 16px; z-index: 5; width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); box-shadow: var(--shadow); display: grid; place-items: center; font-size: 17px; transition: transform 0.12s, color 0.12s; }
 .theme-toggle:hover { transform: translateY(-1px); color: var(--accent-ink); }
-.kofi { position: fixed; right: 16px; bottom: 16px; z-index: 5; display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px 0 11px; border-radius: 10px; background: #72a4f2; color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: var(--shadow); transition: transform 0.12s, filter 0.12s; }
+.kofi { position: fixed; right: 16px; bottom: 16px; z-index: 5; display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px 0 11px; border-radius: 10px; background: #72a4f2; color: var(--card-face); font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: var(--shadow); transition: transform 0.12s, filter 0.12s; }
 .kofi:hover { transform: translateY(-1px); filter: brightness(1.06); text-decoration: none; }
 .kofi-cup { font-size: 18px; line-height: 1; }
 
@@ -466,7 +467,7 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .toggle:hover { border-color: var(--c); }
 .toggle.on { background: color-mix(in srgb, var(--c) 16%, var(--surface)); border-color: color-mix(in srgb, var(--c) 50%, transparent); color: var(--ink); }
 .toggle-n { font-size: 13px; font-weight: 600; padding: 0 6px; border-radius: 999px; background: var(--bg-deep); color: var(--ink-2); font-variant-numeric: tabular-nums; }
-.toggle.on .toggle-n { background: var(--c); color: #fff; }
+.toggle.on .toggle-n { background: var(--c); color: var(--card-face); }
 .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--surface); }
 .seg-btn { font: inherit; font-size: 14px; font-weight: 600; padding: 4px 10px; border: none; border-right: 1px solid var(--line); background: transparent; color: var(--ink-2); cursor: pointer; }
 .seg-btn:last-child { border-right: none; }

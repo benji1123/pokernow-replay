@@ -94,7 +94,10 @@ export default function PlayerView({ player, players, hands, colors, initialHand
       <header className="player-header panel">
         <PixelAvatar id={player.player_id} color={color.main} size={40} />
         <div className="player-title">
-          <h2>{player.name}</h2>
+          <div className="title-row">
+            <h2>{player.name}</h2>
+            <Net net={player.net} big />
+          </div>
           <p className="muted small-text">
             {player.hands} hands · won {player.hands_won}
           </p>
@@ -102,7 +105,6 @@ export default function PlayerView({ player, players, hands, colors, initialHand
         </div>
         <TradingCard ratings={player.ratings} color={color.main} />
         <Rivals player={player} players={players} colors={colors} onSelectPlayer={onSelectPlayer} />
-        <Net net={player.net} big />
       </header>
 
       <section className="stat-tiles">

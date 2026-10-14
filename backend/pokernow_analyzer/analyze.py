@@ -23,7 +23,8 @@ class AnalysisError(ValueError):
 
 
 def room_from_filename(name: str | None) -> str:
-    m = re.search(r"poker_now_log_([A-Za-z0-9_-]+)\.csv", name or "")
+    # Browsers rename repeat downloads to "... (1).csv"; the room code is what precedes that.
+    m = re.search(r"poker_now_log_([A-Za-z0-9_-]+?)(?: \(\d+\))?\.csv", name or "")
     return m.group(1) if m else (name or "upload")
 
 

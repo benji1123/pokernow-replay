@@ -227,7 +227,8 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .player-header h2 { font-size: 20px; }
 .player-header p { margin: 0 0 2px; }
 .player-title { min-width: 180px; }
-.player-header .net-big { font-size: 20px; padding: 4px 12px; }
+.player-header .title-row { display: flex; align-items: center; gap: 10px; }
+.player-header .net-big { font-size: 20px; padding: 3px 12px; margin-left: 0; }
 /* Rivals ride inside the header as two single-line chips. */
 .player-header .rivals { margin: 0 0 0 auto; display: flex; gap: 8px; flex-wrap: wrap; }
 .player-header .rival { grid-template-areas: "title avatar name net" "title avatar sub net"; grid-template-columns: auto auto 1fr auto; padding: 4px 10px; row-gap: 0; box-shadow: none; }
@@ -373,8 +374,8 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 
 /* trading-card ratings in the player header */
 .tcard { display: flex; flex-direction: column; gap: 2px; padding: 0 12px; border-left: 1px solid var(--line); }
-.tcard-row { display: grid; grid-template-columns: 86px 90px 2ch; column-gap: 6px; align-items: center; }
-.tcard-label { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+.tcard-row { display: grid; grid-template-columns: max-content 90px 2.5ch; column-gap: 8px; align-items: center; }
+.tcard-label { white-space: nowrap; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
 .tcard-bar { height: 7px; background: color-mix(in srgb, var(--c) 15%, var(--line)); border-radius: 2px; overflow: hidden; }
 .tcard-fill { display: block; height: 100%; background: var(--c); border-radius: 2px; }
 .tcard-num { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; color: var(--ink-2); }
@@ -530,7 +531,7 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
   .tabs::-webkit-scrollbar { display: none; }
   .tab { flex: 1 0 auto; padding: 6px 12px; font-size: 14.5px; }
   .tcard { border-left: 0; padding: 0; width: 100%; }
-  .tcard-row { grid-template-columns: 86px 1fr 2ch; }
+  .tcard-row { grid-template-columns: max-content 1fr 2.5ch; }
   /* Players table: scroll the stats sideways while the name column stays put. */
   .table-panel { overflow-x: auto; }
   .players .player-col { position: sticky; left: 0; z-index: 1; background: var(--surface); box-shadow: 1px 0 0 var(--line); }

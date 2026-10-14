@@ -106,10 +106,7 @@ export default function App() {
               {loading ? "Dealing…" : "+ Add log"}
             </button>
             <input ref={addInput} type="file" accept=".csv,text/csv" multiple hidden onChange={(e) => { load(Array.from(e.target.files), { append: true }); e.target.value = ""; }} />
-            <span className="pixel small" title={session.games.map((g) => `${g.room}: ${g.hand_count} hands`).join("\n")}>
-              {session.room}
-            </span>
-            <span className="muted">
+            <span className="muted" title={session.games.map((g) => `${g.room}: ${g.hand_count} hands`).join("\n")}>
               {session.hand_count} hands · {session.players.length} players{pace(session.hands) ? ` · ${pace(session.hands).perHour}/hr` : ""}
             </span>
             {error && <span className="error small">{error}</span>}

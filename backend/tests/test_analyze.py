@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from pokernow_analyzer.analyze import AnalysisError, analyze, analyze_json
+from pokernow_analyzer.analyze import AnalysisError, analyze, analyze_json, room_from_filename
 
 FIXTURES = Path(__file__).resolve().parents[2] / "fixtures"
 ROOM = "sample"
@@ -107,3 +107,11 @@ def test_analyze_json_is_the_browser_boundary():
 
     out = json.loads(analyze_json(json.dumps({"files": [{"name": "ledger.csv", "text": "a,b\n1,2\n"}]})))
     assert out == {"error": "ledger.csv: expected the poker_now_log_<room>.csv download (columns entry,at,order)"}
+
+
+def test_room_from_filename_handles_browser_copies():
+    assert room_from_filename("poker_now_log_pglQyJjZdRs.csv") == "pglQyJjZdRs"
+    assert room_from_filename("poker_now_log_pgl_Qy-Jj (1).csv") == "pgl_Qy-Jj"
+    assert room_from_filename("poker_now_log_pglQyJjZdRs (12).csv") == "pglQyJjZdRs"
+    assert room_from_filename("something_else.csv") == "something_else.csv"
+    assert room_from_filename(None) == "upload"

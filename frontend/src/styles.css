@@ -35,6 +35,8 @@
   --glow-1: #e3d6ba;
   --glow-2: #d6c9ac;
   --shadow: 0 1px 2px rgba(59, 47, 34, 0.05), 0 8px 24px -12px rgba(59, 47, 34, 0.2);
+  /* Player colors are tuned for dark backgrounds; as text on the tan page they get this much ink mixed in. */
+  --c-ink-mix: 35%;
   color-scheme: light;
   --radius: 14px;
   --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -74,6 +76,7 @@
   --glow-2: #15241d;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
   --on-accent: #0e2a1c;
+  --c-ink-mix: 0%;
   color-scheme: dark;
 }
 /* Dusk: mid-tone grey-blue halfway between light and dark, ~7:1 text contrast instead of 15:1. */
@@ -89,6 +92,7 @@
   --accent-ink: #a8e6c5;
   --accent-soft: #3d5a4c;
   --on-accent: #1a2e24;
+  --c-ink-mix: 0%;
   --pos: #8be0b3;
   --pos-soft: #3d5a4c;
   --neg: #ff9aa6;
@@ -171,11 +175,11 @@ tbody tr:last-child td { border-bottom: none; }
 tr.clickable { cursor: pointer; transition: background 0.12s; }
 tr.clickable:hover { background: color-mix(in srgb, var(--c, var(--accent)) 8%, var(--surface)); }
 tr.selected { background: color-mix(in srgb, var(--c, var(--accent)) 14%, var(--surface)); }
-.players th, .players td { padding: 6px 7px; font-size: 15px; }
+.players th, .players td { padding: 4px 7px; font-size: 15px; }
 .players th { font-size: 12.5px; color: var(--ink-2); letter-spacing: 0.02em; white-space: nowrap; }
 .players th.sortable { position: relative; padding-right: 16px; }
 .players th.sortable .sort-arrow { position: absolute; right: 3px; top: 50%; transform: translateY(-50%); margin: 0; }
-.players th.group { text-align: center; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); padding: 5px 9px 2px; border-bottom: 1px solid var(--line); }
+.players th.group { text-align: center; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); padding: 4px 9px 1px; border-bottom: 1px solid var(--line); }
 .players .group-start { border-left: 1px solid var(--line); }
 .players td:first-child { padding-left: 12px; padding-right: 8px; }
 .players .stat { min-width: 2.9em; padding: 1px 5px; }
@@ -185,6 +189,22 @@ tr.selected { background: color-mix(in srgb, var(--c, var(--accent)) 14%, var(--
 .players.merging tr.clickable td:first-child { box-shadow: none; }
 .players.merging tr.clickable td:nth-child(2) { box-shadow: inset 4px 0 0 var(--c); }
 .players td.pick { width: 36px; padding-right: 0; }
+/* The night's biggest winner rides a shimmering astro row: a dark violet gradient that drifts, with a tiled starfield.
+   Everything inside re-resolves against dark tokens so pills and badges stay readable. */
+.players tr.winner-row { --surface: #1b1230; --bg-deep: #2b1d4d; --ink: #f1eafe; --ink-2: #d3c7ef; --muted: #a697cf; --line: #43307a;
+  --lo: #9fd3ff; --lo-soft: #1f3560; --hi: #ffbe73; --hi-soft: #4d3320; --pos: #86e6b8; --pos-soft: #184534; --neg: #ff95a8; --neg-soft: #4e2130; --card-face: #e9e2f5;
+  color: var(--ink);
+  background: radial-gradient(circle at 12% 35%, rgba(255,255,255,0.75) 0 0.6px, transparent 1.4px), radial-gradient(circle at 48% 70%, rgba(255,255,255,0.55) 0 0.5px, transparent 1.2px),
+    radial-gradient(circle at 80% 25%, rgba(255,255,255,0.7) 0 0.7px, transparent 1.5px), radial-gradient(circle at 65% 85%, rgba(214,190,255,0.6) 0 0.5px, transparent 1.2px),
+    linear-gradient(110deg, #120b24 0%, #2a1850 30%, #4a2a8a 50%, #2a1850 70%, #120b24 100%);
+  background-size: 140px 44px, 140px 44px, 140px 44px, 140px 44px, 220% 100%;
+  animation: astro-drift 7s ease-in-out infinite alternate; }
+.players tr.winner-row.clickable:hover { filter: brightness(1.12); }
+.players tr.winner-row td:first-child { box-shadow: inset 4px 0 0 #c9a6ff; }
+.players tr.winner-row .badge { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.18); }
+.players tr.winner-row .group-start { border-left-color: rgba(255,255,255,0.14); }
+@keyframes astro-drift { from { background-position: 0 0, 30px 10px, 70px 20px, 100px 30px, 0% 0; } to { background-position: 0 0, 30px 10px, 70px 20px, 100px 30px, 100% 0; } }
+@media (prefers-reduced-motion: reduce) { .players tr.winner-row { animation: none; } }
 .players td.pick input { accent-color: var(--accent); pointer-events: none; }
 tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .merged-wrap { position: relative; display: inline-flex; }
@@ -196,7 +216,8 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .merged-ids { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); margin-top: 4px; }
 
 /* ---- toolbar above the players table ---- */
-.toolbar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.toolbar { display: flex; align-items: center; gap: 12px; padding: 6px 12px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.toolbar .btn { padding: 4px 10px; }
 .toolbar .toggle { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: var(--ink-2); cursor: pointer; }
 .toolbar .toggle input { accent-color: var(--accent); }
 .btn { font: inherit; font-size: 15px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); cursor: pointer; }
@@ -305,10 +326,13 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .small-text { font-size: 13px; }
 th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
 th.sortable:hover { color: var(--ink); }
-th.sorted { color: var(--c, var(--accent-ink)); }
+th.sorted { color: color-mix(in srgb, var(--c, var(--accent-ink)), var(--ink) var(--c-ink-mix)); }
 .sort-arrow { display: inline-block; margin-left: 4px; opacity: 0.45; }
 th.sorted .sort-arrow { opacity: 1; }
-.session-date { margin-left: auto; font-size: 16px; }
+.session-date { margin-left: auto; }
+.meta { display: inline-flex; gap: 6px; align-items: center; }
+.meta-item { padding: 2px 9px; border-radius: 999px; background: var(--bg-deep); font-size: 13.5px; color: var(--ink-2); white-space: nowrap; }
+.meta-item b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
 .game-tag { display: inline-block; font-family: var(--pixel); font-size: 10px; padding: 3px 5px; margin-right: 6px; border-radius: 5px; background: var(--bg-deep); color: var(--ink-2); vertical-align: 1px; cursor: help; }
 .error.small { font-size: 15px; padding: 4px 10px; }
 button.link:disabled { color: var(--muted); cursor: progress; text-decoration: none; }
@@ -365,9 +389,9 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 /* ---- theme toggle ---- */
 .theme-toggle { position: fixed; top: 14px; right: 16px; z-index: 5; width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); box-shadow: var(--shadow); display: grid; place-items: center; font-size: 17px; transition: transform 0.12s, color 0.12s; }
 .theme-toggle:hover { transform: translateY(-1px); color: var(--accent-ink); }
-.kofi { position: fixed; right: 16px; bottom: 16px; z-index: 5; display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px 0 11px; border-radius: 10px; background: #72a4f2; color: var(--card-face); font-size: 15px; font-weight: 600; text-decoration: none; box-shadow: var(--shadow); transition: transform 0.12s, filter 0.12s; }
-.kofi:hover { transform: translateY(-1px); filter: brightness(1.06); text-decoration: none; }
-.kofi-cup { font-size: 18px; line-height: 1; }
+.kofi { position: fixed; right: 16px; bottom: 16px; z-index: 5; display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 13px 0 10px; border-radius: 8px; background: var(--accent); color: var(--on-accent); text-decoration: none; box-shadow: var(--shadow); border: 2px solid color-mix(in srgb, var(--accent-ink) 60%, var(--accent)); transition: transform 0.12s, filter 0.12s; }
+.kofi:hover { transform: translateY(-1px); filter: brightness(1.08); text-decoration: none; }
+.kofi-text { font-size: 9px; line-height: 1; padding-top: 1px; }
 
 /* ---- players page: awards, profit race, style map ---- */
 .awards { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
@@ -379,7 +403,7 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .award-who { display: inline-flex; align-items: center; gap: 5px; font-size: 15px; font-weight: 600; white-space: nowrap; }
 .award-who .pixel-avatar { border-radius: 4px; }
 .award-value { display: flex; flex-direction: column; align-items: flex-end; margin-left: 6px; line-height: 1.15; white-space: nowrap; }
-.award-value b { font-size: 17px; color: var(--c, var(--ink)); font-variant-numeric: tabular-nums; }
+.award-value b { font-size: 17px; color: color-mix(in srgb, var(--c, var(--ink)), var(--ink) var(--c-ink-mix)); font-variant-numeric: tabular-nums; }
 .award-value small { font-size: 12.5px; color: var(--muted); }
 @media (max-width: 600px) { .award { flex-basis: 100%; } }
 
@@ -536,7 +560,8 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
   .topbar { gap: 10px; margin-bottom: 8px; font-size: 15px; row-gap: 4px; flex-wrap: wrap; }
   .session-date { flex-basis: 100%; margin-left: 0; font-size: 14px; }
   .theme-toggle { top: 8px; right: 10px; width: 32px; height: 32px; font-size: 15px; }
-  .kofi { right: 10px; bottom: 10px; height: 32px; padding: 0 11px 0 9px; font-size: 14px; }
+  .kofi { right: 10px; bottom: 10px; height: 32px; padding: 0 10px 0 8px; }
+  .kofi-text { font-size: 8px; }
   .tabs { display: flex; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
   .tabs::-webkit-scrollbar { display: none; }
   .tab { flex: 1 0 auto; padding: 6px 12px; font-size: 14.5px; }

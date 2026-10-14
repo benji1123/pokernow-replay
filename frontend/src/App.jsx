@@ -6,7 +6,7 @@ import UploadScreen from "./components/UploadScreen.jsx";
 import PlayersTable from "./components/PlayersTable.jsx";
 import PlayerView from "./components/PlayerView.jsx";
 import { assignColors } from "./theme.js";
-import { sessionSpan } from "./hands.js";
+import { sessionSpanParts } from "./hands.js";
 import ThemeToggle from "./components/ThemeToggle.jsx";
 import KofiButton from "./components/KofiButton.jsx";
 import Awards from "./components/Awards.jsx";
@@ -76,6 +76,7 @@ export default function App() {
   const reload = (opts) => load(files, opts);
 
   const player = route.page === "player" ? session?.players.find((p) => p.player_id === route.playerId) : null;
+  const span = session ? sessionSpanParts(session.hands) : null;
   return (
     <>
       <FloatingIcons />
@@ -106,11 +107,18 @@ export default function App() {
               {loading ? "Dealing…" : "+ Add log"}
             </button>
             <input ref={addInput} type="file" accept=".csv,text/csv" multiple hidden onChange={(e) => { load(Array.from(e.target.files), { append: true }); e.target.value = ""; }} />
-            <span className="muted" title={session.games.map((g) => `${g.room}: ${g.hand_count} hands`).join("\n")}>
-              {session.hand_count} hands · {session.players.length} players{pace(session.hands) ? ` · ${pace(session.hands).perHour}/hr` : ""}
+            <span className="meta" title={session.games.map((g) => `${g.room}: ${g.hand_count} hands`).join("\n")}>
+              <span className="meta-item"><b>{session.hand_count}</b> hands</span>
+              <span className="meta-item"><b>{session.players.length}</b> players</span>
+              {pace(session.hands) && <span className="meta-item"><b>{pace(session.hands).perHour}</b> hands/hr</span>}
             </span>
             {error && <span className="error small">{error}</span>}
-            <span className="muted session-date">{sessionSpan(session.hands)}</span>
+            {span && (
+              <span className="meta session-date">
+                {span.day && <span className="meta-item">{span.day}</span>}
+                <span className="meta-item">{span.time}</span>
+              </span>
+            )}
           </header>
           {player ? (
             <PlayerView

@@ -198,7 +198,8 @@ export default function PlayersTable({ players, colors, onSelect, merges = [], a
           {sorted.map((p) => (
             <tr
               key={p.player_id}
-              className={`clickable ${picked.includes(p.player_id) ? "picked" : ""}`}
+              className={`clickable ${picked.includes(p.player_id) ? "picked" : ""} ${leaders.net?.has(p.player_id) && p.net > 0 ? "winner-row" : ""}`}
+              title={leaders.net?.has(p.player_id) && p.net > 0 ? "Biggest winner of the night" : undefined}
               style={{ "--c": colors[p.player_id].main }}
               onClick={() => rowClick(p.player_id)}
             >

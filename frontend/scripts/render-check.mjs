@@ -88,6 +88,9 @@ const out = mod.run(session);
 
 const badgeCount = (out.players.match(/class="badge /g) || []).length;
 if (out.players.includes("badge-label")) throw new Error("players table badges should be emoji-only");
+const winnerRows = (out.players.match(/winner-row/g) || []).length;
+const topNet = Math.max(...session.players.map((p) => p.net));
+if (winnerRows !== (topNet > 0 ? session.players.filter((p) => p.net === topNet).length : 0)) throw new Error(`winner rows: ${winnerRows}`);
 for (const g of ["Preflop", "Aggression", "Showdown", "Bluffing"]) {
   if (!out.players.includes(`>${g}</th>`)) throw new Error(`players table header is missing the ${g} group`);
 }

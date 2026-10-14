@@ -79,6 +79,18 @@ export function lastStreet(hand) {
 }
 
 // "Oct 8, 2026 · 8:19 PM – 11:02 PM", or both dates when the session crosses midnight. Local time zone.
+// { day, time } for the top bar chips; `day` is null and `time` carries both dates when the session crosses midnight.
+export function sessionSpanParts(hands) {
+  if (!hands.length) return null;
+  const start = new Date(hands[0].started_at);
+  const end = new Date(hands[hands.length - 1].started_at);
+  const day = (d) => d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+  const time = (d) => d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  return day(start) === day(end)
+    ? { day: day(start), time: `${time(start)} – ${time(end)}` }
+    : { day: null, time: `${day(start)} ${time(start)} – ${day(end)} ${time(end)}` };
+}
+
 export function sessionSpan(hands) {
   if (!hands.length) return "";
   const start = new Date(hands[0].started_at);

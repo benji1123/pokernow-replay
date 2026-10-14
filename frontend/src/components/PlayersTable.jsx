@@ -5,17 +5,18 @@ import { pct, ratio, sample, signed } from "../hands.js";
 
 // `range` is the typical band for a 5-6 handed game (values are %, or a ratio for AF). Below it reads as
 // tight/passive (cool tint), above as loose/aggressive (warm tint); inside it stays plain.
+export const STAT_GROUPS = ["Preflop", "Aggression", "Showdown"];
 export const STAT_COLUMNS = [
-  { key: "vpip", label: "VPIP", fmt: pct, range: [22, 35], help: "Voluntarily put chips in preflop / hands dealt" },
-  { key: "pfr", label: "PFR", fmt: pct, range: [15, 25], help: "Raised preflop / hands dealt" },
-  { key: "three_bet", label: "3-bet", fmt: pct, range: [5, 10], help: "Raised facing one raise / times facing one raise" },
-  { key: "fold_to_pfr", label: "Fold→PFR", fmt: pct, range: [55, 70], help: "Folded facing one raise / times facing one raise" },
-  { key: "fold_to_three_bet", label: "Fold→3bet", fmt: pct, range: [40, 60], help: "Opened then folded to a 3-bet / times opener faced a 3-bet" },
-  { key: "af_total", label: "AF", fmt: ratio, range: [1.5, 3], help: "(bets + raises) / calls, all streets" },
-  { key: "af_preflop", label: "AF pre", fmt: ratio, range: [2, 5], help: "(bets + raises) / calls, preflop" },
-  { key: "af_postflop", label: "AF post", fmt: ratio, range: [1.5, 3], help: "(bets + raises) / calls, flop onward" },
-  { key: "wtsd", label: "WTSD", fmt: pct, range: [22, 32], help: "Reached showdown / saw the flop" },
-  { key: "wsd", label: "W$SD", fmt: pct, range: [45, 55], help: "Won at showdown / reached showdown" },
+  { key: "vpip", group: "Preflop", label: "VPIP", fmt: pct, range: [22, 35], help: "Voluntarily put chips in preflop / hands dealt" },
+  { key: "pfr", group: "Preflop", label: "PFR", fmt: pct, range: [15, 25], help: "Raised preflop / hands dealt" },
+  { key: "three_bet", group: "Preflop", label: "3-bet", fmt: pct, range: [5, 10], help: "Raised facing one raise / times facing one raise" },
+  { key: "fold_to_pfr", group: "Preflop", label: "Fold→PFR", fmt: pct, range: [55, 70], help: "Folded facing one raise / times facing one raise" },
+  { key: "fold_to_three_bet", group: "Preflop", label: "Fold→3bet", fmt: pct, range: [40, 60], help: "Opened then folded to a 3-bet / times opener faced a 3-bet" },
+  { key: "af_total", group: "Aggression", label: "AF", fmt: ratio, range: [1.5, 3], help: "(bets + raises) / calls, all streets" },
+  { key: "af_preflop", group: "Aggression", label: "AF pre", fmt: ratio, range: [2, 5], help: "(bets + raises) / calls, preflop" },
+  { key: "af_postflop", group: "Aggression", label: "AF post", fmt: ratio, range: [1.5, 3], help: "(bets + raises) / calls, flop onward" },
+  { key: "wtsd", group: "Showdown", label: "WTSD", fmt: pct, range: [22, 32], help: "Reached showdown / saw the flop" },
+  { key: "wsd", group: "Showdown", label: "W$SD", fmt: pct, range: [45, 55], help: "Won at showdown / reached showdown" },
 ];
 
 const MIN_SAMPLE = 10; // below this many opportunities the value is noise, so it is shown muted instead of tinted

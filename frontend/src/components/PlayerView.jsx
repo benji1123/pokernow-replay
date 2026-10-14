@@ -3,7 +3,7 @@ import { Cards, HiddenCards } from "./Cards.jsx";
 import HandDetail from "./HandDetail.jsx";
 import PixelAvatar from "./PixelAvatar.jsx";
 import TradingCard from "./TradingCard.jsx";
-import { STAT_COLUMNS, Net, statTitle, statTone } from "./PlayersTable.jsx";
+import { STAT_COLUMNS, STAT_GROUPS, Net, statTitle, statTone } from "./PlayersTable.jsx";
 import { Badges, Rivals } from "./Badges.jsx";
 import { preflopSummary, sample } from "../hands.js";
 import { MeaningsTab, MoneyFlowTab, PreflopTab, ShowdownTab, StreetsTab } from "./DeepDive.jsx";
@@ -107,12 +107,19 @@ export default function PlayerView({ player, players, hands, colors, initialHand
         <Rivals player={player} players={players} colors={colors} onSelectPlayer={onSelectPlayer} />
       </header>
 
-      <section className="stat-tiles">
-        {STAT_COLUMNS.map((c) => (
-          <div key={c.key} className="tile" title={`${c.help}\n${statTitle(player[c.key], c)}`}>
-            <span className="tile-label">{c.label}</span>
-            <span className={`tile-value tone-${statTone(player[c.key], c)}`}>{c.fmt(player[c.key])}</span>
-            <span className="tile-sample">{sample(player[c.key])}</span>
+      <section className="stat-groups">
+        {STAT_GROUPS.map((g) => (
+          <div key={g} className="stat-group">
+            <span className="stat-group-title">{g}</span>
+            <div className="stat-tiles">
+              {STAT_COLUMNS.filter((c) => c.group === g).map((c) => (
+                <div key={c.key} className="tile" title={`${c.help}\n${statTitle(player[c.key], c)}`}>
+                  <span className="tile-label">{c.label}</span>
+                  <span className={`tile-value tone-${statTone(player[c.key], c)}`}>{c.fmt(player[c.key])}</span>
+                  <span className="tile-sample">{sample(player[c.key])}</span>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </section>

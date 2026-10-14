@@ -88,11 +88,17 @@ const out = mod.run(session);
 
 const badgeCount = (out.players.match(/class="badge /g) || []).length;
 if (out.players.includes("badge-label")) throw new Error("players table badges should be emoji-only");
+for (const g of ["Preflop", "Aggression", "Showdown", "Bluffing"]) {
+  if (!out.players.includes(`>${g}</th>`)) throw new Error(`players table header is missing the ${g} group`);
+}
+const groupRules = (out.players.match(/group-start/g) || []).length;
+if (groupRules !== 4 * (session.players.length + 2)) throw new Error(`group rules: ${groupRules}, expected 4 per header row and per player row`);
+if (!/~\d+<\/span>/.test(out.players)) throw new Error("no estimated-bluff cell rendered (fixture has one player with 5+ shown bets)");
 console.log(`app shell: ${out.app} chars`);
 console.log(`players table: ${out.players.length} chars, ${session.players.length} rows, ${badgeCount} badges`);
 const tones = Object.fromEntries(["lo", "mid", "hi", "thin"].map((t) => [t, (out.players.match(new RegExp(`tone-${t}`, "g")) || []).length]));
 console.log(`stat tones: ${Object.entries(tones).map(([k, v]) => `${k} ${v}`).join(", ")}`);
-console.log(`crowns: ${(out.players.match(/class="crown"/g) || []).length} (12 columns), merged tags: ${(out.players.match(/merged-tag/g) || []).length}`);
+console.log(`crowns: ${(out.players.match(/class="crown"/g) || []).length} (15 columns), merged tags: ${(out.players.match(/merged-tag/g) || []).length}`);
 console.log(`player views: ${out.playerViews.length} rendered, min ${Math.min(...out.playerViews)} chars`);
 for (const r of out.range) {
   if (r.cells !== 169 || r.seen !== r.combos) throw new Error(`range grid for ${r.name}: ${r.cells} cells, ${r.seen} seen vs ${r.combos} combos`);

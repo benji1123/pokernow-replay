@@ -46,6 +46,8 @@ class Hand:
     board: list[str] = field(default_factory=list)
     # player_id -> hole cards, only known when shown at showdown.
     shown: dict[str, list[str]] = field(default_factory=dict)
+    # Hole cards of whoever downloaded the log ("Your hand is ..."), on every hand they were dealt into.
+    hero_cards: list[str] | None = None
     # player_id -> chips collected from the pot (summed over side pots).
     collected: dict[str, int] = field(default_factory=dict)
     # player_id -> uncalled bet returned.

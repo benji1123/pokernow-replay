@@ -126,3 +126,59 @@ def test_bluff_stats_on_fixture():
     assert rocky["est_bluffs"] == {"n": 14, "d": 22, "value": 0.625}
     # Fewer than 5 shown bets: no estimate, but the shown count is still reported
     assert tex["bluffs_shown"]["d"] == 3 and tex["est_bluffs"]["n"] is None and tex["est_bluffs"]["value"] is None
+
+
+ROCKY = "Mx2cPj5Wor"
+
+
+def hands_with_hero(hero):
+    """Fixture hands as if `hero` had downloaded the log: their showdown cards become the Your-hand lines, and every
+    other hand they sat in gets a dummy holding."""
+    from pokernow_analyzer.parser import parse_json_entries
+
+    hands = parse_json_entries(json.loads((FIXTURES / f"{ROOM}.json").read_text()))
+    for h in hands:
+        h.game = ROOM
+        if hero in h.player_ids:
+            h.hero_cards = list(h.shown.get(hero, ["2c", "7d"]))
+    return hands
+
+
+def test_hero_is_the_player_whose_showdowns_match_the_your_hand_lines():
+    from pokernow_analyzer.analyze import infer_hero, reveal_hero
+
+    hands = hands_with_hero(ROCKY)
+    assert infer_hero(hands) == ROCKY
+    assert reveal_hero(hands) == ROCKY
+    dealt = [h for h in hands if ROCKY in h.player_ids]
+    assert dealt and all(h.shown[ROCKY] == h.hero_cards for h in dealt)
+    # Other players' cards are untouched: still only known at showdown.
+    assert sum(len(h.shown) for h in hands) == sum(1 for h in dealt) + sum(1 for h in hands for p in h.shown if p != ROCKY)
+
+
+def test_hero_is_none_without_your_hand_lines_or_when_ambiguous():
+    from pokernow_analyzer.analyze import infer_hero
+    from pokernow_analyzer.parser import parse_json_entries
+
+    hands = parse_json_entries(json.loads((FIXTURES / f"{ROOM}.json").read_text()))
+    assert infer_hero(hands) is None
+    # Cards that match nobody's showdown, two players seated in every hand: can't tell who "you" are.
+    both = [h for h in hands if ROCKY in h.player_ids and "Tz6gBn1Vel" in h.player_ids]
+    for h in both:
+        h.hero_cards = ["2c", "7d"]
+    assert len(both) > 10 and infer_hero(both) is None
+    # With one of them seated everywhere, the seat intersection decides even without a showdown match.
+    for h in hands:
+        h.hero_cards = ["2c", "7d"]
+    assert infer_hero(hands) == ROCKY
+
+
+def test_session_reports_hero_and_hero_stats_use_every_hand():
+    hands = hands_with_hero(ROCKY)
+    from pokernow_analyzer.analyze import build_session
+
+    body = build_session([(ROOM, hands)])
+    assert body["hero"] == ROCKY
+    rocky = next(p for p in body["players"] if p["player_id"] == ROCKY)
+    assert len(rocky["profile"]["preflop"]["range"]) == rocky["hands"] == 63
+    assert all(ROCKY in h["shown"] for h in body["hands"] if ROCKY in h["net"])

@@ -69,6 +69,14 @@ export function Net({ net, big, flat }) {
   return <span className={`net ${cls} ${big ? "net-big" : ""} ${flat ? "net-flat" : ""}`}>{signed(net)}</span>;
 }
 
+export function HeroTag() {
+  return (
+    <span className="hero-tag" title="This log was downloaded from your seat, so your hole cards are known in every hand you were dealt">
+      you
+    </span>
+  );
+}
+
 export function PlayerChip({ player, color, size = 28 }) {
   const [open, setOpen] = useState(false);
   const merged = player.merged_ids?.length ?? 0;
@@ -77,6 +85,7 @@ export function PlayerChip({ player, color, size = 28 }) {
     <span className="player-chip" style={{ "--c": color.main }}>
       <PixelAvatar id={player.player_id} color={color.main} size={size} />
       <span className="player-name">{player.name}</span>
+      {player.hero && <HeroTag />}
       <Badges archetypes={player.archetypes} variant="row" />
       {merged > 0 && (
         <span className="merged-wrap" onClick={(e) => e.stopPropagation()}>

@@ -51,6 +51,9 @@ export function run(session) {
   out.tcardMissing = session.players.filter((p, i) => !out.playerViewsHtml[i].includes("tcard-row")).map((p) => p.name);
   // Every hand row shows a winner.
   out.winnerGap = session.players.map((p, i) => (out.playerViewsHtml[i].match(/class="winner /g) || []).length - p.hands).filter((d) => d !== 0).length;
+  // Hero: the "you" tag appears on exactly the hero (table and profile), and none of their hand rows hide the cards.
+  out.heroTags = { table: (out.players.match(/class="hero-tag"/g) || []).length, views: out.playerViewsHtml.map((h) => (h.match(/class="hero-tag"/g) || []).length) };
+  out.heroHidden = session.players.map((p, i) => (p.hero ? (out.playerViewsHtml[i].match(/card-back/g) || []).length : 0));
   const tabs = { preflop: DD.PreflopTab, streets: DD.StreetsTab, meanings: DD.MeaningsTab, showdown: DD.ShowdownTab, flow: DD.MoneyFlowTab };
   out.deepDive = Object.fromEntries(Object.entries(tabs).map(([k, C]) => [k, session.players.map((p) =>
     renderToString(React.createElement(C, { player: p, players: session.players, colors, color: colors[p.player_id].main, openHands() {}, onSelectPlayer() {} })).length
@@ -117,6 +120,10 @@ if (out.players.includes(">~Bluffs<") || out.players.includes(">Fold→3bet<")) 
 if (!out.playerViewsHtml.some((h) => /~\d+<\/span>/.test(h))) throw new Error("no estimated-bluff tile on any profile (fixture has one player with 5+ shown bets)");
 if (!out.savedPanel) throw new Error("upload screen does not show the saved-session panel");
 if (out.winnerGap) throw new Error(`${out.winnerGap} player views have hand rows without a winner cell`);
+const heroCount = session.players.filter((p) => p.hero).length;
+if (out.heroTags.table !== heroCount || out.heroTags.views.filter(Boolean).length !== heroCount) throw new Error(`hero tag count mismatch: ${JSON.stringify(out.heroTags)} for ${heroCount} hero`);
+if (out.heroHidden.some(Boolean)) throw new Error(`hero's own hand rows still hide cards: ${JSON.stringify(out.heroHidden)}`);
+console.log(`hero: ${session.hero ?? "none"}`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);
 if (out.cumMismatch.length) throw new Error(`cumulative net != session net for ${out.cumMismatch.join(", ")}`);
 console.log(`hand details: ${out.handDetails.length} rendered, min ${Math.min(...out.handDetails)} chars`);

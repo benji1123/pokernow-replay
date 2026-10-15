@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import re
+from collections import Counter
 
 from .aliases import merge_players
 from .archetypes import assign_archetypes
@@ -60,16 +61,44 @@ def merge_games(games: list[tuple[str, list[Hand]]]) -> list[Hand]:
     return merged
 
 
+def infer_hero(hands: list[Hand]) -> str | None:
+    """Who downloaded this log: the player whose showdown cards match the "Your hand is" lines. Falls back to the
+    only player seated in every hand that has them; None when it stays ambiguous."""
+    dealt = [h for h in hands if h.hero_cards]
+    if not dealt:
+        return None
+    candidates = set.intersection(*(set(h.player_ids) for h in dealt))
+    matches = Counter(pid for h in dealt for pid, cards in h.shown.items() if set(cards) == set(h.hero_cards) and pid in candidates)
+    if matches:
+        return matches.most_common(1)[0][0]
+    return next(iter(candidates)) if len(candidates) == 1 else None
+
+
+def reveal_hero(hands: list[Hand]) -> str | None:
+    """Per game (each log has its own downloader), copy the hero's cards into `shown` so every view and stat that
+    reads hole cards sees them. Returns the hero when all games agree on one person, else None."""
+    heroes = set()
+    for room in dict.fromkeys(h.game for h in hands):
+        game = [h for h in hands if h.game == room]
+        if hero := infer_hero(game):
+            heroes.add(hero)
+            for h in game:
+                if h.hero_cards and hero in h.player_ids:
+                    h.shown.setdefault(hero, h.hero_cards)
+    return heroes.pop() if len(heroes) == 1 else None
+
+
 def build_session(games: list[tuple[str, list[Hand]]], merges: list[list[str]] = (), auto_merge: bool = True) -> dict:
     hands = merge_games(games)
     merged = merge_players(hands, list(merges), auto_merge)
+    hero = reveal_hero(hands)
     stats = compute_stats(hands)
     badges = assign_archetypes(stats)
     profiles = compute_profiles(hands)
     players = []
     for pid, s in stats.items():
         d = s.to_dict()
-        d.update(archetypes=badges[pid], merged_ids=merged.get(pid, []), profile=profiles[pid])
+        d.update(archetypes=badges[pid], merged_ids=merged.get(pid, []), profile=profiles[pid], hero=pid == hero)
         d.update(bluff_stats(profiles[pid], s.af_postflop.n))
         d["reads"] = reads(d, profiles[pid], s.hands)
         d["ratings"] = ratings(d, profiles[pid])
@@ -80,6 +109,7 @@ def build_session(games: list[tuple[str, list[Hand]]], merges: list[list[str]] =
         "room": rooms[0] if len(rooms) == 1 else f"{len(rooms)} games",
         "games": [{"room": r, "hand_count": sum(h.game == r for h in hands)} for r in rooms],
         "hand_count": len(hands),
+        "hero": hero,
         "players": players,
         "hands": [h.to_dict() for h in hands],
     }

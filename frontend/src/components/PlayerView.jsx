@@ -3,7 +3,7 @@ import { Cards, HiddenCards } from "./Cards.jsx";
 import HandDetail from "./HandDetail.jsx";
 import PixelAvatar from "./PixelAvatar.jsx";
 import TradingCard from "./TradingCard.jsx";
-import { STAT_COLUMNS, STAT_GROUPS, Net, statTitle, statTone } from "./PlayersTable.jsx";
+import { STAT_COLUMNS, STAT_GROUPS, HeroTag, Net, statTitle, statTone } from "./PlayersTable.jsx";
 import { Badges, Rivals } from "./Badges.jsx";
 import { preflopSummary, sample } from "../hands.js";
 import { MeaningsTab, MoneyFlowTab, PreflopTab, ShowdownTab, StreetsTab } from "./DeepDive.jsx";
@@ -96,6 +96,7 @@ export default function PlayerView({ player, players, hands, colors, initialHand
         <div className="player-title">
           <div className="title-row">
             <h2>{player.name}</h2>
+            {player.hero && <HeroTag />}
             <Net net={player.net} big />
           </div>
           <p className="muted small-text">

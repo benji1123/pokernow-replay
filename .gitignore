@@ -9,3 +9,7 @@ frontend/scripts/.render-check-*
 frontend/public/*.whl
 server.log
 build.log
+
+# local study scratch (contains real player names)
+backend/pokernow_analyzer/study.py
+build-wheel.log

@@ -161,6 +161,8 @@ def parse_messages(entries: Iterable[tuple[str, str]]) -> list[Hand]:
             b.hand.collected[m["pid"]] = b.hand.collected.get(m["pid"], 0) + _num(m["amt"])
         elif m := _RE["shows"].match(msg):
             b.hand.shown[m["pid"]] = _cards(m["cards"])
+        elif m := _RE["your_hand"].match(msg):
+            b.hand.hero_cards = _cards(m["cards"])
     return hands
 
 

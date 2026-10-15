@@ -112,3 +112,19 @@ def test_six_handed_positions():
     (h,) = parse_messages(lines)
     assert h.positions == {"p1": "BTN", "p2": "SB", "p3": "BB", "p4": "UTG", "p5": "HJ", "p6": "CO"}
     assert h.net("p3") == 1 and h.net("p2") == -1
+
+
+def test_your_hand_line_is_kept_as_hero_cards():
+    lines = [
+        ("t0", '-- starting hand #1 (id: abc)  No Limit Texas Hold\'em (dealer: "A @ a1") --'),
+        ("t1", 'Player stacks: #1 "A @ a1" (100) | #2 "B @ b2" (100)'),
+        ("t2", "Your hand is K♦, 9♠"),
+        ("t3", '"B @ b2" posts a small blind of 1'),
+        ("t4", '"A @ a1" posts a big blind of 2'),
+        ("t5", '"B @ b2" folds'),
+        ("t6", 'Uncalled bet of 1 returned to "A @ a1"'),
+        ("t7", '"A @ a1" collected 2 from pot'),
+        ("t8", "-- ending hand #1 --"),
+    ]
+    (h,) = parse_messages(lines)
+    assert h.hero_cards == ["Kd", "9s"] and h.shown == {}

@@ -4,6 +4,7 @@ import { forgetLastSession, loadLastSession, saveLastSession } from "./storage.j
 import FloatingIcons from "./components/FloatingIcons.jsx";
 import UploadScreen from "./components/UploadScreen.jsx";
 import PlayersTable from "./components/PlayersTable.jsx";
+import Study from "./components/Study.jsx";
 import PlayerView from "./components/PlayerView.jsx";
 import { assignColors } from "./theme.js";
 import { sessionSpanParts } from "./hands.js";
@@ -15,7 +16,7 @@ import StyleMap from "./components/StyleMap.jsx";
 import { cumulativeNets, pace } from "./insights.js";
 
 const UPLOAD = { page: "upload" };
-const TABS = [["table", "Players"], ["timeline", "Profit race"], ["style", "Style map"]];
+const TABS = [["table", "Players"], ["timeline", "Profit race"], ["style", "Style map"], ["study", "Study"]];
 const hasHistory = typeof window !== "undefined" && !!window.history?.pushState;
 
 // Each screen is a history entry so the browser's Back button walks player -> players -> upload.
@@ -143,6 +144,7 @@ export default function App() {
               </nav>
               {tab === "timeline" && <ProfitRace hands={session.hands} players={session.players} colors={colors} series={series} onOpen={openPlayer} />}
               {tab === "style" && <StyleMap players={session.players} colors={colors} onSelect={openPlayer} />}
+              {tab === "study" && <Study players={session.players} colors={colors} onOpen={openPlayer} />}
               {tab === "table" && <PlayersTable
                 players={session.players}
                 colors={colors}

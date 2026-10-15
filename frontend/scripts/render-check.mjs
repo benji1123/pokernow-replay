@@ -28,6 +28,8 @@ import StyleMap from "${process.cwd()}/src/components/StyleMap.jsx";
 import { assignColors } from "${process.cwd()}/src/theme.js";
 import { cumulativeNets, awards } from "${process.cwd()}/src/insights.js";
 import * as DD from "${process.cwd()}/src/components/DeepDive.jsx";
+import Study from "${process.cwd()}/src/components/Study.jsx";
+import { buildQuestions, makeRound } from "${process.cwd()}/src/quiz.js";
 
 export function run(session) {
   const colors = assignColors(session.players);
@@ -64,6 +66,11 @@ export function run(session) {
     const combos = new Set(p.profile.preflop.range.filter((e) => e.line !== "check").map((e) => e.combo)).size;
     return { name: p.name, cells: (html.match(/class="range-cell /g) || []).length, seen: (html.match(/range-cell [^"]*seen/g) || []).length, combos, shown: p.profile.preflop.range.length };
   });
+  // Study tab: every generated question has 3-4 options with exactly one correct, and the first card renders.
+  const qs = buildQuestions(session.players, () => 0.5);
+  out.quiz = { total: qs.length, bad: qs.filter((q) => q.options.length < 3 || q.options.filter((o) => o.correct).length !== 1).length, round: makeRound(session.players, 7).length };
+  out.studyHtml = renderToString(React.createElement(Study, { players: session.players, colors, onOpen() {} }));
+  out.studyOptions = (out.studyHtml.match(/class="study-opt /g) || []).length;
   out.handDetails = session.hands.map((h) =>
     renderToString(React.createElement(HandDetail, { hand: h, focus: h.seats[0].player_id, colors })).length
   );
@@ -124,6 +131,9 @@ const heroCount = session.players.filter((p) => p.hero).length;
 if (out.heroTags.table !== heroCount || out.heroTags.views.filter(Boolean).length !== heroCount) throw new Error(`hero tag count mismatch: ${JSON.stringify(out.heroTags)} for ${heroCount} hero`);
 if (out.heroHidden.some(Boolean)) throw new Error(`hero's own hand rows still hide cards: ${JSON.stringify(out.heroHidden)}`);
 console.log(`hero: ${session.hero ?? "none"}`);
+if (out.quiz.bad) throw new Error(`${out.quiz.bad} malformed quiz questions`);
+if (out.quiz.total && (out.quiz.round === 0 || out.studyOptions < 3)) throw new Error(`study tab did not render a card: ${JSON.stringify(out.quiz)} options=${out.studyOptions}`);
+console.log(`quiz: ${out.quiz.total} questions, round of ${out.quiz.round}, first card ${out.studyOptions} options`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);
 if (out.cumMismatch.length) throw new Error(`cumulative net != session net for ${out.cumMismatch.join(", ")}`);
 console.log(`hand details: ${out.handDetails.length} rendered, min ${Math.min(...out.handDetails)} chars`);

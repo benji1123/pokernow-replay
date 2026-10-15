@@ -593,3 +593,34 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
   .upload-screen { padding: 8vh 16px 32px; }
   .hero h1 { font-size: 24px; }
 }
+
+/* ---- study tab ---- */
+.study { display: flex; flex-direction: column; gap: 12px; padding: 4px 0 8px; }
+.study > .seg { align-self: flex-start; }
+.study-card { padding: 18px 22px 20px; max-width: 720px; }
+.study-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; font-size: 14px; }
+.study-progress { font-weight: 700; letter-spacing: 0.04em; }
+.study-score { color: var(--muted); }
+.study-pool { margin-left: auto; cursor: help; }
+.study-q { display: flex; align-items: center; gap: 12px; margin: 0 0 16px; font-size: 20px; line-height: 1.35; font-weight: 600; }
+.study-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.study-options.rate { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.study-opt { font: inherit; font-size: 18px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; transition: border-color 0.12s, background 0.12s; }
+.study-opt:hover:not(:disabled) { border-color: var(--c, var(--accent)); background: color-mix(in srgb, var(--c, var(--accent)) 10%, var(--surface)); }
+.study-opt:disabled { cursor: default; }
+.study-opt.right { border-color: var(--pos); background: var(--pos-soft); color: var(--ink); }
+.study-opt.wrong { border-color: var(--neg); background: var(--neg-soft); color: var(--ink); }
+.study-opt.dim { opacity: 0.45; }
+.study-reveal { margin-top: 16px; padding: 14px 16px; border-radius: 12px; border-left: 4px solid var(--pos); background: color-mix(in srgb, var(--pos) 8%, var(--surface)); }
+.study-reveal.wrong { border-left-color: var(--neg); background: color-mix(in srgb, var(--neg) 8%, var(--surface)); }
+.study-verdict { margin: 0 0 6px; font-size: 17px; }
+.study-tip { margin: 0; font-size: 16px; line-height: 1.45; }
+.study-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+.study-done { text-align: center; }
+.study-done h3 { margin: 0 0 6px; }
+.study-score-big { font-size: 44px; font-weight: 800; margin: 0 0 4px; font-variant-numeric: tabular-nums; }
+@media (max-width: 640px) {
+  .study-card { padding: 14px; }
+  .study-options.rate { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .study-q { font-size: 18px; }
+}

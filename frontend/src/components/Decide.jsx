@@ -11,8 +11,9 @@ const STREET = { preflop: "Preflop", flop: "Flop", turn: "Turn", river: "River" 
 
 // "What would you do": your own decision points, replayed one at a time. There is no solver here; the reveal is
 // what you did, what happened, your equity against any cards that were shown, and how the table plays this spot.
-export default function Decide({ hands, players, colors, hero, onOpen }) {
-  const [group, setGroup] = useState("all");
+// `focusSpot` (from the spot library's Drill button) narrows the round to one spot until the user picks a filter.
+export default function Decide({ hands, players, colors, hero, onOpen, onFinish, focusSpot = null }) {
+  const [group, setGroup] = useState(focusSpot ? "spot" : "all");
   const [seed, setSeed] = useState(() => Date.now() % 1e9);
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState(null);
@@ -21,7 +22,7 @@ export default function Decide({ hands, players, colors, hero, onOpen }) {
 
   const all = useMemo(() => heroDecisions(hands, hero), [hands, hero]);
   const round = useMemo(() => {
-    const pool = all.filter((d) => group === "all" || SPOTS[d.spot].group === group);
+    const pool = all.filter((d) => group === "all" || (group === "spot" ? d.spot === focusSpot : SPOTS[d.spot].group === group));
     return shuffle(pool, rng(seed)).slice(0, ROUND);
   }, [all, group, seed]);
   const name = (p) => players.find((x) => x.player_id === p)?.name ?? "?";
@@ -52,6 +53,11 @@ export default function Decide({ hands, players, colors, hero, onOpen }) {
           {label}
         </button>
       ))}
+      {focusSpot && (
+        <button className={`seg-btn ${group === "spot" ? "on" : ""}`} onClick={() => reset("spot")} aria-pressed={group === "spot"} title={SPOTS[focusSpot].desc}>
+          {SPOTS[focusSpot].label} only
+        </button>
+      )}
     </nav>
   );
 
@@ -78,6 +84,7 @@ export default function Decide({ hands, players, colors, hero, onOpen }) {
     if (key === actual) setMatched((m) => m + 1);
   };
   const next = () => {
+    if (i + 1 >= round.length) onFinish?.(matched, round.length);
     setPicked(null);
     setShowAnswers(false);
     setI((n) => n + 1);

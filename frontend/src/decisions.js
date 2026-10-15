@@ -156,6 +156,39 @@ export function spotStats(hands, spot) {
   return { n, mix, aggr, tookDown };
 }
 
+/** Spot library rows: how often each spot comes up, what the hero does there and how it went, next to the table. */
+export function spotLibrary(hands, hero) {
+  const rows = Object.keys(SPOTS).map((spot) => ({ spot, ...SPOTS[spot], you: null, table: spotStats(hands, spot) }));
+  if (!hero) return rows;
+  const mine = heroDecisions(hands, hero);
+  const seen = {};
+  for (const d of mine) {
+    const r = rows.find((x) => x.spot === d.spot);
+    r.you ??= { n: 0, mix: { fold: 0, check: 0, call: 0, bet: 0, raise: 0 }, aggr: 0, tookDown: 0, net: 0, hands: 0 };
+    r.you.n++;
+    r.you.mix[d.action.kind]++;
+    if (d.tookDown != null) {
+      r.you.aggr++;
+      if (d.tookDown) r.you.tookDown++;
+    }
+    const key = `${d.spot}:${d.hand.hand_id}`;
+    if (!seen[key]) {
+      seen[key] = true;
+      r.you.hands++;
+      r.you.net += d.net;
+    }
+  }
+  const total = mine.length;
+  for (const r of rows) if (r.you) r.you.share = r.you.n / total;
+  return rows;
+}
+
+/** The most common action in a mix, as "raise 61%". */
+export function topAction(stats) {
+  const [kind, n] = Object.entries(stats.mix).sort((a, b) => b[1] - a[1])[0];
+  return stats.n ? { kind, share: n / stats.n } : null;
+}
+
 // ---- the questions to ask in each spot, answered from the table's stats ----
 
 const pct = (v) => `${Math.round(v * 100)}%`;

@@ -1,32 +1,64 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import PixelAvatar from "./PixelAvatar.jsx";
 import Decide from "./Decide.jsx";
+import Guess from "./Guess.jsx";
+import SpotLibrary from "./SpotLibrary.jsx";
 import { eligible, makeRound } from "../quiz.js";
+import { emptyScores, loadScores, recordRound, forgetScores } from "../storage.js";
 
 const ROUND = 10;
 
-// Study tab: practice modes built from this session's data. Flashcards drill opponent tendencies; more modes
-// (decision replays, guess the hand, spot library) plug in as further `MODES` entries.
-const MODES = [["reads", "Read the players"], ["decide", "What would you do"]];
+// Study tab: practice modes built from this session's data, plus the spot library that says what to drill.
+// Scores per mode are kept in the browser across visits (same store as the cached logs).
+const MODES = [["reads", "Read the players"], ["decide", "What would you do"], ["guess", "Guess the hand"], ["spots", "Spot library"]];
+const MODE_LABEL = Object.fromEntries(MODES);
 
 export default function Study({ players, hands, hero, colors, onOpen }) {
   const [mode, setMode] = useState("reads");
+  const [focus, setFocus] = useState({ spot: null, n: 0 }); // n remounts Decide so a repeated Drill re-applies the spot
+  const [scores, setScores] = useState(emptyScores);
+  useEffect(() => {
+    loadScores().then(setScores);
+  }, []);
+  const finish = (m) => (correct, total) => setScores((s) => recordRound(s, m, correct, total));
+  const drill = (spot) => {
+    setFocus((f) => ({ spot, n: f.n + 1 }));
+    setMode("decide");
+  };
+  const scored = MODES.filter(([k]) => scores.modes[k]);
   return (
     <div className="study">
-      <nav className="seg" role="tablist" aria-label="Study modes">
-        {MODES.map(([key, label]) => (
-          <button key={key} role="tab" aria-selected={mode === key} className={`seg-btn ${mode === key ? "on" : ""}`} onClick={() => setMode(key)}>
-            {label}
-          </button>
-        ))}
-      </nav>
-      {mode === "reads" && <Flashcards players={players} colors={colors} onOpen={onOpen} />}
-      {mode === "decide" && <Decide hands={hands} players={players} colors={colors} hero={hero} onOpen={onOpen} />}
+      <div className="study-bar">
+        <nav className="seg" role="tablist" aria-label="Study modes">
+          {MODES.map(([key, label]) => (
+            <button key={key} role="tab" aria-selected={mode === key} className={`seg-btn ${mode === key ? "on" : ""}`} onClick={() => setMode(key)}>
+              {label}
+            </button>
+          ))}
+        </nav>
+        {scored.length > 0 && (
+          <div className="study-record" title="Your running score in this browser, across visits">
+            {scored.map(([k]) => {
+              const m = scores.modes[k];
+              return (
+                <span key={k} className="study-record-item" title={`${MODE_LABEL[k]}: ${m.rounds} round${m.rounds === 1 ? "" : "s"}, best ${m.best}/${m.bestOf}, last ${m.last.correct}/${m.last.total}`}>
+                  <span className="muted">{MODE_LABEL[k]}</span> <b>{Math.round((100 * m.correct) / m.total)}%</b> <span className="muted">of {m.total}</span>
+                </span>
+              );
+            })}
+            <button type="button" className="link small-text" onClick={() => forgetScores().then(() => setScores(emptyScores()))}>Reset</button>
+          </div>
+        )}
+      </div>
+      {mode === "reads" && <Flashcards players={players} colors={colors} onOpen={onOpen} onFinish={finish("reads")} />}
+      {mode === "decide" && <Decide key={focus.n} hands={hands} players={players} colors={colors} hero={hero} onOpen={onOpen} onFinish={finish("decide")} focusSpot={focus.spot} />}
+      {mode === "guess" && <Guess hands={hands} players={players} colors={colors} hero={hero} onOpen={onOpen} onFinish={finish("guess")} />}
+      {mode === "spots" && <SpotLibrary hands={hands} hero={hero} onDrill={drill} />}
     </div>
   );
 }
 
-export function Flashcards({ players, colors, onOpen }) {
+export function Flashcards({ players, colors, onOpen, onFinish }) {
   const [seed, setSeed] = useState(() => Date.now() % 1e9);
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState(null); // option index answered on the current card
@@ -67,6 +99,7 @@ export function Flashcards({ players, colors, onOpen }) {
     if (q.options[idx].correct) setScore((s) => s + 1);
   };
   const next = () => {
+    if (i + 1 >= round.length) onFinish?.(score, round.length);
     setPicked(null);
     setI((n) => n + 1);
   };

@@ -654,3 +654,37 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
   .decide-pot { margin-left: 0; }
   .decide-opts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* study bar: mode tabs on the left, the running record on the right */
+.study-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.study-record { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 14px; padding: 4px 12px; border-radius: 999px; background: var(--bg-deep); cursor: help; }
+.study-record-item b { font-variant-numeric: tabular-nums; }
+.study-record .link { font-size: 13px; }
+
+/* guess the hand */
+.guess-who { display: flex; flex-direction: column; line-height: 1.15; }
+.guess-q { font-size: 18px; margin-bottom: 10px; }
+.guess-opts { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.guess-opts .study-opt { font-size: 15.5px; padding: 10px 8px; }
+.study-verdict .cards { vertical-align: middle; margin: 0 2px; }
+
+/* spot library */
+.spot-lib { max-width: 980px; }
+.spot-lib-head { padding: 16px 20px 6px; }
+.spot-lib-head h3 { margin: 0 0 4px; }
+.spot-lib-head p { margin: 0; font-size: 15px; line-height: 1.45; }
+.spot-lib-scroll { overflow: auto; }
+.spot-table th, .spot-table td { padding: 6px 12px; font-size: 15px; }
+.spot-table th { font-size: 12.5px; color: var(--ink-2); letter-spacing: 0.02em; }
+.spot-table th.num, .spot-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.spot-table td:first-child { padding-left: 20px; }
+.spot-table tr.spot-group td { padding: 10px 20px 2px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: none; }
+.spot-table tr.dim td { color: var(--muted); }
+.spot-table td.pos { color: var(--pos); font-weight: 600; }
+.spot-table td.neg { color: var(--neg); font-weight: 600; }
+.spot-table tbody tr:last-child td { border-bottom: none; }
+.spot-lib-hint { padding: 8px 20px 14px; }
+@media (max-width: 640px) {
+  .guess-opts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .study-record { font-size: 13px; gap: 10px; }
+}

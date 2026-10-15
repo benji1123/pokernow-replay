@@ -33,6 +33,12 @@ import { buildQuestions, makeRound } from "${process.cwd()}/src/quiz.js";
 import Decide from "${process.cwd()}/src/components/Decide.jsx";
 import { decisionPoints, heroDecisions, checklist, choices, SPOTS } from "${process.cwd()}/src/decisions.js";
 import { equity } from "${process.cwd()}/src/equity.js";
+import Guess from "${process.cwd()}/src/components/Guess.jsx";
+import SpotLibrary from "${process.cwd()}/src/components/SpotLibrary.jsx";
+import { guessQuestions } from "${process.cwd()}/src/guess.js";
+import { strengthLabel } from "${process.cwd()}/src/strength.js";
+import { spotLibrary } from "${process.cwd()}/src/decisions.js";
+import { recordRound, emptyScores } from "${process.cwd()}/src/storage.js";
 
 export function run(session) {
   const colors = assignColors(session.players);
@@ -82,8 +88,30 @@ export function run(session) {
   out.heroDecisions = mine.length;
   for (const d of mine) { if (!checklist(d, session.players).length || choices(d).opts.length < 2 || !choices(d).opts.some((o) => o.key === choices(d).actual)) throw new Error("bad decision in hand #" + d.hand.number + " " + d.street); }
   const h22 = session.hands.find((h) => h.number === 22);
-  out.eq22 = h22 ? Math.round(100 * equity([h22.shown[Object.keys(h22.shown)[0]], h22.shown[Object.keys(h22.shown)[1]]], h22.board.slice(0, 3)).shares[0]) : null;
+  out.eq22 = h22 && Object.keys(h22.shown).length >= 2 ? Math.round(100 * equity([h22.shown[Object.keys(h22.shown)[0]], h22.shown[Object.keys(h22.shown)[1]]], h22.board.slice(0, 3)).shares[0]) : null;
   out.decideHtml = renderToString(React.createElement(Decide, { hands: session.hands, players: session.players, colors, hero: session.hero, onOpen() {} }));
+  // Guess the hand: one question per shown opponent action, exactly one correct option, JS strength agrees with the
+  // backend's meanings grid for every shown bet, and the card renders with the cards hidden until answered.
+  const gq = guessQuestions(session.hands, session.hero);
+  out.guess = { total: gq.length, bad: gq.filter((q) => q.options.filter((o) => o.correct).length !== 1 || (q.street === "river" && q.options.some((o) => o.key === "draw"))).length, hero: gq.filter((q) => q.pid === session.hero).length };
+  const N = { flop: 3, turn: 4, river: 5 };
+  out.strengthMismatch = 0; out.strengthChecked = 0;
+  for (const p of session.players) for (const cell of p.profile.meanings ?? []) for (const [cls, ids] of Object.entries(cell.strengths)) for (const id of ids) {
+    const h = session.hands.find((x) => x.hand_id === id);
+    out.strengthChecked++;
+    if (strengthLabel(h.shown[p.player_id], h.board.slice(0, N[cell.street])) !== cls) out.strengthMismatch++;
+  }
+  out.guessHtml = renderToString(React.createElement(Guess, { hands: session.hands, players: session.players, colors, hero: session.hero, onOpen() {} }));
+  // Spot library: one row per spot, hero columns only with a hero; Drill focus narrows Decide to that spot.
+  const lib = spotLibrary(session.hands, session.hero);
+  out.spotLib = { spots: Object.keys(SPOTS).length, rows: lib.length, you: lib.filter((r) => r.you).length, youTotal: lib.reduce((n, r) => n + (r.you?.n ?? 0), 0), heroDecisions: mine.length };
+  out.spotLibHtml = renderToString(React.createElement(SpotLibrary, { hands: session.hands, hero: session.hero, onDrill() {} }));
+  const focus = lib.find((r) => r.you)?.spot;
+  out.focusHtml = focus ? renderToString(React.createElement(Decide, { hands: session.hands, players: session.players, colors, hero: session.hero, onOpen() {}, focusSpot: focus })) : "";
+  out.focusLabel = focus ? SPOTS[focus].label : null;
+  // Scores: two rounds fold into one record with the right totals and best.
+  const sc = recordRound(recordRound(emptyScores(), "reads", 6, 10), "reads", 9, 10).modes.reads;
+  out.scores = sc;
   out.handDetails = session.hands.map((h) =>
     renderToString(React.createElement(HandDetail, { hand: h, focus: h.seats[0].player_id, colors })).length
   );
@@ -152,6 +180,16 @@ if (out.decisions.unknownSpot || out.decisions.negative) throw new Error(`decisi
 if (session.hero && (!out.heroDecisions || !out.decideHtml.includes("decide-ask"))) throw new Error("decide card did not render for the hero");
 if (!session.hero && !out.decideHtml.includes("hole cards")) throw new Error("decide mode should explain the missing hero");
 console.log(`decisions: ${out.decisions.points} points, ${out.heroDecisions} for the hero; hand 22 flop equity ${out.eq22}%`);
+if (out.guess.bad || out.guess.hero) throw new Error(`guess questions: ${JSON.stringify(out.guess)}`);
+if (out.strengthMismatch) throw new Error(`${out.strengthMismatch} of ${out.strengthChecked} JS strength labels disagree with the backend grid`);
+if (out.guess.total && (!out.guessHtml.includes("card-back") || (out.guessHtml.match(/class="study-opt /g) || []).length < 4)) throw new Error("guess card did not render hidden cards with options");
+console.log(`guess: ${out.guess.total} questions, ${out.strengthChecked} strength labels match the backend`);
+if (out.spotLib.rows !== out.spotLib.spots || out.spotLib.youTotal !== out.spotLib.heroDecisions) throw new Error(`spot library: ${JSON.stringify(out.spotLib)}`);
+if ((out.spotLibHtml.match(/>Drill</g) || []).length !== out.spotLib.you) throw new Error("spot library drill buttons != spots with hero decisions");
+if (out.focusLabel && !out.focusHtml.replace(/<!-- -->/g, "").includes(`${out.focusLabel} only`)) throw new Error("decide did not show the focused spot filter");
+console.log(`spot library: ${out.spotLib.rows} spots, hero in ${out.spotLib.you}${out.focusLabel ? `, drill focus "${out.focusLabel}" ok` : ""}`);
+if (out.scores.rounds !== 2 || out.scores.correct !== 15 || out.scores.total !== 20 || out.scores.best !== 9 || out.scores.last.correct !== 9) throw new Error(`scores fold-in: ${JSON.stringify(out.scores)}`);
+console.log(`scores: ${out.scores.correct}/${out.scores.total} over ${out.scores.rounds} rounds, best ${out.scores.best}/${out.scores.bestOf}`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);
 if (out.cumMismatch.length) throw new Error(`cumulative net != session net for ${out.cumMismatch.join(", ")}`);
 console.log(`hand details: ${out.handDetails.length} rendered, min ${Math.min(...out.handDetails)} chars`);

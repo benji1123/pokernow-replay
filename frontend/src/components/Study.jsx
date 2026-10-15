@@ -1,14 +1,15 @@
 import React, { useMemo, useState } from "react";
 import PixelAvatar from "./PixelAvatar.jsx";
+import Decide from "./Decide.jsx";
 import { eligible, makeRound } from "../quiz.js";
 
 const ROUND = 10;
 
 // Study tab: practice modes built from this session's data. Flashcards drill opponent tendencies; more modes
 // (decision replays, guess the hand, spot library) plug in as further `MODES` entries.
-const MODES = [["reads", "Read the players"]];
+const MODES = [["reads", "Read the players"], ["decide", "What would you do"]];
 
-export default function Study({ players, colors, onOpen }) {
+export default function Study({ players, hands, hero, colors, onOpen }) {
   const [mode, setMode] = useState("reads");
   return (
     <div className="study">
@@ -20,6 +21,7 @@ export default function Study({ players, colors, onOpen }) {
         ))}
       </nav>
       {mode === "reads" && <Flashcards players={players} colors={colors} onOpen={onOpen} />}
+      {mode === "decide" && <Decide hands={hands} players={players} colors={colors} hero={hero} onOpen={onOpen} />}
     </div>
   );
 }

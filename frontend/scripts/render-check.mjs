@@ -30,6 +30,9 @@ import { cumulativeNets, awards } from "${process.cwd()}/src/insights.js";
 import * as DD from "${process.cwd()}/src/components/DeepDive.jsx";
 import Study from "${process.cwd()}/src/components/Study.jsx";
 import { buildQuestions, makeRound } from "${process.cwd()}/src/quiz.js";
+import Decide from "${process.cwd()}/src/components/Decide.jsx";
+import { decisionPoints, heroDecisions, checklist, choices, SPOTS } from "${process.cwd()}/src/decisions.js";
+import { equity } from "${process.cwd()}/src/equity.js";
 
 export function run(session) {
   const colors = assignColors(session.players);
@@ -71,6 +74,16 @@ export function run(session) {
   out.quiz = { total: qs.length, bad: qs.filter((q) => q.options.length < 3 || q.options.filter((o) => o.correct).length !== 1).length, round: makeRound(session.players, 7).length };
   out.studyHtml = renderToString(React.createElement(Study, { players: session.players, colors, onOpen() {} }));
   out.studyOptions = (out.studyHtml.match(/class="study-opt /g) || []).length;
+  // Decision replay: one decision per voluntary action, every spot known, checklist and choices build for each.
+  const voluntary = session.hands.reduce((n, h) => n + h.actions.filter((a) => !a.kind.startsWith("post")).length, 0);
+  const points = session.hands.flatMap((h) => decisionPoints(h));
+  out.decisions = { voluntary, points: points.length, unknownSpot: points.filter((d) => !SPOTS[d.spot]).length, negative: points.filter((d) => d.toCall < 0 || d.pot < 0).length };
+  const mine = heroDecisions(session.hands, session.hero);
+  out.heroDecisions = mine.length;
+  for (const d of mine) { if (!checklist(d, session.players).length || choices(d).opts.length < 2 || !choices(d).opts.some((o) => o.key === choices(d).actual)) throw new Error("bad decision in hand #" + d.hand.number + " " + d.street); }
+  const h22 = session.hands.find((h) => h.number === 22);
+  out.eq22 = h22 ? Math.round(100 * equity([h22.shown[Object.keys(h22.shown)[0]], h22.shown[Object.keys(h22.shown)[1]]], h22.board.slice(0, 3)).shares[0]) : null;
+  out.decideHtml = renderToString(React.createElement(Decide, { hands: session.hands, players: session.players, colors, hero: session.hero, onOpen() {} }));
   out.handDetails = session.hands.map((h) =>
     renderToString(React.createElement(HandDetail, { hand: h, focus: h.seats[0].player_id, colors })).length
   );
@@ -134,6 +147,11 @@ console.log(`hero: ${session.hero ?? "none"}`);
 if (out.quiz.bad) throw new Error(`${out.quiz.bad} malformed quiz questions`);
 if (out.quiz.total && (out.quiz.round === 0 || out.studyOptions < 3)) throw new Error(`study tab did not render a card: ${JSON.stringify(out.quiz)} options=${out.studyOptions}`);
 console.log(`quiz: ${out.quiz.total} questions, round of ${out.quiz.round}, first card ${out.studyOptions} options`);
+if (out.decisions.points !== out.decisions.voluntary) throw new Error(`decision points ${out.decisions.points} != voluntary actions ${out.decisions.voluntary}`);
+if (out.decisions.unknownSpot || out.decisions.negative) throw new Error(`decision extraction: ${JSON.stringify(out.decisions)}`);
+if (session.hero && (!out.heroDecisions || !out.decideHtml.includes("decide-ask"))) throw new Error("decide card did not render for the hero");
+if (!session.hero && !out.decideHtml.includes("hole cards")) throw new Error("decide mode should explain the missing hero");
+console.log(`decisions: ${out.decisions.points} points, ${out.heroDecisions} for the hero; hand 22 flop equity ${out.eq22}%`);
 console.log(`profit race: ${out.race.length} chars, ${(out.race.match(/<path /g) || []).length} lines; style map: ${out.styleMap} chars`);
 if (out.cumMismatch.length) throw new Error(`cumulative net != session net for ${out.cumMismatch.join(", ")}`);
 console.log(`hand details: ${out.handDetails.length} rendered, min ${Math.min(...out.handDetails)} chars`);

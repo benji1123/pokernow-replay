@@ -144,7 +144,7 @@ export default function App() {
               </nav>
               {tab === "timeline" && <ProfitRace hands={session.hands} players={session.players} colors={colors} series={series} onOpen={openPlayer} />}
               {tab === "style" && <StyleMap players={session.players} colors={colors} onSelect={openPlayer} />}
-              {tab === "study" && <Study players={session.players} colors={colors} onOpen={openPlayer} />}
+              {tab === "study" && <Study players={session.players} hands={session.hands} hero={session.hero} colors={colors} onOpen={openPlayer} />}
               {tab === "table" && <PlayersTable
                 players={session.players}
                 colors={colors}

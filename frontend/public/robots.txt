@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://benji1123.github.io/pokernow-replay/sitemap.xml

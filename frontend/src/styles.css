@@ -316,7 +316,7 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .tile-value.tone-thin { color: var(--muted); }
 .tile-sample { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
-.split { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 16px; align-items: start; }
+.split { display: grid; grid-template-columns: minmax(0, max-content) minmax(400px, 1fr); gap: 16px; align-items: start; } /* the hand list hugs its columns; the detail pane takes what is left */
 @media (max-width: 1000px) { .split { grid-template-columns: 1fr; } }
 .hands-panel { overflow: auto; }
 .hands { font-size: 17px; width: auto; } /* columns size to their content instead of sharing the panel's slack */

@@ -310,6 +310,8 @@ const SHEET = {
 
 export const SPRITE_NAMES = Object.keys(SHEET);
 export const SPRITE_SIZE = 16;
+// Fixed legend colors (highlight, ink, red and gold accents); any other character is the player's color.
+export const SPRITE_FILL = { w: "#f4f1ea", o: "#1b1b1f", r: "#e5484d", y: "#f5b800" };
 
 for (const [name, rows] of Object.entries(SHEET)) {
   if (rows.length !== SPRITE_SIZE || rows.some((r) => r.length !== SPRITE_SIZE)) throw new Error(`sprite ${name} is not ${SPRITE_SIZE}x${SPRITE_SIZE}`);

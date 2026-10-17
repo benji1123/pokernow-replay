@@ -24,6 +24,9 @@ Tests: `cd backend && uv run pytest`. The frontend render check (no browser need
 
 Avatar sprites live in `frontend/src/sprites.js`; preview the sheet with `node scripts/sprite-sheet.mjs /tmp/sprites.png 10`.
 
+The "Try a demo session" button loads `frontend/public/poker_now_log_demo.csv`, generated from the anonymized fixture:
+`cd backend && uv run python -m pokernow_analyzer.make_demo ../fixtures/sample.json ../frontend/public/poker_now_log_demo.csv`.
+
 ## Deploy
 
 `.github/workflows/pages.yml` runs the tests, builds the wheel and the site, and publishes `frontend/dist` to

@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import { hash } from "../theme.js";
-import { spriteFor, spriteRuns, SPRITE_SIZE } from "../sprites.js";
-
-const FILL = { w: "#f4f1ea", o: "#1b1b1f", r: "#e5484d", y: "#f5b800" };
+import { spriteFor, spriteRuns, SPRITE_FILL as FILL, SPRITE_SIZE } from "../sprites.js";
 
 // Poker-themed 16x16 pixel character picked by the player id, drawn in the player's colour.
 export default function PixelAvatar({ id, color, size = 36 }) {

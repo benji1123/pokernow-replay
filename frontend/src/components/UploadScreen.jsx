@@ -9,7 +9,7 @@ function savedLabel({ files, summary, savedAt }) {
   return parts.join(" · ");
 }
 
-export default function UploadScreen({ onUpload, loading, error, engineStatus, saved, onLoadSaved, onForgetSaved }) {
+export default function UploadScreen({ onUpload, loading, error, engineStatus, saved, onLoadSaved, onForgetSaved, onDemo }) {
   const [over, setOver] = useState(false);
   const input = useRef();
 
@@ -56,6 +56,11 @@ export default function UploadScreen({ onUpload, loading, error, engineStatus, s
         <input ref={input} type="file" accept=".csv,text/csv" multiple hidden onChange={(e) => pick(e.target.files)} />
       </div>
       {error ? <p className="error engine-status">{error}</p> : <p className="muted small engine-status">{engineStatus}</p>}
+
+      <p className="demo-row">
+        No log handy?{" "}
+        <button className="btn small" disabled={loading} onClick={onDemo}>Try a demo session</button>
+      </p>
 
       {saved && (
         <div className="saved-session panel">

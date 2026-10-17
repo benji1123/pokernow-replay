@@ -16,6 +16,7 @@ import StyleMap from "./components/StyleMap.jsx";
 import { cumulativeNets, pace } from "./insights.js";
 
 const UPLOAD = { page: "upload" };
+const DEMO_FILE = "poker_now_log_demo.csv"; // anonymized sample game in public/, made by pokernow_analyzer.make_demo
 const TABS = [["table", "Players"], ["timeline", "Profit race"], ["style", "Style map"], ["study", "Study"]];
 const hasHistory = typeof window !== "undefined" && !!window.history?.pushState;
 
@@ -37,6 +38,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [engineStatus, setEngineStatus] = useState("");
   const [saved, setSaved] = useState(null); // last session cached in this browser, if any
+  const [isDemo, setIsDemo] = useState(false);
   const colors = useMemo(() => (session ? assignColors(session.players) : {}), [session]);
   const series = useMemo(() => (session ? cumulativeNets(session.hands, session.players) : {}), [session]);
   // `filter` ({ label, ids }) opens the Hands tab narrowed to those hands, e.g. from a spot in the Study tab.
@@ -55,8 +57,9 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
-  async function load(newFiles, { append = false, merges: m = merges, autoMerge: a = autoMerge } = {}) {
+  async function load(newFiles, { append = false, merges: m = merges, autoMerge: a = autoMerge, demo = false } = {}) {
     const all = append ? [...files, ...newFiles] : newFiles;
+    const isDemoSet = all.length > 0 && all.every((f) => f.name === DEMO_FILE);
     setLoading(true);
     setError(null);
     try {
@@ -65,7 +68,9 @@ export default function App() {
       setFiles(all);
       setMerges(m);
       setAutoMerge(a);
+      setIsDemo(demo || isDemoSet);
       if (route.page === "upload") setRoute(go({ page: "players" }));
+      if (demo || isDemoSet) return; // the demo must not replace a visitor's own cached session
       const summary = { hand_count: next.hand_count, players: next.players.length, games: next.games.length };
       saveLastSession(all, { merges: m, autoMerge: a }, summary).then(() => setSaved({ files: all, merges: m, autoMerge: a, summary, savedAt: Date.now() }));
     } catch (e) {
@@ -76,6 +81,16 @@ export default function App() {
   }
   // Merges are applied inside the analysis, so changing them re-analyzes the same files.
   const reload = (opts) => load(files, opts);
+
+  async function loadDemo() {
+    try {
+      const res = await fetch(import.meta.env.BASE_URL + DEMO_FILE);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      await load([new File([await res.text()], DEMO_FILE, { type: "text/csv" })], { merges: [], autoMerge: true, demo: true });
+    } catch (e) {
+      setError(`Could not load the demo: ${e.message}`);
+    }
+  }
 
   const player = route.page === "player" ? session?.players.find((p) => p.player_id === route.playerId) : null;
   const span = session ? sessionSpanParts(session.hands) : null;
@@ -93,6 +108,7 @@ export default function App() {
           saved={saved}
           onLoadSaved={() => load(saved.files, { merges: saved.merges, autoMerge: saved.autoMerge })}
           onForgetSaved={() => forgetLastSession().then(() => setSaved(null))}
+          onDemo={loadDemo}
         />
       ) : (
         <main className="app">
@@ -110,6 +126,7 @@ export default function App() {
             </button>
             <input ref={addInput} type="file" accept=".csv,text/csv" multiple hidden onChange={(e) => { load(Array.from(e.target.files), { append: true }); e.target.value = ""; }} />
             <span className="meta" title={session.games.map((g) => `${g.room}: ${g.hand_count} hands`).join("\n")}>
+              {isDemo && <span className="meta-item demo-pill" title="A sample game with made-up names. Drop your own PokerNow log via New log.">Demo</span>}
               <span className="meta-item"><b>{session.hand_count}</b> hands</span>
               <span className="meta-item"><b>{session.players.length}</b> players</span>
               {pace(session.hands) && <span className="meta-item"><b>{pace(session.hands).perHour}</b> hands/hr</span>}
@@ -135,7 +152,7 @@ export default function App() {
             />
           ) : (
             <>
-              <Awards hands={session.hands} players={session.players} colors={colors} series={series} onOpen={openPlayer} />
+              <Awards hands={session.hands} players={session.players} colors={colors} series={series} span={span} onOpen={openPlayer} />
               <section className="block data">
               <nav className="tabs" role="tablist">
                 {TABS.map(([key, label]) => (

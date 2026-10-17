@@ -38,6 +38,7 @@ import SpotLibrary from "${process.cwd()}/src/components/SpotLibrary.jsx";
 import { guessQuestions } from "${process.cwd()}/src/guess.js";
 import { strengthLabel } from "${process.cwd()}/src/strength.js";
 import { spotLibrary } from "${process.cwd()}/src/decisions.js";
+import { awardsSvg } from "${process.cwd()}/src/shareCard.js";
 import { recordRound, emptyScores } from "${process.cwd()}/src/storage.js";
 
 export function run(session) {
@@ -49,6 +50,8 @@ export function run(session) {
   out.players = renderToString(React.createElement(PlayersTable, { players: session.players, colors, onSelect() {} }));
   const series = cumulativeNets(session.hands, session.players);
   out.awards = awards(session.hands, session.players, series);
+  out.shareSvg = awardsSvg({ items: out.awards, players: session.players, colors, span: { day: "Oct 8", time: "1 PM" }, handCount: session.hand_count }).svg;
+  out.demoButton = renderToString(React.createElement(UploadScreen, { onUpload() {}, onDemo() {} })).includes("Try a demo session");
   out.awardsHtml = renderToString(React.createElement(Awards, { hands: session.hands, players: session.players, colors, series, onOpen() {} }));
   out.ratings = session.players.map((p) => p.name + " " + p.ratings.map((r) => r.value ?? "-").join("/"));
   out.race = renderToString(React.createElement(ProfitRace, { hands: session.hands, players: session.players, colors, series, onOpen() {} }));
@@ -168,6 +171,13 @@ console.log(`range grids: ${out.range.map((r) => `${r.name} ${r.seen} combos / $
 const awardCards = (out.awardsHtml.match(/class="award panel"/g) || []).length;
 if (awardCards !== out.awards.length) throw new Error(`awards: ${out.awards.length} computed, ${awardCards} rendered`);
 if (out.awards.some((a) => !a.pid)) throw new Error("award without a winner");
+if (!out.demoButton) throw new Error("upload screen has no demo button");
+// Share image: every award and every player appears, names XML-escaped, and the markup has no stray unescaped "&" or "<".
+const esc = (x) => x.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+for (const a of out.awards) if (!out.shareSvg.includes(esc(a.label.toUpperCase()))) throw new Error("share image misses award " + a.label);
+for (const p of session.players) if (!out.shareSvg.includes(esc(p.name.length > 22 ? p.name.slice(0, 21) : p.name))) throw new Error("share image misses player " + p.name);
+if (/&(?!amp;|lt;|gt;|quot;)/.test(out.shareSvg) || /<(?![a-z/])/.test(out.shareSvg)) throw new Error("share image has unescaped markup");
+console.log(`share image: ${out.shareSvg.length} bytes, ${out.awards.length} awards, ${session.players.length} standings`);
 console.log(`awards (${out.awards.length}):`);
 for (const a of out.awards) console.log(`  ${a.emoji} ${a.label}: ${session.players.find((p) => p.player_id === a.pid).name} ${a.value} ${a.sub}`);
 console.log(`ratings (loose/aggr/bluff/stubborn): ${out.ratings.join("; ")}`);

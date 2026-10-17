@@ -168,8 +168,10 @@ if (out.players.includes(">~Bluffs<") || out.players.includes(">Fold→3bet<")) 
 if (!out.playerViewsHtml.some((h) => /~\d+<\/span>/.test(h))) throw new Error("no estimated-bluff tile on any profile (fixture has one player with 5+ shown bets)");
 if (!out.savedPanel) throw new Error("upload screen does not show the saved-session panel");
 if (out.winnerGap) throw new Error(`${out.winnerGap} player views have hand rows without a winner cell`);
-const heroCount = session.players.filter((p) => p.hero).length;
-if (out.heroTags.table !== heroCount || out.heroTags.views.filter(Boolean).length !== heroCount) throw new Error(`hero tag count mismatch: ${JSON.stringify(out.heroTags)} for ${heroCount} hero`);
+// One tag per player with complete cards: "you" for the hero, "cards" for other uploaded exports.
+const heroCount = session.players.filter((p) => p.hero || p.complete).length;
+if (out.heroTags.table !== heroCount || out.heroTags.views.filter(Boolean).length !== heroCount) throw new Error(`hero tag count mismatch: ${JSON.stringify(out.heroTags)} for ${heroCount} complete players`);
+if ((out.players.match(/>cards</g) || []).length !== session.players.filter((p) => p.complete && !p.hero).length) throw new Error("cards tag count != complete non-hero players");
 if (out.heroHidden.some(Boolean)) throw new Error(`hero's own hand rows still hide cards: ${JSON.stringify(out.heroHidden)}`);
 console.log(`hero: ${session.hero ?? "none"}`);
 if (out.quiz.bad) throw new Error(`${out.quiz.bad} malformed quiz questions`);

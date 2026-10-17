@@ -96,7 +96,7 @@ export default function PlayerView({ player, players, hands, colors, initialHand
         <div className="player-title">
           <div className="title-row">
             <h2>{player.name}</h2>
-            {player.hero && <HeroTag />}
+            <HeroTag player={player} />
             <Net net={player.net} big />
           </div>
           <p className="muted small-text">

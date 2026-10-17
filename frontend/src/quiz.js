@@ -28,7 +28,7 @@ const pct = (v) => `${Math.round(v * 100)}%`;
 
 // Each source: where the stat lives, the smallest denominator worth asking about, the band considered ordinary
 // (same as the table tints), and what a high or low value should change about how you play against them.
-// `biased` marks stats computed from shown cards only; the hero's are complete-information, so they are left out of
+// `biased` marks stats computed from shown cards only; players with complete cards (uploaded exports) are left out of
 // "who at the table" comparisons for those.
 export const SOURCES = [
   {
@@ -174,7 +174,7 @@ export function buildQuestions(players, rand = Math.random) {
         tip: tip(src, s.value),
       });
     }
-    const comparable = src.biased ? withStat.filter((x) => !x.p.hero) : withStat;
+    const comparable = src.biased ? withStat.filter((x) => !x.p.complete) : withStat;
     if (comparable.length >= 3) {
       src.who.forEach((text, i) => {
         const sorted = [...comparable].sort((a, b) => (i === 0 ? b.s.value - a.s.value : a.s.value - b.s.value));

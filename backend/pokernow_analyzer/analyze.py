@@ -46,19 +46,22 @@ def bluff_stats(profile: dict, postflop_aggr: int) -> dict:
     }
 
 
-def merge_games(games: list[tuple[str, list[Hand]]]) -> list[Hand]:
-    """Tag each hand with its game, drop hands seen twice (same log uploaded again), order by time."""
-    seen: set[str] = set()
-    merged: list[Hand] = []
+def merge_games(games: list[tuple[str, list[Hand]]]) -> tuple[list[Hand], set[str]]:
+    """Tag each hand with its game and order by time. A hand seen twice is the same game exported by another player:
+    the first copy is kept and the second contributes only its downloader's hole cards. Returns the hands and the
+    downloaders of those dropped copies."""
+    kept: dict[str, Hand] = {}
+    extra: set[str] = set()
     for room, hands in games:
+        hero = infer_hero(hands)
         for h in hands:
-            if h.hand_id in seen:
-                continue
-            seen.add(h.hand_id)
-            h.game = room
-            merged.append(h)
-    merged.sort(key=lambda h: (h.started_at, h.number))
-    return merged
+            if (first := kept.get(h.hand_id)) is None:
+                h.game = room
+                kept[h.hand_id] = h
+            elif hero and h.hero_cards and hero in first.player_ids:
+                first.shown.setdefault(hero, h.hero_cards)
+                extra.add(hero)
+    return sorted(kept.values(), key=lambda h: (h.started_at, h.number)), extra
 
 
 def infer_hero(hands: list[Hand]) -> str | None:
@@ -74,9 +77,9 @@ def infer_hero(hands: list[Hand]) -> str | None:
     return next(iter(candidates)) if len(candidates) == 1 else None
 
 
-def reveal_hero(hands: list[Hand]) -> str | None:
+def reveal_hero(hands: list[Hand]) -> set[str]:
     """Per game (each log has its own downloader), copy the hero's cards into `shown` so every view and stat that
-    reads hole cards sees them. Returns the hero when all games agree on one person, else None."""
+    reads hole cards sees them. Returns the heroes found, one per game at most."""
     heroes = set()
     for room in dict.fromkeys(h.game for h in hands):
         game = [h for h in hands if h.game == room]
@@ -85,20 +88,25 @@ def reveal_hero(hands: list[Hand]) -> str | None:
             for h in game:
                 if h.hero_cards and hero in h.player_ids:
                     h.shown.setdefault(hero, h.hero_cards)
-    return heroes.pop() if len(heroes) == 1 else None
+    return heroes
 
 
 def build_session(games: list[tuple[str, list[Hand]]], merges: list[list[str]] = (), auto_merge: bool = True) -> dict:
-    hands = merge_games(games)
+    hands, extra = merge_games(games)
     merged = merge_players(hands, list(merges), auto_merge)
-    hero = reveal_hero(hands)
+    canonical = {pid: c for c, ids in merged.items() for pid in ids}
+    heroes = reveal_hero(hands)
+    # "You" only when every kept log was downloaded by the same person; with several downloaders of one game, the
+    # first file's. Everyone whose log was uploaded has complete hole cards, which the showdown-only stats are not.
+    hero = next(iter(heroes)) if len(heroes) == 1 else None
+    complete = heroes | {canonical.get(p, p) for p in extra}
     stats = compute_stats(hands)
     badges = assign_archetypes(stats)
     profiles = compute_profiles(hands)
     players = []
     for pid, s in stats.items():
         d = s.to_dict()
-        d.update(archetypes=badges[pid], merged_ids=merged.get(pid, []), profile=profiles[pid], hero=pid == hero)
+        d.update(archetypes=badges[pid], merged_ids=merged.get(pid, []), profile=profiles[pid], hero=pid == hero, complete=pid in complete)
         d.update(bluff_stats(profiles[pid], s.af_postflop.n))
         d["reads"] = reads(d, profiles[pid], s.hands)
         d["ratings"] = ratings(d, profiles[pid])

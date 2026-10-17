@@ -129,18 +129,19 @@ def test_bluff_stats_on_fixture():
 
 
 ROCKY = "Mx2cPj5Wor"
+TEX = "Tz6gBn1Vel"
 
 
-def hands_with_hero(hero):
+def hands_with_hero(hero, dummy=("2c", "7d")):
     """Fixture hands as if `hero` had downloaded the log: their showdown cards become the Your-hand lines, and every
-    other hand they sat in gets a dummy holding."""
+    other hand they sat in gets the `dummy` holding."""
     from pokernow_analyzer.parser import parse_json_entries
 
     hands = parse_json_entries(json.loads((FIXTURES / f"{ROOM}.json").read_text()))
     for h in hands:
         h.game = ROOM
         if hero in h.player_ids:
-            h.hero_cards = list(h.shown.get(hero, ["2c", "7d"]))
+            h.hero_cards = list(h.shown.get(hero, dummy))
     return hands
 
 
@@ -149,7 +150,7 @@ def test_hero_is_the_player_whose_showdowns_match_the_your_hand_lines():
 
     hands = hands_with_hero(ROCKY)
     assert infer_hero(hands) == ROCKY
-    assert reveal_hero(hands) == ROCKY
+    assert reveal_hero(hands) == {ROCKY}
     dealt = [h for h in hands if ROCKY in h.player_ids]
     assert dealt and all(h.shown[ROCKY] == h.hero_cards for h in dealt)
     # Other players' cards are untouched: still only known at showdown.
@@ -182,3 +183,21 @@ def test_session_reports_hero_and_hero_stats_use_every_hand():
     rocky = next(p for p in body["players"] if p["player_id"] == ROCKY)
     assert len(rocky["profile"]["preflop"]["range"]) == rocky["hands"] == 63
     assert all(ROCKY in h["shown"] for h in body["hands"] if ROCKY in h["net"])
+
+
+def test_second_export_of_the_same_game_adds_its_downloaders_cards():
+    from pokernow_analyzer.analyze import build_session
+
+    body = build_session([(ROOM, hands_with_hero(ROCKY)), (ROOM, hands_with_hero(TEX, ("3h", "8s")))])
+    assert body["hand_count"] == 63 and body["games"] == [{"room": ROOM, "hand_count": 63}]
+    # "You" is the first file's downloader; both downloaders have complete cards, nobody else does.
+    assert body["hero"] == ROCKY
+    flags = {p["player_id"]: (p["hero"], p["complete"]) for p in body["players"]}
+    assert flags[ROCKY] == (True, True) and flags[TEX] == (False, True)
+    assert all(not h and not c for pid, (h, c) in flags.items() if pid not in (ROCKY, TEX))
+    assert all(TEX in h["shown"] for h in body["hands"] if TEX in h["net"])
+    assert all(ROCKY in h["shown"] for h in body["hands"] if ROCKY in h["net"])
+    tex = next(p for p in body["players"] if p["player_id"] == TEX)
+    assert len(tex["profile"]["preflop"]["range"]) == tex["hands"]
+    # Upload order decides who "you" are.
+    assert build_session([(ROOM, hands_with_hero(TEX, ("3h", "8s"))), (ROOM, hands_with_hero(ROCKY))])["hero"] == TEX

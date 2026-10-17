@@ -34,7 +34,9 @@ and cached by the browser afterwards.
 ## Getting a log
 
 In the PokerNow room, open the ledger and click *Download log*. That gives `poker_now_log_<room>.csv`
-(columns `entry,at,order`). Drop one or more on the start screen.
+(columns `entry,at,order`). Drop one or more on the start screen. Each download carries the downloader's own
+hole cards (`Your hand is ...`), so ask the other players for their export of the same game too: the hands are
+the same, and every extra file reveals one more player's cards in every hand. The first file's downloader is "you".
 
 Why no room-code lookup: PokerNow's live log endpoint pages 50 lines at a time behind a rate limit
 (~35 s for a 60-hand session) and stops serving the log once a game finishes; the one-shot CSV

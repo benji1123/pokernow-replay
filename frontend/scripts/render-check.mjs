@@ -52,6 +52,7 @@ export function run(session) {
   out.awards = awards(session.hands, session.players, series);
   out.shareSvg = awardsSvg({ items: out.awards, players: session.players, colors, span: { day: "Oct 8", time: "1 PM" }, handCount: session.hand_count }).svg;
   out.demoButton = renderToString(React.createElement(UploadScreen, { onUpload() {}, onDemo() {} })).includes("Try a demo session");
+  out.demoWithSaved = renderToString(React.createElement(UploadScreen, { onUpload() {}, onDemo() {}, saved, onLoadSaved() {}, onForgetSaved() {} })).includes("Try a demo session");
   out.awardsHtml = renderToString(React.createElement(Awards, { hands: session.hands, players: session.players, colors, series, onOpen() {} }));
   out.ratings = session.players.map((p) => p.name + " " + p.ratings.map((r) => r.value ?? "-").join("/"));
   out.race = renderToString(React.createElement(ProfitRace, { hands: session.hands, players: session.players, colors, series, onOpen() {} }));
@@ -172,6 +173,7 @@ const awardCards = (out.awardsHtml.match(/class="award panel"/g) || []).length;
 if (awardCards !== out.awards.length) throw new Error(`awards: ${out.awards.length} computed, ${awardCards} rendered`);
 if (out.awards.some((a) => !a.pid)) throw new Error("award without a winner");
 if (!out.demoButton) throw new Error("upload screen has no demo button");
+if (out.demoWithSaved) throw new Error("demo button shown although a cached session exists");
 // Share image: every award and every player appears, names XML-escaped, and the markup has no stray unescaped "&" or "<".
 const esc = (x) => x.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 for (const a of out.awards) if (!out.shareSvg.includes(esc(a.label.toUpperCase()))) throw new Error("share image misses award " + a.label);

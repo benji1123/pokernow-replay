@@ -321,11 +321,13 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .hands-panel { overflow: auto; }
 .hands { font-size: 17px; width: auto; } /* columns size to their content instead of sharing the panel's slack */
 .hands th, .hands td { padding: 9px 12px; }
-.hands th:first-child, .hands td:first-child { padding-left: 14px; }
-.hands th:last-child, .hands td:last-child { padding-right: 14px; }
 .hands.compact { font-size: 17px; }
 .hands.compact th { padding: 8px 10px; }
 .hands.compact td { padding: 6px 10px; line-height: 1.3; }
+/* After the compact rules so they win: equal 14px at both edges, and the # column left-aligned so a short number
+   sits at the edge instead of floating right in a column sized by "G1 1106". */
+.hands th:first-child, .hands td:first-child { padding-left: 14px; text-align: left; }
+.hands th:last-child, .hands td:last-child { padding-right: 14px; }
 .hands.compact .pos-badge { min-width: 2.8em; font-size: 14px; padding: 1px 6px; }
 .hands.compact .game-tag { font-size: 10px; padding: 2px 4px; margin-right: 5px; }
 .hands.compact .cards { gap: 2px; }

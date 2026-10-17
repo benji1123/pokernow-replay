@@ -5,8 +5,8 @@ const pct = (v) => `${Math.round(v * 100)}%`;
 const GROUP_LABEL = { preflop: "Preflop", aggressor: "Bet or check", facing: "Facing a bet", river: "River" };
 
 // Spot library: which recurring spots you land in, how you play them and how the table does, so you know what to
-// drill. "Drill" opens "What would you do" filtered to that one spot.
-export default function SpotLibrary({ hands, hero, onDrill }) {
+// drill. The spot name opens your hand list filtered to those hands; "Drill" opens "What would you do" on that spot.
+export default function SpotLibrary({ hands, hero, onDrill, onHands }) {
   const rows = useMemo(() => spotLibrary(hands, hero), [hands, hero]);
   const groups = [...new Set(rows.map((r) => r.group))];
   const withYou = rows.filter((r) => r.you);
@@ -50,7 +50,11 @@ export default function SpotLibrary({ hands, hero, onDrill }) {
                   const tt = topAction(r.table);
                   return (
                     <tr key={r.spot} className={r.you ? "" : "dim"}>
-                      <td title={r.desc}>{r.label}</td>
+                      <td title={r.desc}>
+                        {r.you ? (
+                          <button type="button" className="link spot-link" onClick={() => onHands(r)} title={`${r.desc}. Show your ${r.you.hands} hands here`}>{r.label}</button>
+                        ) : r.label}
+                      </td>
                       {hero && <td className="num">{r.you ? <><b>{r.you.n}</b> <span className="muted">{pct(r.you.share)}</span></> : "—"}</td>}
                       {hero && <td>{yt ? <>{yt.kind} <span className="muted">{pct(yt.share)}</span></> : "—"}</td>}
                       {hero && <td className={`num ${r.you ? (r.you.net > 0 ? "pos" : r.you.net < 0 ? "neg" : "") : ""}`}>{r.you ? (r.you.net > 0 ? `+${r.you.net}` : r.you.net) : "—"}</td>}

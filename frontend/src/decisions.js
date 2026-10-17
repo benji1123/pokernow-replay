@@ -164,7 +164,7 @@ export function spotLibrary(hands, hero) {
   const seen = {};
   for (const d of mine) {
     const r = rows.find((x) => x.spot === d.spot);
-    r.you ??= { n: 0, mix: { fold: 0, check: 0, call: 0, bet: 0, raise: 0 }, aggr: 0, tookDown: 0, net: 0, hands: 0 };
+    r.you ??= { n: 0, mix: { fold: 0, check: 0, call: 0, bet: 0, raise: 0 }, aggr: 0, tookDown: 0, net: 0, hands: 0, ids: [] };
     r.you.n++;
     r.you.mix[d.action.kind]++;
     if (d.tookDown != null) {
@@ -176,6 +176,7 @@ export function spotLibrary(hands, hero) {
       seen[key] = true;
       r.you.hands++;
       r.you.net += d.net;
+      r.you.ids.push(d.hand.hand_id); // hand order, so the first id is the earliest hand
     }
   }
   const total = mine.length;

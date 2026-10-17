@@ -43,11 +43,11 @@ function Winner({ hand, me, players, colors }) {
   );
 }
 
-export default function PlayerView({ player, players, hands, colors, initialHandId, onSelectPlayer }) {
-  const [selected, setSelected] = useState(() => hands.find((h) => h.hand_id === initialHandId) ?? null);
+export default function PlayerView({ player, players, hands, colors, initialHandId, initialFilter, onSelectPlayer }) {
+  const [filter, setFilter] = useState(() => (initialFilter ? { label: initialFilter.label, ids: new Set(initialFilter.ids) } : null)); // { label, ids: Set } narrows the hand list
+  const [selected, setSelected] = useState(() => hands.find((h) => h.hand_id === initialHandId) ?? (initialFilter ? hands.find((h) => initialFilter.ids.includes(h.hand_id)) : null) ?? null);
   const [sort, setSort] = useState({ key: "number", dir: 1 });
   const [tab, setTab] = useState("hands");
-  const [filter, setFilter] = useState(null); // { label, ids: Set } from a deep-dive cell, narrows the hand list
   const [shownOnly, setShownOnly] = useState(false); // only hands where this player's cards are known
   const [gameFilter, setGameFilter] = useState(null); // room code, or null for every game
   const [sheet, setSheet] = useState(false); // narrow screens: the detail pane is a bottom sheet, opened by picking a hand

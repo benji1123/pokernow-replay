@@ -39,7 +39,8 @@ export default function App() {
   const [saved, setSaved] = useState(null); // last session cached in this browser, if any
   const colors = useMemo(() => (session ? assignColors(session.players) : {}), [session]);
   const series = useMemo(() => (session ? cumulativeNets(session.hands, session.players) : {}), [session]);
-  const openPlayer = (id, handId) => setRoute(go({ page: "player", playerId: id, handId }));
+  // `filter` ({ label, ids }) opens the Hands tab narrowed to those hands, e.g. from a spot in the Study tab.
+  const openPlayer = (id, handId, filter) => setRoute(go({ page: "player", playerId: id, handId, filter }));
 
   useEffect(() => {
     warmUp(setEngineStatus).catch((e) => setError(e.message)); // fetch Pyodide while the user finds their file
@@ -123,12 +124,13 @@ export default function App() {
           </header>
           {player ? (
             <PlayerView
-              key={player.player_id}
+              key={`${player.player_id}:${route.filter?.label ?? ""}`}
               player={player}
               players={session.players}
               hands={session.hands}
               colors={colors}
               initialHandId={route.handId}
+              initialFilter={route.filter}
               onSelectPlayer={openPlayer}
             />
           ) : (

@@ -53,7 +53,7 @@ export default function Study({ players, hands, hero, colors, onOpen }) {
       {mode === "reads" && <Flashcards players={players} colors={colors} onOpen={onOpen} onFinish={finish("reads")} />}
       {mode === "decide" && <Decide key={focus.n} hands={hands} players={players} colors={colors} hero={hero} onOpen={onOpen} onFinish={finish("decide")} focusSpot={focus.spot} />}
       {mode === "guess" && <Guess hands={hands} players={players} colors={colors} hero={hero} onOpen={onOpen} onFinish={finish("guess")} />}
-      {mode === "spots" && <SpotLibrary hands={hands} hero={hero} onDrill={drill} />}
+      {mode === "spots" && <SpotLibrary hands={hands} hero={hero} onDrill={drill} onHands={(r) => onOpen(hero, undefined, { label: `${r.label.toLowerCase()} spot`, ids: r.you.ids })} />}
     </div>
   );
 }

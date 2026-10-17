@@ -105,7 +105,15 @@ export function run(session) {
   // Spot library: one row per spot, hero columns only with a hero; Drill focus narrows Decide to that spot.
   const lib = spotLibrary(session.hands, session.hero);
   out.spotLib = { spots: Object.keys(SPOTS).length, rows: lib.length, you: lib.filter((r) => r.you).length, youTotal: lib.reduce((n, r) => n + (r.you?.n ?? 0), 0), heroDecisions: mine.length };
-  out.spotLibHtml = renderToString(React.createElement(SpotLibrary, { hands: session.hands, hero: session.hero, onDrill() {} }));
+  out.spotLibHtml = renderToString(React.createElement(SpotLibrary, { hands: session.hands, hero: session.hero, onDrill() {}, onHands() {} }));
+  // Clicking a spot opens the hero's page filtered to that spot's hands: chip shown, row count = hands, first hand selected.
+  const spotRow = lib.find((r) => r.you);
+  if (spotRow) {
+    const heroP = session.players.find((p) => p.player_id === session.hero);
+    const spotLabel = spotRow.label.toLowerCase() + " spot";
+    const html = renderToString(React.createElement(PlayerView, { player: heroP, players: session.players, hands: session.hands, colors, initialFilter: { label: spotLabel, ids: spotRow.you.ids }, onSelectPlayer() {} }));
+    out.spotHands = { label: spotRow.label, ids: spotRow.you.ids.length, hands: spotRow.you.hands, chip: html.includes(spotLabel), rows: (html.match(/class="winner /g) || []).length, detail: html.includes("hand-detail") };
+  }
   const focus = lib.find((r) => r.you)?.spot;
   out.focusHtml = focus ? renderToString(React.createElement(Decide, { hands: session.hands, players: session.players, colors, hero: session.hero, onOpen() {}, focusSpot: focus })) : "";
   out.focusLabel = focus ? SPOTS[focus].label : null;
@@ -188,6 +196,12 @@ if (out.guess.total && (!out.guessHtml.includes("card-back") || (out.guessHtml.m
 console.log(`guess: ${out.guess.total} questions, ${out.strengthChecked} strength labels match the backend`);
 if (out.spotLib.rows !== out.spotLib.spots || out.spotLib.youTotal !== out.spotLib.heroDecisions) throw new Error(`spot library: ${JSON.stringify(out.spotLib)}`);
 if ((out.spotLibHtml.match(/>Drill</g) || []).length !== out.spotLib.you) throw new Error("spot library drill buttons != spots with hero decisions");
+if ((out.spotLibHtml.match(/class="link spot-link"/g) || []).length !== out.spotLib.you) throw new Error("spot library links != spots with hero decisions");
+if (out.spotHands) {
+  const s = out.spotHands;
+  if (s.ids !== s.hands || !s.chip || s.rows !== s.hands || !s.detail) throw new Error(`spot hands view: ${JSON.stringify(s)}`);
+  console.log(`spot hands: "${s.label}" opens ${s.rows} hands with the first selected`);
+}
 if (out.focusLabel && !out.focusHtml.replace(/<!-- -->/g, "").includes(`${out.focusLabel} only`)) throw new Error("decide did not show the focused spot filter");
 console.log(`spot library: ${out.spotLib.rows} spots, hero in ${out.spotLib.you}${out.focusLabel ? `, drill focus "${out.focusLabel}" ok` : ""}`);
 if (out.scores.rounds !== 2 || out.scores.correct !== 15 || out.scores.total !== 20 || out.scores.best !== 9 || out.scores.last.correct !== 9) throw new Error(`scores fold-in: ${JSON.stringify(out.scores)}`);

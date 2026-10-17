@@ -362,8 +362,12 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .seats { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 2px 6px; }
 .seat { display: flex; align-items: center; gap: 8px; padding: 3px 8px; border-radius: 7px; background: color-mix(in srgb, var(--c) 8%, var(--surface)); }
 .seat.focus { outline: 2px solid var(--c); }
-.seat-name { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.seat .pos-badge { min-width: 2.6em; font-size: 13px; padding: 1px 6px; }
+/* Name above position + stack: the 40px cards already set the row height, so the second line costs no space and the
+   name gets the whole width instead of sharing one line with the badge and stack. */
+.seat-id { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.2; }
+.seat-name { font-weight: 600; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.seat-meta { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+.seat .pos-badge { min-width: 2.2em; font-size: 11px; padding: 0 5px; line-height: 1.4; }
 .street { margin-top: 6px; }
 .street h4, .result h4 { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
 .street-name { font-family: var(--pixel); font-size: 13px; text-transform: uppercase; color: var(--ink-2); }

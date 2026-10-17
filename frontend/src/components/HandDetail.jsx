@@ -21,9 +21,10 @@ export default function HandDetail({ hand, focus, colors, gameLabel }) {
         {hand.seats.map((s) => (
           <li key={s.player_id} className={`seat ${s.player_id === focus ? "focus" : ""}`} style={{ "--c": colorOf(s.player_id) }}>
             <PixelAvatar id={s.player_id} color={colorOf(s.player_id)} size={22} />
-            <span className="seat-name">{s.name}</span>
-            <span className="pos-badge">{hand.positions[s.player_id] ?? ""}</span>
-            <span className="muted">{s.stack}</span>
+            <span className="seat-id">
+              <span className="seat-name" title={s.name}>{s.name}</span>
+              <span className="seat-meta"><span className="pos-badge">{hand.positions[s.player_id] ?? ""}</span> {s.stack}</span>
+            </span>
             {hand.shown[s.player_id] ? <Cards cards={hand.shown[s.player_id]} size="xs" /> : <HiddenCards size="xs" />}
           </li>
         ))}

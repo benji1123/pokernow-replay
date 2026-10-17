@@ -1,5 +1,6 @@
 import React from "react";
 import PixelAvatar from "./PixelAvatar.jsx";
+import Tip from "./Tip.jsx";
 import { signed } from "../hands.js";
 
 // variant: default (pill with label), "compact" (bare emoji), "row" (emoji-only tinted pills for a second line).
@@ -9,10 +10,12 @@ export function Badges({ archetypes, compact, variant = compact ? "compact" : ""
   return (
     <span className={`badges ${variant}`}>
       {archetypes.map((a) => (
-        <span key={a.key} className={`badge badge-${a.key}`} title={`${a.label}: ${a.blurb}`}>
-          <span className="badge-emoji" aria-hidden="true">{a.emoji}</span>
-          {variant === "" && <span className="badge-label">{a.label}</span>}
-        </span>
+        <Tip key={a.key} text={`${a.label}: ${a.blurb}`}>
+          <span className={`badge badge-${a.key}`}>
+            <span className="badge-emoji" aria-hidden="true">{a.emoji}</span>
+            {variant === "" && <span className="badge-label">{a.label}</span>}
+          </span>
+        </Tip>
       ))}
     </span>
   );

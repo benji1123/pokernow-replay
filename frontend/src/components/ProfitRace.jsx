@@ -10,10 +10,14 @@ const W = 960, H = 300, PAD = { l: 52, r: 36, t: 16, b: 30 };
 export default function ProfitRace({ hands, players, colors, series, onOpen }) {
   const svgRef = useRef();
   const [hover, setHover] = useState(null); // hand index under the cursor
+  const [hidden, setHidden] = useState(() => new Set()); // players toggled off in the legend
+  const shown = players.filter((p) => !hidden.has(p.player_id));
+  const toggle = (pid) => setHidden((h) => { const n = new Set(h); n.has(pid) ? n.delete(pid) : n.add(pid); return n; });
+  const solo = (pid) => setHidden(new Set(players.filter((p) => p.player_id !== pid).map((p) => p.player_id)));
   const touched = useRef(false); // a tap shows the tooltip; the tooltip's own button opens the hand
 
   const geo = useMemo(() => {
-    const all = Object.values(series).flat().map((p) => p.cum);
+    const all = shown.flatMap((p) => series[p.player_id]).map((p) => p.cum); // y-range follows the visible lines
     const lo = Math.min(0, ...all), hi = Math.max(0, ...all);
     const pad = (hi - lo || 100) * 0.08;
     const yMin = lo - pad, yMax = hi + pad;
@@ -23,7 +27,7 @@ export default function ProfitRace({ hands, players, colors, series, onOpen }) {
     // Game boundaries, for sessions made of several logs.
     const bounds = hands.map((h, i) => (i > 0 && h.game !== hands[i - 1].game ? i : null)).filter((i) => i != null);
     return { x, y, yMin, yMax, bounds, yTicks: ticks(yMin, yMax, 5) };
-  }, [hands, series]);
+  }, [hands, series, hidden]);
 
   function onMove(e) {
     const pt = e.touches ? e.touches[0] : e;
@@ -40,7 +44,7 @@ export default function ProfitRace({ hands, players, colors, series, onOpen }) {
     const r = svgRef.current.getBoundingClientRect();
     const py = ((e.clientY - r.top) / r.height) * H;
     let best = null;
-    for (const p of players) {
+    for (const p of shown) {
       const pt = series[p.player_id].filter((q) => q.i <= hover).pop();
       if (!pt) continue;
       const d = Math.abs(geo.y(pt.cum) - py);
@@ -49,7 +53,7 @@ export default function ProfitRace({ hands, players, colors, series, onOpen }) {
     if (best) onOpen(best.pid, best.hand.hand_id);
   }
 
-  const atHover = hover == null ? null : players.map((p) => {
+  const atHover = hover == null ? null : shown.map((p) => {
     const pt = series[p.player_id].filter((q) => q.i <= hover).pop();
     return { p, cum: pt ? pt.cum : 0 };
   }).sort((a, b) => b.cum - a.cum);
@@ -61,6 +65,15 @@ export default function ProfitRace({ hands, players, colors, series, onOpen }) {
         <h3>Profit race</h3>
         <span className="muted small-text">cumulative net by hand · <span className="pointer-only">hover to read, click to open the hand</span><span className="touch-only">tap or drag to read</span></span>
       </header>
+      <div className="race-legend">
+        {players.map((p) => (
+          <button key={p.player_id} type="button" className={`chip ${hidden.has(p.player_id) ? "off" : ""}`} style={{ "--c": colors[p.player_id].main }} onClick={() => toggle(p.player_id)} onDoubleClick={() => solo(p.player_id)} title="Click to hide or show · double-click to show only this player">
+            <PixelAvatar id={p.player_id} color={colors[p.player_id].main} size={16} />
+            {p.name}
+          </button>
+        ))}
+        {hidden.size > 0 && <button type="button" className="link small" onClick={() => setHidden(new Set())}>show all</button>}
+      </div>
       <div className="race-body">
         <svg ref={svgRef} className="race-svg" viewBox={`0 0 ${W} ${H}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)} onClick={onClick} onTouchStart={(e) => { touched.current = true; onMove(e); }} onTouchMove={onMove} role="img" aria-label="Cumulative profit per player over the session">
           {geo.yTicks.map((v) => (
@@ -78,7 +91,7 @@ export default function ProfitRace({ hands, players, colors, series, onOpen }) {
           {geo.bounds.length > 0 && <text className="game-bound-label" x={PAD.l + 4} y={H - PAD.b + 14}>G1</text>}
           <text className="axis-label" x={W - PAD.r} y={H - 6} textAnchor="end">hand {hands.length}</text>
           <text className="axis-label" x={PAD.l} y={H - 6}>hand 1</text>
-          {players.map((p) => {
+          {shown.map((p) => {
             const pts = series[p.player_id];
             if (!pts.length) return null;
             const d = `M${geo.x(0)},${geo.y(0)} ` + pts.map((q) => `L${geo.x(q.i)},${geo.y(q.cum)}`).join(" ");

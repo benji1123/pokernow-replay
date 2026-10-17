@@ -75,9 +75,9 @@ export function awardsSvg({ items, players, colors, span, handCount, theme = DAR
   return { svg: out.join(""), width: W, height: H };
 }
 
-// Rasterize at 2x and hand it to the OS share sheet (phones), falling back to a download (desktop). Always the dark
-// palette: player colors like sunflower are tuned for dark backgrounds and the image should look the same for everyone.
-export async function shareAwards(args) {
+// Rasterize at 2x. Always the dark palette: player colors like sunflower are tuned for dark backgrounds, and the
+// image should look the same for everyone in the chat.
+async function renderPng(args) {
   const { svg, width, height } = awardsSvg(args);
   const url = URL.createObjectURL(new Blob([svg], { type: "image/svg+xml" }));
   try {
@@ -89,22 +89,48 @@ export async function shareAwards(args) {
     const ctx = canvas.getContext("2d");
     ctx.scale(2, 2);
     ctx.drawImage(img, 0, 0);
-    const blob = await new Promise((ok) => canvas.toBlob(ok, "image/png"));
-    const file = new File([blob], "poker-awards.png", { type: "image/png" });
-    if (navigator.canShare?.({ files: [file] })) {
-      try {
-        await navigator.share({ files: [file], title: "Awards of the night" });
-        return;
-      } catch (e) {
-        if (e.name === "AbortError") return; // user closed the share sheet
-      }
-    }
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = file.name;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    return await new Promise((ok, fail) => canvas.toBlob((b) => (b ? ok(b) : fail(new Error("could not encode the PNG"))), "image/png"));
   } finally {
     URL.revokeObjectURL(url);
   }
+}
+
+function download(blob) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "poker-awards.png";
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+// Desktop: one PNG on the clipboard. Touch: the share sheet with only the file (the macOS share sheet's Copy also
+// put the title text on the clipboard). Both fall back to a download. Call straight from a click handler: Safari
+// only allows the clipboard write if it starts before any await, so the ClipboardItem gets a promise of the PNG.
+export async function shareAwards(args) {
+  const png = renderPng(args);
+  const touch = matchMedia("(pointer: coarse)").matches;
+  if (!touch && navigator.clipboard?.write && window.ClipboardItem) {
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ "image/png": png })]);
+      return "copied";
+    } catch {
+      // permission denied or unsupported: fall through to the download
+    }
+  }
+  const blob = await png;
+  const file = new File([blob], "poker-awards.png", { type: "image/png" });
+  if (touch && navigator.canShare?.({ files: [file] })) {
+    try {
+      await navigator.share({ files: [file] });
+      return "shared";
+    } catch (e) {
+      if (e.name === "AbortError") return "cancelled";
+    }
+  }
+  download(blob);
+  return "downloaded";
+}
+
+export async function downloadAwards(args) {
+  download(await renderPng(args));
 }

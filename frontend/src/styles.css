@@ -160,9 +160,8 @@ button.link:hover, button.back:hover { text-decoration: underline; }
 .dropzone.busy { opacity: 0.7; cursor: progress; }
 .drop-title { font-size: 21px; font-weight: 600; margin: 14px 0 4px; }
 .drop-sub { color: var(--muted); margin: 0; }
-.how { color: var(--muted); font-size: 16px; margin-top: 28px; }
-.features { margin: 14px 0 0; padding-left: 20px; line-height: 1.5; }
-.features li { margin: 2px 0; }
+.how { color: var(--muted); font-size: 16px; margin: 28px auto 0; padding-left: 20px; line-height: 1.5; text-align: left; width: fit-content; } /* centered block, left-aligned bullets */
+.how li { margin: 3px 0; }
 .saved-session { display: flex; align-items: center; gap: 10px; margin: 14px auto 0; padding: 8px 12px; width: max-content; max-width: 100%; font-size: 15.5px; color: var(--ink-2); }
 .saved-session .btn.small { padding: 4px 12px; font-size: 14.5px; }
 .saved-session .link.small { font-size: 14.5px; color: var(--muted); }
@@ -415,7 +414,9 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 .award { flex: 0 1 auto; display: flex; align-items: center; gap: 8px; padding: 4px 10px 4px 8px; border: 1px solid var(--line); border-left: 4px solid var(--c, var(--line)); background: var(--panel); color: var(--ink); font: inherit; text-align: left; cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
 .award:hover { transform: translateY(-1px); box-shadow: 0 10px 24px -12px color-mix(in srgb, var(--c) 60%, transparent); }
 .award-emoji { font-size: 22px; line-height: 1; }
-.award-share { border-left-style: dashed; border-left-color: var(--accent); }
+.award-share { border-left-style: dashed; border-left-color: var(--accent); cursor: default; padding-right: 6px; }
+.award-share-main { display: flex; align-items: center; gap: 8px; background: none; border: 0; padding: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.award-share-dl { font-size: 18px; padding: 2px 4px; margin-left: 4px; }
 .award-share .award-who { color: var(--accent-ink, var(--accent)); }
 .demo-row { margin: 10px 0 0; color: var(--muted); text-align: center; }
 .demo-pill { background: var(--accent-soft); color: var(--accent-ink, var(--accent)); font-weight: 700; }

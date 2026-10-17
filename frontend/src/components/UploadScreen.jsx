@@ -72,14 +72,11 @@ export default function UploadScreen({ onUpload, loading, error, engineStatus, s
         </div>
       )}
 
-      <p className="how">
-        In your PokerNow room: <b>Ledger → Download log</b>. Several games combine into one set of stats. Everything is analyzed in your browser; the files never leave your device, and the last upload (plus your Study scores) is kept in this browser so you can reload it next time.
-      </p>
-      <ul className="features muted small">
-        <li>Replay every hand with the board, each player's cards when shown, and who took the pot</li>
-        <li>Per-player VPIP, PFR, 3-bet, fold to raise, aggression, showdown and bluffing stats, with badges</li>
-        <li>Profit race, awards for the night, nemesis and best friend, range grids of the hands players showed up with</li>
-        <li>Study mode: flashcards on your opponents, "what would you do" from your own hands, guess the hand</li>
+      <ul className="how">
+        <li>In your PokerNow room: <b>Ledger → Download log</b></li>
+        <li>Drop several games to combine them into one set of stats</li>
+        <li>Everything is analyzed in your browser; the files never leave your device</li>
+        <li>Your last upload and Study scores stay in this browser so you can reload them</li>
       </ul>
     </main>
   );

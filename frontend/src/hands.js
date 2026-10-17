@@ -39,39 +39,39 @@ export function boardForStreet(board, street) {
   return board.slice(0, upto);
 }
 
-// One-line description of what a player did preflop, e.g. "raise 7 → call 15".
-export function preflopSummary(hand, pid) {
-  const parts = [];
-  for (const a of hand.actions) {
-    if (a.street !== "preflop" || a.player_id !== pid) continue;
-    if (a.kind.startsWith("post_")) continue;
-    if (a.kind === "raise") parts.push(`raise ${a.raise_to}`);
-    else if (a.kind === "call") parts.push(`call${a.all_in ? " (all-in)" : ""}`);
-    else parts.push(a.kind);
+export const POST_LABEL = { post_sb: "SB", post_bb: "BB", post_straddle: "straddle", post_ante: "ante", post_missing_sb: "dead SB", post_missing_bb: "missed BB" };
+
+// The verb part of an action ("calls 20 (all-in)"); `plural` for a row that names several players ("call 20").
+export function describeVerb(a, plural = false) {
+  const allIn = a.all_in ? " (all-in)" : "";
+  const s = plural ? "" : "s";
+  if (a.kind.startsWith("post_")) return `post${s} ${POST_LABEL[a.kind] ?? a.kind.slice(5)} ${a.amount}`;
+  switch (a.kind) {
+    case "fold": return `fold${s}`;
+    case "check": return `check${s}`;
+    case "call": return `call${s} ${a.amount}${allIn}`;
+    case "bet": return `bet${s} ${a.amount}${allIn}`;
+    case "raise": return `raise${s} to ${a.raise_to}${allIn}`;
+    default: return a.kind;
   }
-  if (parts.length === 0) {
-    // No voluntary action: either walked (BB) or was all-in from a post.
-    return hand.actions.some((a) => a.player_id === pid) ? "no action" : "sat out";
-  }
-  return parts.join(" → ");
 }
 
 export function describeAction(a, name) {
-  const allIn = a.all_in ? " (all-in)" : "";
-  switch (a.kind) {
-    case "post_sb": return `${name} posts SB ${a.amount}`;
-    case "post_bb": return `${name} posts BB ${a.amount}`;
-    case "post_straddle": return `${name} straddles ${a.amount}`;
-    case "post_ante": return `${name} antes ${a.amount}`;
-    case "post_missing_sb": return `${name} posts dead SB ${a.amount}`;
-    case "post_missing_bb": return `${name} posts missed BB ${a.amount}`;
-    case "fold": return `${name} folds`;
-    case "check": return `${name} checks`;
-    case "call": return `${name} calls ${a.amount}${allIn}`;
-    case "bet": return `${name} bets ${a.amount}${allIn}`;
-    case "raise": return `${name} raises to ${a.raise_to}${allIn}`;
-    default: return `${name} ${a.kind}`;
+  return `${name} ${describeVerb(a)}`;
+}
+
+// Consecutive posts, or consecutive identical passive actions (fold / check / call of the same amount), share one row.
+export function groupActions(acts) {
+  const rows = [];
+  for (const a of acts) {
+    const last = rows[rows.length - 1];
+    const post = a.kind.startsWith("post_");
+    const passive = a.kind === "fold" || a.kind === "check" || a.kind === "call";
+    const joins = last && ((post && last.post) || (passive && !last.post && last.kind === a.kind && last.amount === a.amount && !!last.all_in === !!a.all_in));
+    if (joins) last.acts.push(a);
+    else rows.push({ kind: a.kind, post, amount: a.amount, all_in: a.all_in, acts: [a] });
   }
+  return rows;
 }
 
 export function lastStreet(hand) {

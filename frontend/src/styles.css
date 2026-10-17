@@ -182,6 +182,9 @@ tr.selected { background: color-mix(in srgb, var(--c, var(--accent)) 14%, var(--
 .players th.group { text-align: center; font-size: 11px; letter-spacing: 0.1em; color: var(--muted); padding: 4px 9px 1px; border-bottom: 1px solid var(--line); }
 .players .group-start { border-left: 1px solid var(--line); }
 .players td:first-child { padding-left: 12px; padding-right: 8px; }
+.players td:last-child { padding-right: 14px; }
+.players th.sortable:last-child { padding-right: 23px; } /* 14px edge + room for the sort arrow */
+.players th.sortable:last-child .sort-arrow { right: 10px; }
 .players .stat { min-width: 2.9em; padding: 1px 5px; }
 .players .net { min-width: 3em; padding: 1px 7px; font-size: 15px; }
 .table-panel { overflow-x: auto; } /* the table must never spill past the panel; trimming columns keeps this from scrolling on desktop */
@@ -318,7 +321,8 @@ tr.picked { background: color-mix(in srgb, var(--c) 14%, var(--surface)); }
 .hands-panel { overflow: auto; }
 .hands { font-size: 17px; width: auto; } /* columns size to their content instead of sharing the panel's slack */
 .hands th, .hands td { padding: 9px 12px; }
-.hands td.preflop { white-space: normal; } /* the only cell with free text; it wraps before the table overflows */
+.hands th:first-child, .hands td:first-child { padding-left: 14px; }
+.hands th:last-child, .hands td:last-child { padding-right: 14px; }
 .hands.compact { font-size: 17px; }
 .hands.compact th { padding: 8px 10px; }
 .hands.compact td { padding: 6px 10px; line-height: 1.3; }
@@ -338,7 +342,6 @@ th.sorted .sort-arrow { opacity: 1; }
 .game-tag { display: inline-block; font-family: var(--pixel); font-size: 10px; padding: 3px 5px; margin-right: 6px; border-radius: 5px; background: var(--bg-deep); color: var(--ink-2); vertical-align: 1px; cursor: help; }
 .error.small { font-size: 15px; padding: 4px 10px; }
 button.link:disabled { color: var(--muted); cursor: progress; text-decoration: none; }
-.preflop { color: var(--ink-2); }
 .winner { display: inline-flex; align-items: center; gap: 4px; font-size: 15.5px; color: var(--ink-2); white-space: nowrap; }
 .winner .pixel-avatar { border-radius: 3px; }
 .winner.me .winner-name { font-weight: 700; color: var(--ink); }
@@ -351,26 +354,27 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
 /* ---- hand detail: dense by design, a hand should fit the pane without scrolling ---- */
 .hand-detail { font-size: 17px; line-height: 1.35; }
 .hand-detail h3 { font-size: 20px; margin-bottom: 8px; display: flex; align-items: baseline; gap: 8px; }
-.seats { list-style: none; margin: 0 0 6px; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.seats { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 2px 6px; }
 .seat { display: flex; align-items: center; gap: 8px; padding: 3px 8px; border-radius: 7px; background: color-mix(in srgb, var(--c) 8%, var(--surface)); }
 .seat.focus { outline: 2px solid var(--c); }
-.seat-name { font-weight: 600; flex: 1; }
+.seat-name { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .seat .pos-badge { min-width: 2.6em; font-size: 13px; padding: 1px 6px; }
-.street { margin-top: 8px; }
+.street { margin-top: 6px; }
 .street h4, .result h4 { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
 .street-name { font-family: var(--pixel); font-size: 13px; text-transform: uppercase; color: var(--ink-2); }
 .actions { list-style: none; margin: 0; padding: 0 0 0 4px; border-left: 2px solid var(--line); }
-.action { display: flex; align-items: center; gap: 8px; padding: 2px 0 2px 10px; position: relative; }
+.action { display: flex; align-items: center; gap: 8px; padding: 1px 0 1px 10px; position: relative; }
 .action .dot, .net-row .dot { width: 9px; height: 9px; border-radius: 3px; background: var(--c); flex: none; }
-.action .dot { margin-left: -9.5px; }
-.action.focus .action-text { font-weight: 600; }
+.action .dots { display: flex; gap: 2px; margin-left: -9.5px; flex: none; } /* one dot per player on a grouped row */
+.action .focus-name { font-weight: 700; }
+.action.kind-post .action-text { color: var(--muted); font-size: 15px; }
 .action-text { flex: 1; }
 .action.kind-fold .action-text, .action.kind-check .action-text { color: var(--ink-2); }
 .action.kind-bet .action-text, .action.kind-raise .action-text { font-weight: 600; }
 .pot { font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.result { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); }
+.result { margin-top: 8px; padding-top: 6px; border-top: 1px solid var(--line); }
 .result p { margin: 1px 0; }
-.nets { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 6px; }
+.nets { display: flex; flex-wrap: wrap; gap: 2px 14px; margin-top: 4px; }
 .net-row { display: inline-flex; align-items: center; gap: 6px; }
 
 /* ---- cards ---- */
@@ -546,7 +550,6 @@ button.link:disabled { color: var(--muted); cursor: progress; text-decoration: n
   .detail-pane { position: static; max-height: none; display: none; }
   .detail-pane.sheet-open { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; max-height: 85vh; overflow: auto; border-radius: 16px 16px 0 0; padding-top: 18px; box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.25); }
   .sheet-close { display: inline-flex; position: sticky; top: 0; float: right; margin: -8px -6px 0 0; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); font-size: 16px; z-index: 1; }
-  .hands th:nth-child(4), .hands td:nth-child(4) { display: none; } /* preflop line; the detail has it */
   .winner-name { display: none; } /* avatar only on phones */
   .dd-grid { grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); }
   .dd-card { overflow-x: auto; }

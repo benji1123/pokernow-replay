@@ -2,7 +2,9 @@ import React from "react";
 import { Cards, HiddenCards } from "./Cards.jsx";
 import PixelAvatar from "./PixelAvatar.jsx";
 import { Net } from "./PlayersTable.jsx";
-import { STREETS, boardForStreet, describeAction, playerName } from "../hands.js";
+import { STREETS, POST_LABEL, boardForStreet, describeVerb, groupActions, playerName } from "../hands.js";
+
+const Name = ({ hand, pid, focus }) => <span className={pid === focus ? "focus-name" : ""}>{playerName(hand, pid)}</span>;
 
 // Text view of one hand. The replay will replace this pane; it consumes the same `actions` list.
 export default function HandDetail({ hand, focus, colors, gameLabel }) {
@@ -34,12 +36,34 @@ export default function HandDetail({ hand, focus, colors, gameLabel }) {
             <Cards cards={boardForStreet(hand.board, street)} placeholder="" size="sm" />
           </h4>
           <ol className="actions">
-            {acts.map((a, i) => {
-              pot += a.amount;
+            {groupActions(acts).map((row, i) => {
+              pot += row.acts.reduce((n, a) => n + a.amount, 0);
+              const many = row.acts.length > 1;
               return (
-                <li key={i} className={`action kind-${a.kind} ${a.player_id === focus ? "focus" : ""}`} style={{ "--c": colorOf(a.player_id) }}>
-                  <span className="dot" />
-                  <span className="action-text">{describeAction(a, playerName(hand, a.player_id))}</span>
+                <li key={i} className={`action kind-${row.post ? "post" : row.kind}`}>
+                  <span className="dots">
+                    {row.acts.map((a) => <span key={a.player_id} className="dot" style={{ "--c": colorOf(a.player_id) }} />)}
+                  </span>
+                  <span className="action-text">
+                    {row.post
+                      ? row.acts.map((a, j) => (
+                          <React.Fragment key={a.player_id}>
+                            {j > 0 && " · "}
+                            <Name hand={hand} pid={a.player_id} focus={focus} /> {POST_LABEL[a.kind] ?? a.kind.slice(5)} {a.amount}
+                          </React.Fragment>
+                        ))
+                      : (
+                          <>
+                            {row.acts.map((a, j) => (
+                              <React.Fragment key={a.player_id}>
+                                {j > 0 && ", "}
+                                <Name hand={hand} pid={a.player_id} focus={focus} />
+                              </React.Fragment>
+                            ))}{" "}
+                            {describeVerb(row.acts[0], many)}
+                          </>
+                        )}
+                  </span>
                   <span className="pot">pot {pot}</span>
                 </li>
               );
@@ -52,16 +76,17 @@ export default function HandDetail({ hand, focus, colors, gameLabel }) {
         <h4>
           <span className="street-name">Result</span>
         </h4>
-        {Object.entries(hand.collected).map(([pid, amt]) => (
-          <p key={pid}>
-            <b style={{ color: colorOf(pid) }}>{playerName(hand, pid)}</b> collects {amt}
-          </p>
-        ))}
-        {Object.entries(hand.uncalled).map(([pid, amt]) => (
-          <p key={pid} className="muted">
-            {amt} uncalled returned to {playerName(hand, pid)}
-          </p>
-        ))}
+        <p>
+          {Object.entries(hand.collected).map(([pid, amt], i) => (
+            <React.Fragment key={pid}>
+              {i > 0 && " · "}
+              <b style={{ color: colorOf(pid) }}>{playerName(hand, pid)}</b> collects {amt}
+            </React.Fragment>
+          ))}
+          {Object.entries(hand.uncalled).map(([pid, amt]) => (
+            <span key={pid} className="muted"> · {amt} uncalled back to {playerName(hand, pid)}</span>
+          ))}
+        </p>
         <div className="nets">
           {hand.seats.map((s) => (
             <span key={s.player_id} className="net-row" style={{ "--c": colorOf(s.player_id) }}>

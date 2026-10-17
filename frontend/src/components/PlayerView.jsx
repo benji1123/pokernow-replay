@@ -5,7 +5,7 @@ import PixelAvatar from "./PixelAvatar.jsx";
 import TradingCard from "./TradingCard.jsx";
 import { STAT_COLUMNS, STAT_GROUPS, HeroTag, Net, statTitle, statTone } from "./PlayersTable.jsx";
 import { Badges, Rivals } from "./Badges.jsx";
-import { preflopSummary, sample } from "../hands.js";
+import { sample } from "../hands.js";
 import { MeaningsTab, MoneyFlowTab, PreflopTab, ShowdownTab, StreetsTab } from "./DeepDive.jsx";
 
 const TABS = [["hands", "Hands"], ["preflop", "Preflop"], ["streets", "Streets"], ["meanings", "What a bet means"], ["showdown", "Showdown"], ["flow", "Money flow"]];
@@ -191,7 +191,6 @@ export default function PlayerView({ player, players, hands, colors, initialHand
                 <SortHeader k="number">#</SortHeader>
                 <th>Pos</th>
                 <th>Cards</th>
-                <th>Preflop</th>
                 <th>Board</th>
                 <th>Winner</th>
                 <SortHeader k="net">Net</SortHeader>
@@ -212,7 +211,6 @@ export default function PlayerView({ player, players, hands, colors, initialHand
                     <span className="pos-badge">{h.positions[player.player_id] ?? "–"}</span>
                   </td>
                   <td>{h.shown[player.player_id] ? <Cards cards={h.shown[player.player_id]} size="xs" /> : <HiddenCards size="xs" />}</td>
-                  <td className="preflop">{preflopSummary(h, player.player_id)}</td>
                   <td>{h.board.length ? <Cards cards={h.board} size="xs" /> : <span className="muted small-text">no flop</span>}</td>
                   <td><Winner hand={h} me={player.player_id} players={players} colors={colors} /></td>
                   <td className="num">

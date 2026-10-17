@@ -4,21 +4,23 @@ import Decide from "./Decide.jsx";
 import Guess from "./Guess.jsx";
 import SpotLibrary from "./SpotLibrary.jsx";
 import { eligible, makeRound } from "../quiz.js";
-import { emptyScores, loadScores, recordRound, forgetScores } from "../storage.js";
+import { emptyScores, recordRound, purgeStoredScores } from "../storage.js";
 
 const ROUND = 10;
 
 // Study tab: practice modes built from this session's data, plus the spot library that says what to drill.
-// Scores per mode are kept in the browser across visits (same store as the cached logs).
+// Scores per mode last for this visit only: module-level so switching tabs keeps them, a reload clears them.
 const MODES = [["reads", "Read the players"], ["decide", "What would you do"], ["guess", "Guess the hand"], ["spots", "Spot library"]];
 const MODE_LABEL = Object.fromEntries(MODES);
+let visitScores = emptyScores();
 
 export default function Study({ players, hands, hero, colors, onOpen }) {
   const [mode, setMode] = useState("reads");
   const [focus, setFocus] = useState({ spot: null, n: 0 }); // n remounts Decide so a repeated Drill re-applies the spot
-  const [scores, setScores] = useState(emptyScores);
+  const [scores, setScoresState] = useState(visitScores);
+  const setScores = (next) => setScoresState((s) => (visitScores = typeof next === "function" ? next(s) : next));
   useEffect(() => {
-    loadScores().then(setScores);
+    purgeStoredScores();
   }, []);
   const finish = (m) => (correct, total) => setScores((s) => recordRound(s, m, correct, total));
   const drill = (spot) => {
@@ -37,7 +39,7 @@ export default function Study({ players, hands, hero, colors, onOpen }) {
           ))}
         </nav>
         {scored.length > 0 && (
-          <div className="study-record" title="Your running score in this browser, across visits">
+          <div className="study-record" title="Your running score for this visit; not saved, a reload clears it">
             {scored.map(([k]) => {
               const m = scores.modes[k];
               return (
@@ -46,7 +48,7 @@ export default function Study({ players, hands, hero, colors, onOpen }) {
                 </span>
               );
             })}
-            <button type="button" className="link small-text" onClick={() => forgetScores().then(() => setScores(emptyScores()))}>Reset</button>
+            <button type="button" className="link small-text" onClick={() => setScores(emptyScores())}>Reset</button>
           </div>
         )}
       </div>

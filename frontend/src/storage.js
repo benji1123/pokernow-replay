@@ -1,4 +1,4 @@
-// Remembers the last uploaded logs (and the study tab's running scores) in the browser's IndexedDB so the next visit can reload them without
+// Remembers the last uploaded logs in the browser's IndexedDB so the next visit can reload them without
 // re-uploading. Local to this browser profile; nothing is sent anywhere. All failures (private mode, quota,
 // no IndexedDB) are swallowed: the cache is a convenience, never a requirement.
 const DB = "pokernow-replay", STORE = "sessions", KEY = "last";
@@ -54,37 +54,27 @@ export async function forgetLastSession() {
   }
 }
 
-// ---- study scores: one running record per mode, kept across visits in the same store ----
-const SCORES = "scores";
+// ---- study scores: one running record per mode, kept in memory for this visit only (never stored) ----
+const SCORES = "scores"; // key used by older builds that did store scores
 
 export const emptyScores = () => ({ modes: {}, updatedAt: null });
 
-// Returns { modes: { [mode]: { rounds, correct, total, best, bestOf, last } }, updatedAt } (empty when nothing saved).
-export async function loadScores() {
-  try {
-    return (await tx("readonly", (s) => s.get(SCORES))) ?? emptyScores();
-  } catch {
-    return emptyScores();
-  }
-}
-
-/** Fold one finished round into the record and persist it; returns the new record. */
+/** Fold one finished round into the record; returns the new record. */
 export function recordRound(scores, mode, correct, total) {
   const m = scores.modes[mode] ?? { rounds: 0, correct: 0, total: 0, best: 0, bestOf: 0, last: null };
   const better = total && (m.bestOf === 0 || correct / total > m.best / m.bestOf || (correct / total === m.best / m.bestOf && total > m.bestOf));
-  const next = {
+  return {
     ...scores,
     updatedAt: Date.now(),
     modes: { ...scores.modes, [mode]: { rounds: m.rounds + 1, correct: m.correct + correct, total: m.total + total, best: better ? correct : m.best, bestOf: better ? total : m.bestOf, last: { correct, total, at: Date.now() } } },
   };
-  tx("readwrite", (s) => s.put(next, SCORES)).catch(() => {});
-  return next;
 }
 
-export async function forgetScores() {
+// Delete scores saved by older builds, so nothing about past quizzes lingers in the browser.
+export async function purgeStoredScores() {
   try {
     await tx("readwrite", (s) => s.delete(SCORES));
   } catch {
-    /* nothing to forget */
+    /* nothing stored */
   }
 }

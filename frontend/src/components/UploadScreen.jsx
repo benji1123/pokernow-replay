@@ -78,7 +78,7 @@ export default function UploadScreen({ onUpload, loading, error, engineStatus, s
         <li>In your PokerNow room: <b>Ledger → Download log</b></li>
         <li>Drop several games to combine them into one set of stats</li>
         <li>Everything is analyzed in your browser; the files never leave your device</li>
-        <li>Your last upload and Study scores stay in this browser so you can reload them</li>
+        <li>Your last upload stays in this browser so you can reload it</li>
       </ul>
     </main>
   );
